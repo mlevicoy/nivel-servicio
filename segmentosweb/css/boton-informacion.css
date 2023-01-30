@@ -1,0 +1,22 @@
+.btn {
+	width: 168px;
+	height: 58px;
+	background: #01325D;
+	position: absolute;
+	top: 17%;
+	left: 2%;
+	transform: translate (-50%, -50%);
+	cursor: pointer;
+	border-radius: 7px;
+    -webkit-box-shadow: 10px 20px 41px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 20px 41px -8px rgba(0,0,0,0.75);
+    box-shadow: 10px 20px 41px -8px rgba(0,0,0,0.75);
+ 
+}
+
+.btn:hover{
+	background: #032349;
+	cursor: pointer;
+	
+}
+

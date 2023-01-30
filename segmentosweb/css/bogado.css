@@ -1,0 +1,1055 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*CONFIGURACION INICIAL DE LA PÁGINA*/
+body,section,article,footer,header,nav,footer,figure,img,ul,li,a,div,form,label,input,h1,h2,h3,h4,h5,h6{
+	padding:0;													/*Eliminación de los margenes internos*/				
+	border:0;													/*Eliminación de los bordes*/
+	margin:0;													/*Eliminación de los margenes externos*/	
+	vertical-align:middle;										/*Alineación vertical mitad*/	
+}
+html,body{
+	height:100%;	
+	
+}
+/*FIN CONFIGURACION INICIAL DE LA PÁGINA*/
+
+/*FUENTE PAGINA*/
+@font-face{
+	font-family:"Inconsolata-Regular";							/*Incluir fuente de la página*/
+	src: url(../fuente/Inconsolata-Regular.ttf); 
+}
+@font-face{
+	font-family:"Inconsolata-Bold";									/*Incluir fuente de la página*/
+	src: url(../fuente/Inconsolata-Bold.ttf);				
+}
+
+/*ESTILO DEL CUERPO*/
+body, footer{
+	font-family:"Inconsolata-Regular",Arial, Helvetica, sans-serif;		/*Uso de la fuente de la página*/
+	font-size:9pt;														/*Tamaño de la fuente inicial*/	
+	width:100%;															/*Ancho total de la página*/
+	display:block;
+	
+	
+}
+/*ESTILO DE LA CABECERA*/
+header{
+	width:100%;
+	height:auto;	
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	border-bottom:.17rem solid #F7F7F7;	
+	background: rgba(255,255,255,1);
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(219,219,219,1) 81%, rgba(219,219,219,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(81%, rgba(219,219,219,1)), color-stop(100%, rgba(219,219,219,1)));
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(219,219,219,1) 81%, rgba(219,219,219,1) 100%);
+    background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(219,219,219,1) 81%, rgba(219,219,219,1) 100%);
+    background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(219,219,219,1) 81%, rgba(219,219,219,1) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(219,219,219,1) 81%, rgba(219,219,219,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#dbdbdb', GradientType=1 );
+	overflow:hidden;
+	display:block;
+	z-index: 1;
+}
+
+/*ESTILO IMAGENES*/
+header #imagen{
+	position: absolute;
+	height: auto;
+	max-width: 100%;
+}
+
+#Contenedor{
+
+width: 13%;
+height: 13%;
+position: absolute;
+
+}
+
+#Contenedor1{
+ width: 11%;
+ height:11%;
+ position: absolute;
+ left:89%;	
+}
+
+#Contenedor2{
+	position: relative;
+	left: 170px;
+	
+}
+#PiedePagina{
+	color: #000;
+	text-align: center;
+	position: relative;
+	left: 50px;
+}
+
+
+footer #PiedePagina img{
+	position: relative;
+	top:-5px;
+	left: 450px;
+	margin-left: 0.5em;
+	
+}
+
+header #imagen, #menu-cabecera{
+	display:inline-block;
+}
+header #menu-cabecera{
+	width:80%;
+}
+header #menu-cabecera ul{
+	text-align:right;
+}
+/*ESTILO MENU CABECERA*/
+header #menu-cabecera .webSite, #menu-cabecera .telefono, #menu-cabecera .webMail, #menu-cabecera .ayuda{	
+	background:url(../imagenes/dashboard-icons-dark.png) no-repeat;
+	display:block;
+}
+header #menu-cabecera .webSite{
+	width:2.5rem;
+	height:2.5rem;
+	background-position:-47.5rem -2.5rem;
+	margin-left:0;
+	border:0;	
+}
+header #menu-cabecera .ayuda{
+	width:2.5rem;
+	height:2.5rem;
+	background-position:-15rem -25rem;
+	margin-left:0;
+	border:0;	
+}
+header #menu-cabecera .webMail{
+	width:2.5rem;
+	height:2.5rem;
+	background-position:-52.5rem 0rem;
+	margin-left:0;
+	border:0;	
+}
+header #menu-cabecera .telefono{
+	width:2.5rem;
+	height:2.5rem;
+	background-position:-10rem -22.5rem;	
+	margin-left:0;
+	border:0;
+	pointer-events:none;
+	cursor:default; 	
+	display:block;
+}
+header #menu-cabecera{
+	text-align:left;
+	list-style:none;
+	margin-right:1rem;
+	color:#FFFFFF;
+}
+header #menu-cabecera li{
+	display:inline-block;
+	text-align:left;	
+	vertical-align:middle;
+}
+header #datos_usuario{
+	position: relative;
+	top: 7px;
+	color:#000;
+	list-style:none;
+	text-align:left;
+	margin:0 0 1rem 1rem;
+	display:block;
+}
+header #datos_usuario li{
+	padding:.1rem;
+}
+header #datos_usuario a{
+/*	padding:.1rem;*/
+	color:#393B4E;	
+}
+
+/*ESTILO DEL SECTION*/
+
+footer{
+	
+
+	display:block;
+	font-weight:bolder;
+
+}
+/*FORMULARIO CONTACTOS*/
+section #formulario_ingreso{
+	margin:3rem auto;
+	color:#01325D;
+	text-align:center;	
+	width:50%;		
+	display:block;
+}
+section #formulario_ingreso ul{
+	list-style:none;
+}
+section #formulario_ingreso ul li{
+	text-align:left;	
+	display:inline-block;
+}
+section #formulario_ingreso ul li.titulo_campo{	
+	width:70%; 
+	background-color:#01325D;
+	color:#FFFFFF;
+	text-align:center; 
+	font-weight:bolder;padding:1rem;
+	-moz-box-shadow: -5px -5px 5px #888;
+    -webkit-box-shadow: -5px -5px 5px #888;
+    box-shadow: -5px -5px 5px #888;
+	border-radius: 4px;
+}
+section #formulario_ingreso ul li.nombre_campo{	
+	padding:.5rem;	
+	width:28%;
+}
+section #formulario_ingreso ul li.valor_campo{	
+	padding:.5rem;	
+	width:40%;
+}
+section #formulario_ingreso ul li.valor_campo input, #formulario_ingreso ul li.valor_campo date{
+	width:85%;
+	border:.1rem solid #3E59CE;		 
+	padding:.5rem;	
+	color:#01325D;
+	border-radius: 4px;
+}
+section #formulario_ingreso ul li.valor_campo select{
+	width:90%;
+	border:.1rem solid #01325D;		 
+	padding:.5rem;	
+	color:#01325D;
+}
+section #formulario_ingreso ul #boton_envio{
+	    
+		color:#FFFFFF;
+		font-weight:bolder;
+		background-color:#01325D;
+		padding:1rem 3rem 1rem 3rem;
+		border-radius: 4px;
+		transition-duration:1s;
+		display:block;
+		-moz-box-shadow: 10px 10px 5px #888;
+        -webkit-box-shadow: 10px 10px 5px #888;
+        box-shadow: 10px 10px 5px #888;
+
+
+}
+section #formulario_ingreso ul #boton_envio:hover{
+
+		color:#fff;
+		font-weight:bolder;
+		background-color:#134B7C;
+		padding:1rem 3rem 1rem 3rem;
+		display:block;
+		border-radius: 13px;
+		cursor:pointer;
+		-moz-box-shadow: 10px 10px 5px #888;
+        -webkit-box-shadow: 10px 10px 5px #888;
+        box-shadow: 10px 10px 5px #888;
+}
+
+
+/*FORMULARIO ASOCIAR*/
+section #asociarCamino{
+	width:70%;
+	display:inline-block;
+}
+section #asociarCamino #formulario_asociar{	
+	margin:2.5rem auto;
+	color:#01325D;
+	text-align:center;		
+	width:100%;
+}
+section #asociarCamino #formulario_asociar ul{
+	list-style:none;
+}
+section #asociarCamino #formulario_asociar ul li{
+	text-align:center;	
+	display:inline-block;
+}
+section #asociarCamino #formulario_asociar ul li.titulo_campo{	
+	width:100%; 
+	background-color:#4D9501;
+	color:#01325D;
+	text-align:center; 
+	font-weight:bolder;
+	padding:1rem;
+}
+section #asociarCamino #formulario_asociar ul li.valor_campo{	
+	padding-bottom:.5rem;
+	width:100%;	
+	text-align:center;
+}
+section #asociarCamino #formulario_asociar ul li.valor_campo label{	
+	background-color: #4D9501;
+	border:.1rem solid #01325D;	
+	font-weight:bolder;
+	text-align:center;
+	width:15%;
+	padding:.5rem 0 .5rem 0;
+	display:inline-block;
+}
+section #asociarCamino #formulario_asociar ul li.valor_campo input{
+	width:15%;
+	border:.1rem solid #01325D;		 
+	padding:.5rem 0 .5rem 0;
+	color:#01325D;
+}
+section #asociarCamino #formulario_asociar ul #boton_envio{
+		color:#4D9501;
+		font-weight:bolder;
+		background-color:#01325D;
+		padding:1rem 3rem 1rem 3rem;
+		transition-duration:1s;
+		width:100%;
+		display:inline-block;
+}
+section #asociarCamino #formulario_asociar ul #boton_envio:hover{
+		color:#01325D;
+		font-weight:bolder;
+		background-color:#4D9501;
+		padding:1rem 3rem 1rem 3rem;	
+		width:100%;
+		display:inline-block;
+}
+/*FIN FORMULARIO ASOCIAR*/
+
+/*FIN FORMULARIO CONTACTO*/
+/*TUTO EXCLUSIONES*/
+section #formulario_tutoExclusiones #boton_envio{
+	    position:relative;
+	    top:360px;
+		color:#fff;		
+		font-weight:bolder;
+		width: 16%;
+		background-color:#01325D;
+		padding:1rem 3rem 1rem 3rem;
+		transition-duration:1s;
+		display:block;
+		border-radius: 7px;
+		-webkit-box-shadow: 6px 6px 6px 0px rgba(50, 48, 50, 0.46);
+        -moz-box-shadow:    6px 6px 6px 0px rgba(50, 48, 50, 0.46);
+        box-shadow:         6px 6px 6px 0px rgba(50, 48, 50, 0.46);
+        z-index: 1;
+		 
+
+}
+section #formulario_tutoExclusiones #boton_envio:hover{
+		color:#fff;
+		font-weight:bolder;
+		background-color:#134B7C;
+		width: 16%;
+		padding:1rem 3rem 1rem 3rem;
+		display:block;
+		cursor:pointer;
+		border-radius: 13px;
+		-webkit-box-shadow: 6px 6px 6px 0px rgba(50, 48, 50, 0.46);
+        -moz-box-shadow:    6px 6px 6px 0px rgba(50, 48, 50, 0.46);
+        box-shadow:         6px 6px 6px 0px rgba(50, 48, 50, 0.46);
+        z-index: 1;
+}
+/*FIN TUTO EXCLUSIONES*/
+/*INGRESO DE USUARIO*/
+section #crearUsuario #formulario_ingreso2{	
+	margin:2.5rem auto;
+	color:#01325D;
+	text-align:center;		
+	width: 100%;
+	position: absolute;
+	top: 180px
+	
+}
+section #crearUsuario #formulario_ingreso2 ul{
+	list-style:none;
+}
+section #crearUsuario #formulario_ingreso2 ul li{
+	text-align:left;	
+	display:inline-block;
+}
+section #crearUsuario #formulario_ingreso2 ul li.titulo_campo{
+    margin-top: 10px;	
+	width:55%; 
+	background-color:#01325D;
+	color:#FFF;
+	text-align:center; 
+	font-weight:bolder;padding:1rem;
+	border-radius: 4px;
+	-moz-box-shadow: -5px -5px 5px #888;
+    -webkit-box-shadow: -5px -5px 5px #888;
+    box-shadow: -5px -5px 5px #888;
+}
+section #crearUsuario #formulario_ingreso2 ul li.nombre_campo{	
+	padding:.5rem;	
+	width:25%;
+}
+section #crearUsuario #formulario_ingreso2 ul li.valor_campo{	
+	padding:.5rem;	
+	width:30%;
+}
+section #crearUsuario #formulario_ingreso2 ul li.valor_campo input, #formulario_ingreso2 ul li.valor_campo select, #formulario_ingreso2 ul li.valor_campo textarea{
+	width:89%;
+	border:.1rem solid #3E59CE;		 
+	padding:.5rem;	
+	color:#01325D;
+}
+section #crearUsuario #formulario_ingreso2 ul li.valor_campo select{
+	width:94%;
+	border:.1rem solid #01325D;		 
+	padding:.5rem;	
+	color:#01325D;
+}
+section #crearUsuario #formulario_ingreso2 ul #boton_envio, #crearUsuario table tr td #boton_envio{
+		color:#FFF;
+		text-align: center;
+		font-weight:bolder;
+		background-color:#01325D;
+		padding:1rem 3rem 1rem 3rem;
+		border-radius: 4px;
+		transition-duration:1s;
+		width:100%;
+		display:inline-block;
+	    -webkit-box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+        -moz-box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+        box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+        cursor:pointer;
+}
+section #crearUsuario #formulario_ingreso2 ul #boton_envio:hover, #crearUsuario table tr td #boton_envio:hover{
+		color:#FFF;
+		text-align: center;
+		font-weight:bolder;
+		background-color:#134B7C;
+		padding:1rem 3rem 1rem 3rem;	
+		width:100%;
+		display:inline-block;
+		border-radius: 13px;
+		-webkit-box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+        -moz-box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+        box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+        cursor:pointer;
+}
+/*FIN INGRESO DE USUARIO*/
+/*INGRESO DE CAMINO*/
+section #crearCamino{
+	width:70%;
+    
+
+}
+section #crearCamino #formulario_camino{	
+	margin:2.5rem auto;
+	color:#01325D;
+	text-align:center;		
+	width:100%;
+	
+}
+section #crearCamino #formulario_camino ul{
+	list-style:none;
+}
+section #crearCamino #formulario_camino ul li{
+	text-align:center;	
+	display:inline-block;
+	position: relative;
+}
+section #crearCamino #formulario_camino ul li.titulo_campo{
+    position: absolute;	
+	width:50%;
+	right: 380px;
+	top:290px;
+	background-color:#01325D;
+	color:#fff;
+	text-align:center; 
+	font-weight:bolder;padding:1rem;
+	border-radius: 7px;
+	-moz-box-shadow: -5px -5px 5px #888;
+    -webkit-box-shadow: -5px -5px 5px #888;
+    box-shadow: -5px -5px 5px #888;
+}
+
+section #crearCamino #formulario_camino ul li.valor_campo{	
+	padding:.5rem;	
+	width:100%;	
+}
+section #crearCamino #formulario_camino ul li.valor_campo input{
+	position: relative;
+	left: 280px;
+	width:8%;
+	border:.1rem solid #01325D;		 
+	padding:.5rem;	
+	color:#01325D;
+}
+
+/* Diseño modificarCamino */
+
+section #crearCamino #formulario_camino ul li.titulo_campo{
+    position: absolute;	
+	width:50%;
+	right: 380px;
+	top:290px;
+	background-color:#01325D;
+	color:#fff;
+	text-align:center; 
+	font-weight:bolder;padding:1rem;
+	border-radius: 7px;
+	-moz-box-shadow: -5px -5px 5px #888;
+    -webkit-box-shadow: -5px -5px 5px #888;
+    box-shadow: -5px -5px 5px #888;
+}
+
+section #crearCamino #formulario_camino ul #boton_envio{
+	    position: relative;
+	    top: 10px;
+	    left:250px; 
+		color:#fff;
+		font-weight:bolder;
+		background-color:#01325D;
+		padding:1rem 3rem 1rem 3rem;
+		transition-duration:1s;
+	    display:inline-block;
+		border-radius: 7px;
+		cursor:pointer;
+		-webkit-box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+        -moz-box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+         box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+}
+section #crearCamino #formulario_camino ul #boton_envio:hover{
+	    position: relative;
+	    top: 10px;
+	    left: 250px;
+		color:#fff;
+		font-weight:bolder;
+		background-color:#134B7C;
+		padding:1rem 3rem 1rem 3rem;	
+		display:inline-block;
+		cursor:pointer;
+		border-radius: 13px;
+		-webkit-box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+        -moz-box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+        box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+}
+
+/* modificarCamino */
+
+
+section #crearCamino2 #formulario_camino2 ul #boton_envio2{
+	    position: relative;
+	    top: 170px;
+	    left:650px; 
+		color:#fff;
+		font-weight:bolder;
+		background-color:#01325D;
+		padding:1rem 3rem 1rem 3rem;
+		transition-duration:1s;
+	    display:inline-block;
+		border-radius: 7px;
+		cursor:pointer;
+		-webkit-box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+        -moz-box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+         box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+}
+section #crearCamino2 #formulario_camino2 ul #boton_envio2:hover{
+	    position: relative;
+	    top: 170px;
+	    left: 650px;
+		color:#fff;
+		font-weight:bolder;
+		background-color:#134B7C;
+		padding:1rem 3rem 1rem 3rem;	
+		display:inline-block;
+		cursor:pointer;
+		border-radius: 13px;
+		-webkit-box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+        -moz-box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+        box-shadow: 10px 7px 41px 1px rgba(0,0,0,0.71);
+}
+
+section #crearCamino2{
+	width:70%;
+    
+
+}
+section #crearCamino #formulario_camino2{	
+	margin:2.5rem auto;
+	color:#01325D;
+	text-align:center;		
+	width:100%;
+	
+}
+section #crearCamino2 #formulario_camino2 ul{
+	list-style:none;
+}
+section #crearCamino2 #formulario_camino2 ul li{
+	text-align:center;	
+	display:inline-block;
+	position: relative;
+}
+section #crearCamino2 #formulario_camino2 ul li.titulo_campo2{
+    position: absolute;	
+	width:50%;
+	right: 380px;
+	top:240px;
+	background-color:#01325D;
+	color:#fff;
+	text-align:center; 
+	font-weight:bolder;padding:1rem;
+	border-radius: 7px;
+	-moz-box-shadow: -5px -5px 5px #888;
+    -webkit-box-shadow: -5px -5px 5px #888;
+    box-shadow: -5px -5px 5px #888;
+ 
+}
+
+section #crearCamino2 #formulario_camino2 ul li.valor_campo2{	
+	
+	width:100%;	
+
+}
+section #crearCamino2 #formulario_camino2 ul li.valor_campo2 input{
+	position: relative;
+	top:150px;
+	left: 280px;
+	width:8%;
+	border:.1rem solid #01325D;		 
+	padding:.5rem;	
+	color:#01325D;
+}
+
+body{
+	overflow-x: hidden;
+}
+
+
+
+/*FIN INGRESO DE CAMINO*/
+/*INGRESO DE EXCLUSION*/
+section #crearExclusion{
+	width:84%;
+}
+section #crearExclusion #formulario_camino{	
+	margin:2.5rem auto;
+	color:#01325D;
+	text-align:center;		
+	width:95%;
+}
+section #crearExclusion #formulario_camino ul{
+	list-style:none;
+}
+section #crearExclusion #formulario_camino ul li{
+	text-align:center;	
+	display:inline-block;
+}
+section #crearExclusion #formulario_camino ul li.titulo_campo{	
+	width:98%; 
+	background-color:#4D9501;
+	color:#01325D;
+	text-align:center; 
+	font-weight:bolder;padding:1rem;
+}
+section #crearExclusion #formulario_camino ul li.valor_campo{	
+	padding:.5rem;	
+	width:100%;	
+}
+section #crearExclusion #formulario_camino ul li.valor_campo input, #crearExclusion #formulario_camino ul li.valor_campo select{
+	width:4%;
+	border:.1rem solid #01325D;		 
+	padding:.5rem;	
+	color:#01325D;
+}
+section #crearExclusion #formulario_camino ul #boton_envio{
+		color:#4D9501;
+		font-weight:bolder;
+		background-color:#01325D;
+		padding:1rem 3rem 1rem 3rem;
+		transition-duration:1s;
+		width:100%;
+		display:inline-block;
+}
+section #crearExclusion #formulario_camino ul #boton_envio:hover{
+		color:#01325D;
+		font-weight:bolder;
+		background-color:#4D9501;
+		padding:1rem 3rem 1rem 3rem;	
+		width:100%;
+		display:inline-block;
+		cursor:pointer;
+}
+/*FIN INGRESO DE EXCLUSION*/
+/*ACTUALIZACION DE USUARIO*/
+section #modificarUsuario #formulario_busqueda, #modificarUsuario #formulario_ingreso2{	
+	margin:2.5rem auto;
+	color:#01325D;
+	text-align:center;		
+	width:100%;
+}
+section #modificarUsuario #formulario_busqueda ul, #modificarUsuario #formulario_ingreso2 ul{
+	list-style:none;
+}
+section #modificarUsuario #formulario_busqueda ul li, #modificarUsuario #formulario_ingreso2 ul li{
+	text-align:left;	
+	display:inline-block;
+}
+section #modificarUsuario #formulario_busqueda ul li.titulo_campo, #modificarUsuario #formulario_ingreso2 ul li.titulo_campo{	
+	width:50%; 
+	background-color:#4D9501;
+	color:#01325D;
+	text-align:center; 
+	font-weight:bolder;padding:1rem;
+}
+section #modificarUsuario #formulario_busqueda ul li.nombre_campo, #modificarUsuario #formulario_ingreso2 ul li.nombre_campo{	
+	padding:.5rem;	
+	width:20%;
+}
+section #modificarUsuario #formulario_busqueda ul li.valor_campo, #modificarUsuario #formulario_ingreso2 ul li.valor_campo{
+	padding:.5rem;	
+	width:30%;
+}
+section #modificarUsuario #formulario_busqueda ul li.valor_campo input, #modificarUsuario #formulario_busqueda ul li.valor_campo select, 
+#modificarUsuario #formulario_ingreso2 ul li.valor_campo input, #modificarUsuario #formulario_ingreso2 ul li.valor_campo select{
+	width:89%;
+	border:.1rem solid #01325D;		 
+	padding:.5rem;	
+	color:#01325D;
+}
+section #modificarUsuario #formulario_busqueda ul li.valor_campo select, #modificarUsuario #formulario_ingreso2 ul li.valor_campo select{
+	width:94%;
+	border:.1rem solid #01325D;		 
+	padding:.5rem;	
+	color:#01325D;
+}
+section #modificarUsuario #formulario_busqueda ul #boton_envio{
+		color:#4D9501;
+		font-weight:bolder;
+		background-color:#01325D;
+		padding:1rem 3rem 1rem 3rem;
+		transition-duration:1s;
+		width:100%;
+		display:inline-block;
+}
+section #modificarUsuario #formulario_busqueda ul #boton_envio:hover{
+		color:#01325D;
+		font-weight:bolder;
+		background-color:#4D9501;
+		padding:1rem 3rem 1rem 3rem;
+		width:100%;
+		display:inline-block;
+		cursor:pointer;
+}
+section #modificarUsuario #formulario_ingreso2 ul #boton_envio{
+		color:#4D9501;
+		font-weight:bolder;
+		background-color:#01325D;
+		padding:1rem 3rem 1rem 3rem;
+		transition-duration:1s;	
+		width:48%;
+		display:inline-block;
+}
+section #modificarUsuario #formulario_ingreso2 ul #boton_envio:hover{
+		color:#01325D;
+		font-weight:bolder;
+		background-color:#4D9501;
+		padding:1rem 3rem 1rem 3rem;	
+		width:48%;
+		display:inline-block;
+		cursor:pointer;
+}
+/*FIN ACTUALIZACION DE USUARIO*/
+/*INGRESAR OBRA*/
+section #ingresarObra #formulario_ingresoObra{	
+	margin:2.5rem auto;
+	color:#01325D;
+	text-align:center;		
+	width:100%;
+}
+section #ingresarObra #formulario_ingresoObra ul{
+	list-style:none;
+}
+section #ingresarObra #formulario_ingresoObra ul li{
+	text-align:left;	
+	display:inline-block;
+}
+section #ingresarObra #formulario_ingresoObra ul li.titulo_campo{	
+	width:50%; 
+	background-color:#4D9501;
+	color:#01325D;
+	text-align:center; 
+	font-weight:bolder;padding:1rem;
+}
+section #ingresarObra #formulario_ingresoObra ul li.nombre_campo{	
+	padding:.5rem;	
+	width:20%;
+}
+section #ingresarObra #formulario_ingresoObra ul li.valor_campo{	
+	padding:.5rem;	
+	width:30%;
+}
+section #ingresarObra #formulario_ingresoObra ul li.valor_campo input, #ingresarObra #formulario_ingresoObra ul li.valor_campo select{
+	width:89%;
+	border:.1rem solid #01325D;		 
+	padding:.5rem;	
+	color:#01325D;
+}
+section #ingresarObra #formulario_ingresoObra ul li.valor_campo select{
+	width:94%;
+	border:.1rem solid #01325D;		 
+	padding:.5rem;	
+	color:#01325D;
+}
+section #ingresarObra #formulario_ingresoObra ul #boton_envio{
+		color:#4D9501;
+		font-weight:bolder;
+		background-color:#01325D;
+		padding:1rem 3rem 1rem 3rem;
+		transition-duration:1s;
+		width:100%;
+		display:inline-block;
+}
+section #ingresarObra #formulario_ingresoObra ul #boton_envio:hover{
+		color:#01325D;
+		font-weight:bolder;
+		background-color:#4D9501;
+		padding:1rem 3rem 1rem 3rem;
+		width:100%;
+		display:inline-block;
+		cursor:pointer;
+}
+/*FIN INGRESAR OBRA*/
+/*MENSAJE INICIO*/
+section #mensaje_inicio{
+	width:70%;
+	text-align:center;
+}
+section #mensaje_inicio label{
+	width:100%;
+	background-color:#01325D;
+	font-weight:bolder;
+	padding:1rem;
+	color:#fff;
+	border-radius: 7px;
+}
+/*MENSAJE INICIO*/
+/*MENU ACORDEON*/
+section #menu-acordeon{
+	width:21%;
+	vertical-align:top;
+	display:inline-block;	
+		
+}
+section #crearUsuario, #modificarUsuario, #ingresarObra, #crearCamino, #crearExclusion, #datosActa,#datoscontrato #mensaje_inicio{
+	width:78%;	
+	display:inline-block;	
+}
+/*FIN MENU ACORDEON*/
+/*ARTICULO DATOS ACTA*/
+section #datosActa{	
+	padding-left:2.5rem;
+	width:80%;
+}
+section #crearExclusion{	
+	padding-left:1.5rem;
+	width:81%;
+}
+section #datosActa #formulario_acta{	
+	margin:2.5rem auto;
+	color:#01325D;
+	text-align:center;		
+	width:100%;
+}
+section #datosActa #formulario_acta table #fila_titulo{
+	width:100%; 
+	background-color:#01325D;
+	color:#FFF;
+	text-align:center; 
+	font-weight:bolder;
+}
+section #datosActa #formulario_acta table #boton_envio, #crearExclusion #formulario_camino table #boton_envio{
+	position: relative;
+	text-align: center;
+	color:#fff;
+	font-weight:bolder;
+	background-color:#01325D;
+	padding:1rem 3rem 1rem 3rem;
+	transition-duration:1s;
+	width:19%;
+	display:inline-block;
+	border-radius: 6px;
+	-webkit-box-shadow: 10px 11px 30px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 11px 30px -5px rgba(0,0,0,0.75);
+    box-shadow: 10px 11px 30px -5px rgba(0,0,0,0.75);
+    z-index: 1;
+}
+section #datosActa #formulario_acta table #boton_envio:hover, #crearExclusion #formulario_camino table #boton_envio:hover{
+	color:#fff;
+	text-align: center;
+	font-weight:bolder;
+	background-color:#134B7C;
+	padding:1rem 3rem 1rem 3rem;	
+	width:19%;
+	display:inline-block;
+	cursor:pointer;
+	border-radius: 13px;
+	-webkit-box-shadow: 10px 11px 30px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 11px 30px -5px rgba(0,0,0,0.75);
+    box-shadow: 10px 11px 30px -5px rgba(0,0,0,0.75);
+    z-index: 1;
+}
+/*FIN ARTICULO DATOS ACTA*/
+/*
+/*ARTICULO DATOS CONTRATO*/
+section #datosContrato{	
+	padding-left:2.5rem;
+	width:80%;
+}
+section #crearExclusion{	
+	padding-left:1.5rem;
+	width:81%;
+}
+section #datosContrato #formulario_Contrato{	
+	margin:2.5rem auto;
+	color:#01325D;
+	text-align:center;		
+	width:100%;
+}
+section #datosContrato #formulario_Contrato table #fila_titulo{
+	width:100%; 
+	background-color:#01325D;
+	color:#FFF;
+	text-align:center; 
+	font-weight:bolder;
+}
+section #datosContrato #formulario_Contrato table #boton_envio, #crearExclusion #formulario_camino table #boton_envio{
+	position: relative;
+	right: 50px;
+	color:#fff;
+	font-weight:bolder;
+	background-color:#01325D;
+	padding:1rem 3rem 1rem 3rem;
+	transition-duration:1s;
+	width:20%;
+	display:inline-block;
+	border-radius: 9px;
+	z-index: 1;
+	-webkit-box-shadow: 10px 11px 30px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 11px 30px -5px rgba(0,0,0,0.75);
+    box-shadow: 10px 11px 30px -5px rgba(0,0,0,0.75);
+}
+section #datosContrato #formulario_Contrato table #boton_envio:hover, #crearExclusion #formulario_camino table #boton_envio:hover{
+	color:#fff;
+	font-weight:bolder;
+	background-color:#134B7C;
+	padding:1rem 3rem 1rem 3rem;	
+	width:20%;
+	display:inline-block;
+	cursor:pointer;
+	border-radius: 13px;
+	-webkit-box-shadow: 10px 11px 30px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 11px 30px -5px rgba(0,0,0,0.75);
+    box-shadow: 10px 11px 30px -5px rgba(0,0,0,0.75);
+}
+
+
+/*ICONOS PARA FORMULARIO*/
+::-webkit-input-placeholder{	
+	color:#01325D;
+}
+:-ms-input-placeholder{
+	color:#01325D;
+}
+:-o-input-placeholder{
+	color:#01325D;
+}
+:-moz-input-placeholder{
+	color:#01325D;
+}	
+section form input:required{
+	background:#FFF url(../imagenes/Fondo-Logo/green_asterisk.png) no-repeat 98% center;
+}
+
+section form input:required:valid{
+	background:#FFF url(../imagenes/Fondo-Logo/valid.png) no-repeat 98% center;
+	box-shadow:0 0 0.3125rem #134B7C;		
+}
+section form input:focus:invalid{
+	background:#FFF url(../imagenes/Fondo-Logo/invalid.png) no-repeat 98% center;
+	box-shadow:0 0 0.3125rem #900;
+}
+::-webkit-select-placeholder{	
+	color:#01325D;
+}
+:-ms-select-placeholder{
+	color:#01325D;
+}
+:-o-select-placeholder{
+	color:#01325D;
+}
+:-moz-select-placeholder{
+	color:#01325D;
+}	
+::-webkit-textarea-placeholder{	
+	color:#01325D;
+}
+:-ms-textarea-placeholder{
+	color:#01325D;
+}
+:-o-textarea-placeholder{
+	color:#01325D;
+}
+:-moz-textarea-placeholder{
+	color:#01325D;
+}	
+section form select:required{
+	background:#FFF url(../imagenes/Fondo-Logo/green_asterisk.png) no-repeat 98% center;
+}
+section form select:required:valid{
+	background:#FFF url(../imagenes/Fondo-Logo/valid.png) no-repeat 98% center;
+	box-shadow:0 0 0.3125rem #134B7C;		
+}
+section form select:focus:invalid{
+	background:#FFF url(../imagenes/Fondo-Logo/invalid.png) no-repeat 98% center;
+	box-shadow:0 0 0.3125rem #900;
+}
+section form textarea:required{
+	background:#FFF url(../imagenes/Fondo-Logo/green_asterisk.png) no-repeat 98% center;
+}
+section form textarea:required:valid{
+	background:#FFF url(../imagenes/Fondo-Logo/valid.png) no-repeat 98% center;
+	box-shadow:0 0 0.3125rem #134B7C;		
+}
+section form textarea:focus:invalid{
+	background:#FFF url(../imagenes/Fondo-Logo/invalid.png) no-repeat 98% center;
+	box-shadow:0 0 0.3125rem #900;
+}
+
+/*////////////////////////////*/
+.tooltip{
+	display: inline;
+    position: relative;
+}
+.tooltip:hover:after{
+	background: #039;
+	background:rgba(0,51,153,.8);
+    border-radius: 5px;
+    bottom: 26px;
+    color: #fff;
+    content: attr(title);
+    left: 20%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: 220px;
+}
+.tooltip:hover:before{
+	border: solid;
+    border-color: #039 transparent;
+    border-width: 6px 6px 0 6px;
+    bottom: 20px;
+    content: "";
+    left: 50%;
+    position: absolute;
+    z-index: 99;
+}
+
+
+ 
