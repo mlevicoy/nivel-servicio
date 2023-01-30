@@ -1,0 +1,23 @@
+1. En Programas instalar "vcredist_x64" y "vcredist_x86"
+2. En Programas instalar "WampServer" dependiendo de la arquitectura del servidor.
+3. Acceder a archivo de configuración php.ini y realizar los siguientes cambios:
+
+max_execution_time = 3600
+upload_max_filesize = 3600M
+max_input_time = 1800
+memory_limit = 200M
+
+4. Crear contraseña de MySQL.
+
+grant all privileges on *.* to root@'localhost' identified by 'bogado' with grant option;
+	 
+5. Modificar el acceso a phpMyAdmin a "http". 
+6. Copia la carpeta segmentosweb dentro de "www"
+7. Crea e importa la base de datos de nombre SEGMENTOSWEB con utf8_spanish_ci.
+
+8. acceder con Google Chrome a http://localhost/segmentosweb
+
+9. La primera vez con usuario / usuario
+
+
+Listo.
