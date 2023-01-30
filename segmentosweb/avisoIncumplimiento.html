@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>        
+        <title>Dirección de Vialidad.</title>          
+    </head>
+    <body>
+
+    	  <!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu --> 
+
+         <section>
+            <article id="datosActa">             	
+           		<form id="formulario_acta" action="avisoIncumplimiento.php" method="post" autocomplete="off">
+            		<table width="100%" cellpadding="0" cellspacing="0" style="position:relative;top:87px;left:90px;border-top:.1rem solid #01325D;">
+            			<tr id="fila_titulo">
+                        	<td colspan="12" style="padding:1rem;border-bottom:.1rem solid #fff;border-left:.1rem solid #fff;border-right:.1rem solid #fff;">AVISO DE INCUMPLIMIENTO<br>N° <input type="text" name="nroAviso" required style="width: 5%;padding: 1px 0 1px 0;"></td>
+                        </tr>
+						<tr id="fila_titulo">
+							<td colspan="1" rowspan="2" width="8%" style="border-right: .1rem solid #fff;border-left:.1rem solid #fff;padding: 1rem 0 1rem 0;">COMPONENTE</td>
+							<td colspan="1" rowspan="2" width="8%" style="border-right: .1rem solid #fff;padding: 1rem 0 1rem 0;">CAMINO</td>
+							<td colspan="3" rowspan="1" width="21%" style="border-right: .1rem solid #fff;border-bottom: .1rem solid #fff;padding: 1rem 0 1rem 0;">UBICACION</td>
+							<td colspan="1" rowspan="2" width="20%" style="border-right: .1rem solid #fff;padding: 1rem 0 1rem 0;">DEFECTOS Y CARACTERISTICAS</td>
+							<td colspan="3" rowspan="1" width="21%" style="border-right: .1rem solid #fff;border-bottom: .1rem solid #fff;padding: 1rem 0 1rem 0;">TIEMPO DE RESPUESTA MAXIMO<br>(TRM) PARA CUMPLIR CON NS</td>
+							<td colspan="1" rowspan="2" width="8%" style="border-right: .1rem solid #fff;padding: 1rem 0 1rem 0;">FECHA<br>CUMPLE NS</td>
+							<td colspan="2" rowspan="1" width="14%" style="border-bottom: .1rem solid #fff;border-right: .1rem solid #01325D;padding: 1rem 0 1rem 0;">MULTA</td>
+						</tr>
+           				<tr id="fila_titulo">
+           					<td colspan="1" rowspan="1" width="7%" style="border-right: .1rem solid #fff;padding: .5rem 0 .5rem 0;">DESDE KM</td>
+           					<td colspan="1" rowspan="1" width="7%" style="border-right: .1rem solid #fff;padding: .5rem 0 .5rem 0;">HASTA KM</td>
+           					<td colspan="1" rowspan="1" width="7%" style="border-right: .1rem solid #fff;padding: .5rem 0 .5rem 0;">FAJA</td>	
+           					<td colspan="1" rowspan="1" width="7%" style="border-right: .1rem solid #fff;padding: .5rem 0 .5rem 0;">DIAS</td>
+           					<td colspan="1" rowspan="1" width="7%" style="border-right: .1rem solid #fff;padding: .5rem 0 .5rem 0;">HORA</td>
+           					<td colspan="1" rowspan="1" width="7%" style="border-right: .1rem solid #fff;padding: .5rem 0 .5rem 0;">HASTA</td>	
+           					<td colspan="1" rowspan="1" width="7%" style="border-right: .1rem solid #fff;padding: .5rem 0 .5rem 0;">PERIODO</td>
+           					<td colspan="1" rowspan="1" width="7%" style="padding: 1rem 0 1rem 0;border-right:.1rem solid #fff;">VALOR</td>           					
+           				</tr>
+           				<!-- START BLOCK : INCUMPLIMIENTOS -->
+           				<tr>
+							<td colspan="1" rowspan="1" width="8%" style="border-right: .1rem solid #01325D;border-left: .1rem solid #01325D;border-top: .1rem solid #01325D;padding: 1rem 0 1rem 0;"><input type="text" name="componente[]" value="{COMPONENTE}" style="width: 98%;" readonly/></td>
+							<td colspan="1" rowspan="1" width="8%" style="border-right: .1rem solid #01325D;border-top: .1rem solid #01325D;padding: 1rem 0 1rem 0;"><input type="text" name="rolCamino[]" value="{ROLCAMINO}" style="width: 98%;text-align: center;" readonly/></td>				
+          					<td colspan="1" rowspan="1" width="7%" style="border-right: .1rem solid #01325D;border-top: .1rem solid #01325D;padding: .5rem 0 .5rem 0;"><input type="text" name="kmDesde[]" value="{KMDESDE}" style="width: 98%;text-align: center;" readonly/></td>
+           					<td colspan="1" rowspan="1" width="7%" style="border-right: .1rem solid #01325D;border-top: .1rem solid #01325D;padding: .5rem 0 .5rem 0;"><input type="text" name="kmHasta[]" value="{KMHASTA}" style="width: 98%;text-align: center;" readonly/></td>
+           					<td colspan="1" rowspan="1" width="7%" style="border-right: .1rem solid #01325D;border-top: .1rem solid #01325D;padding: .5rem 0 .5rem 0;"><select name="faja[]" style="width: 98%; height: 80%;" required>
+           						<option value="" selected>-</option>
+           						<option value="Izq">Izq</option>
+           						<option value="Der">Der</option>
+           						<option value="Ambas">Ambas</option>
+           					</select>           					
+           					</td>	
+           					<td colspan="1" rowspan="1" width="20%" style="border-right: .1rem solid #01325D;border-top: .1rem solid #01325D;padding: 1rem 0 1rem 0;"><input type="text" name="defecto[]" value="{DEFECTO}" style="width: 98%;" readonly/></td>
+							<td colspan="1" rowspan="1" width="7%" style="border-right: .1rem solid #01325D;border-top: .1rem solid #01325D;padding: .5rem 0 .5rem 0;">
+							<select name="dias[]" onChange="cambiarDia({indice});" style="width: 98%;height: 80%;">
+								<option value="-" selected>-</option>
+								<!-- START BLOCK : NUMERO_DIAS -->
+                   				<option value="{numDias}">{numDias}</option>
+                    			<!-- END BLOCK : NUMERO_DIAS -->
+							</select></td>
+           					<td colspan="1" rowspan="1" width="7%" style="border-right: .1rem solid #01325D;border-top: .1rem solid #01325D;padding: .5rem 0 .5rem 0;">
+           					<select name="horas[]" onChange="cambiarHora({indice});" style="width: 98%;height: 80%;">
+								<option value="-" selected>-</option>
+								<!-- START BLOCK : NUMERO_HORAS -->
+                   				<option value="{numHoras}">{numHoras}</option>
+                    			<!-- END BLOCK : NUMERO_HORAS -->
+							</select></td>
+           					<td colspan="1" rowspan="1" width="7%" style="border-right: .1rem solid #01325D;border-top: .1rem solid #01325D;padding: .5rem 0 .5rem 0;"><input type="text" name="hasta[]" value="" style="width: 98%;text-align: center;" readonly/></td>	
+          					<td colspan="1" rowspan="1" width="8%" style="border-right: .1rem solid #01325D;border-top: .1rem solid #01325D;padding: .5rem 0 .5rem 0;">
+          					</td>
+          					<td colspan="1" rowspan="1" width="7%" style="border-right: .1rem solid #01325D;border-top: .1rem solid #01325D;padding: .5rem 0 .5rem 0;">	
+           					<input type="text" name="periodo[]" value="{PERIODO}" style="width: 98%;text-align: center;" readonly/></td>
+           					<td colspan="1" rowspan="1" width="7%" style="border-top: .1rem solid #01325D;border-right: .1rem solid #01325D;padding: .5rem 0 .5rem 0;">UTM</td>           					
+           				</tr>   
+           				<!-- END BLOCK : INCUMPLIMIENTOS -->   
+           				<tr>
+           					<td colspan="6" style="text-align: left;border-top: .1rem solid #01325D;padding: .5rem .9rem .5rem 0;">Comunicación al Contratista:</td>
+           					<td colspan="6" rowspan="1" width="100%" style="text-align: right;border-top: .1rem solid #01325D;padding: .5rem .9rem .5rem 0;">Total al {DIAFINALRECEPCION}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 UTM</td>
+           				</tr>
+           				<tr>
+           					<td colspan="6" rowspan="1" width="50%" style="text-align: left;">Fecha&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;<input type="date" name="fechaComunicacion" style="border: .1rem solid #01325D" placeholder="Año-Mes-Dia" onChange="revalidarHasta();" required/></td>
+           					<td colspan="6" rowspan="1" width="50%" style="text-align: right;padding: .5rem 0rem .5rem 0;">Valor UTM {MESFINALRECEPCION} ($)&nbsp;&nbsp;:&nbsp;&nbsp;<input type="text" name="valorUTM" value="" onKeyPress="return soloNumero(event,0);" onBlur="multaAviso();" style="width: 16%;height: 100%;padding: .2rem 0 .2rem 0; border: .1rem solid #01325D" required></td>
+           				</tr>     				
+           				<tr>
+           					<td colspan="3" rowspan="1" width="50%" style="text-align: left;">Hora&nbsp;&nbsp;&nbsp;&nbsp;:</td>
+           					<td colspan="9" rowspan="1" width="50%" style="text-align: right;padding: .5rem 0rem .5rem 0;">Multa por aviso de Incumplimiento (3 UTM por aviso) ($)&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;<input type="text" name="multaXAviso" value="{MULTAXAVISO}" style="width: 8.3%;height: 100%;padding: .2rem 0 .2rem 0;" readonly></td>
+           				</tr>
+           				<tr>
+           					<td colspan="3" rowspan="1" width="50%" style="text-align: left;">Medio&nbsp;&nbsp;&nbsp;:</td>
+           					<td colspan="9" rowspan="1" width="50%" style="text-align: right;padding: .5rem 0rem .5rem 0;">Total Multa($)&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;<input type="text" name="totalMulta" value="{TOTALMULTA}" style="width: 8.3%;height: 100%;padding: .2rem 0 .2rem 0" readonly></td>
+           				</tr>            				
+           				<tr>
+           					<td colspan="12" rowspan="1" width="100%" style="text-align:enter;">
+           					<input type="submit" name="btnIncumplimiento" value="Generar Informe" id="boton_envio" style="font-size: 1rem;"/>
+           					</td>
+           				</tr>            				
+            		</table>
+                	<input type="hidden" name="buscador" value="1"/>
+            	</form> 
+            </article>
+        </section>
+        <footer></footer>
+    	<script src="JS/funciones.js"></script>
+    	<script>
+		function cambiarDia(indice){			
+			document.getElementsByName('horas[]').item(indice).selectedIndex = 0;
+			document.getElementsByName('periodo[]').item(indice).value = "Dias";				
+			
+			if(document.getElementsByName('fechaComunicacion').item(0).value != ''){				
+				var diasSumar = document.getElementsByName('dias[]').item(indice).value;			
+				var fecha_str = document.getElementsByName('fechaComunicacion').item(0).value;			
+				var fecha_arr = fecha_str.split("-");			
+				var ano = fecha_arr[0];
+				var mes = fecha_arr[1];
+				var dia = fecha_arr[2];			
+				var diahora_arr = fecha_arr[2].split("T");
+				dia = diahora_arr[0];	//Dia
+				var fecha_enviar = dia+"-"+mes+"-"+ano;					
+				document.getElementsByName('hasta[]').item(indice).value = sumaFecha(diasSumar, fecha_enviar);
+			}
+		}
+		function cambiarHora(indice){			
+			document.getElementsByName('dias[]').item(indice).selectedIndex = 0;
+			document.getElementsByName('periodo[]').item(indice).value = "Horas";
+			
+			if(document.getElementsByName('fechaComunicacion').item(0).value != ''){				
+				var horaSumar = document.getElementsByName('horas[]').item(indice).value;					
+				var fecha_str = document.getElementsByName('fechaComunicacion').item(0).value;			
+				var totalHoraDia = 24;
+				var diasSumar = 0;
+				var horasSumadas  = 0;
+				var divisionHoras = 0;				
+				
+				var fecha_arr = fecha_str.split("-");			
+				var ano = fecha_arr[0];	//Año
+				var mes = fecha_arr[1];	//Mes
+				var dia = fecha_arr[2];		
+				var diahora_arr = fecha_arr[2].split("T");
+				dia = diahora_arr[0];	//Dia
+				var hora_arr = diahora_arr[1].split(":");
+				var hora = hora_arr[0];	//Horas	
+				
+				horasSumadas = parseInt(horaSumar) + parseInt(hora);				
+				divisionHoras = horasSumadas/totalHoraDia;								
+				diasSumar = Math.floor(divisionHoras);
+				var fecha_enviar = dia+"-"+mes+"-"+ano;					
+				document.getElementsByName('hasta[]').item(indice).value = sumaFecha(diasSumar, fecha_enviar);
+			}	
+		}	
+		function multaAviso(){
+			document.getElementsByName("multaXAviso").item(0).value = document.getElementsByName("valorUTM").item(0).value * 3;
+			document.getElementsByName("totalMulta").item(0).value = document.getElementsByName("valorUTM").item(0).value * 3;	  
+		}			
+		sumaFecha = function(d, fecha){
+			var Fecha = new Date();
+			var sFecha = fecha || (Fecha.getDate() + "/" + (Fecha.getMonth() +1) + "/" + Fecha.getFullYear());
+			var sep = sFecha.indexOf('/') != -1 ? '/' : '-'; 
+			var aFecha = sFecha.split(sep);
+			var fecha = aFecha[2]+'/'+aFecha[1]+'/'+aFecha[0];
+			fecha= new Date(fecha);
+			fecha.setDate(fecha.getDate()+parseInt(d));
+			var anno=fecha.getFullYear();
+			var mes= fecha.getMonth()+1;
+			var dia= fecha.getDate();
+			mes = (mes < 10) ? ("0" + mes) : mes;
+			dia = (dia < 10) ? ("0" + dia) : dia;
+			var fechaFinal = dia+sep+mes+sep+anno;
+			return (fechaFinal);
+		}
+		revalidarHasta = function(){
+			var largo = document.getElementsByName('rolCamino[]').length;
+			for(var i=0;i<largo;i++){
+				if(document.getElementsByName('horas[]').item(i).value != '-'){
+					var horaSumar = document.getElementsByName('horas[]').item(i).value;					
+					var fecha_str = document.getElementsByName('fechaComunicacion').item(0).value;			
+					var totalHoraDia = 24;
+					var diasSumar = 0;
+					var horasSumadas  = 0;
+					var divisionHoras = 0;				
+
+					var fecha_arr = fecha_str.split("-");			
+					var ano = fecha_arr[0];	//Año
+					var mes = fecha_arr[1];	//Mes
+					var dia = fecha_arr[2];		
+					var diahora_arr = fecha_arr[2].split("T");
+					dia = diahora_arr[0];	//Dia
+					var hora_arr = diahora_arr[1].split(":");
+					var hora = hora_arr[0];	//Horas	
+
+					horasSumadas = parseInt(horaSumar) + parseInt(hora);				
+					divisionHoras = horasSumadas/totalHoraDia;								
+					diasSumar = Math.floor(divisionHoras);
+					var fecha_enviar = dia+"-"+mes+"-"+ano;					
+					document.getElementsByName('hasta[]').item(i).value = sumaFecha(diasSumar, fecha_enviar);
+				} 	
+				else if(document.getElementsByName('dias[]').item(i).value != '-' ){					
+					var diasSumar = document.getElementsByName('dias[]').item(i).value;			
+					var fecha_str = document.getElementsByName('fechaComunicacion').item(0).value;			
+					var fecha_arr = fecha_str.split("-");			
+					var ano = fecha_arr[0];
+					var mes = fecha_arr[1];
+					var dia = fecha_arr[2];			
+					var diahora_arr = fecha_arr[2].split("T");
+					dia = diahora_arr[0];	//Dia
+					var fecha_enviar = dia+"-"+mes+"-"+ano;					
+					document.getElementsByName('hasta[]').item(i).value = sumaFecha(diasSumar, fecha_enviar);					
+				}
+			}			
+		}
+		</script>
+    </body>
+</html>

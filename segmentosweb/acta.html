@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>        
+        <title>Dirección de Vialidad.</title>
+    </head>
+    <body>
+    	<!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu -->
+         <section>
+            <article id="datosActa">  
+            	<p style="position:relative;top:-75px;left:-65px;width: 100%;color:red;text-align:center;font-weight:bolder;">{MENSAJE}</p>          	
+           		<form id="formulario_acta" action="acta.php" onSubmit="return rut()" method="post" autocomplete="off">				
+                	<table width="100%" cellpadding="0" cellspacing="0" style="position:relative;top:90px;left:90px;border:.1rem solid #01325D;">
+                    	<tr id="fila_titulo">
+                        	<td colspan="4" style="padding:1rem;border-bottom:.1rem solid #01325D;">DATOS DE LA COMISI&Oacute;N</td>
+                        </tr>
+                        <tr>
+                        	<td colspan="1" rowspan="1" width="21%;" 
+                            style="text-align:left;border-bottom:.1rem solid #01325D;padding-bottom:1rem;padding-left:1rem;padding-top:1rem; font-weight:bolder;">
+                            	Inspecci&oacute;n a Pago:
+                            </td>
+                            <td colspan="3" rowspan="1" width="77%;" style="padding:1rem;text-align:left;border-bottom:.1rem solid #01325D;">
+
+                            	<select name="id_bimestre" style="width:38%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" 
+                                onChange="redireccionarActa(value)" required>
+                                	<option value="{SELECT_INICIO}" selected>{VALOR_SELECT_INICIO}</option>              
+                                  	
+                                    <!-- START BLOCK : BIMESTRE -->
+                                    <option value="{NRO_BIMESTRE}">{NOMBRE_BIMESTRE}</option>
+                                    <!-- END BLOCK : BIMESTRE -->
+                                    <option value="{SELECT_FINAL}">{VALOR_SELECT_FINAL}</option>
+                                </select>
+                            </td>
+                        </tr>                        
+                        <tr>
+                        	<td colspan="1" rowspan="2" width="21%" 
+                            style="text-align:left;border-bottom:.1rem solid #01325D;padding-bottom:1rem;padding-left:1rem;padding-top:1rem; font-weight:bolder;">
+                            Fecha de Recepci&oacute;n:</td>                            
+                            <td colspan="3" rowspan="1" width="77%" style="padding:1rem;text-align:left;font-weight:bolder;">
+                            	Desde:&nbsp;<input type="date" name="desde" value="{DESDE}" placeholder="Año-Mes-Dia" style="width:29%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" required/>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td colspan="3" rowspan="1" width="1%" style="padding:1rem;text-align:left;border-bottom:.1rem solid #01325D;font-weight:bolder;">Hasta:&nbsp;<input type="date" name="hasta" value="{HASTA}" placeholder="Año-Mes-Dia" style="width:29%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" required/>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Integrante N&deg;1:
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="vialidad1" value="{INTEGRANTEVIALIDADUNO}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" required/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Integrante N&deg;2:
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="vialidad2" value="{INTEGRANTEVIALIDADDOS}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" required/>
+                            </td>
+                        </tr>
+						<tr>
+                        	<td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Profesi&oacute;n Integrante: (Opcional)
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="profesionvialidad1" value="{PROFESIONINTEGRANTEVIALIDADUNO}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" />
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Profesi&oacute;n Integrante: (Opcional)
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="profesionvialidad2" value="{PROFESIONINTEGRANTEVIALIDADDOS}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;"/>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Departamento Integrante: (Opcional)
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="deptoVialidad1" value="{DEPTOVIALIDADUNO}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;"/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Departamento Integrante: (Opcional)
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="deptoVialidad2" value="{DEPTOVIALIDADDOS}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;"/>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td colspan="1" rowspan="1" width="21%" style="padding:1rem;text-align:left;border-bottom:.1rem solid #01325D;font-weight:bolder;">
+                            	Regi&oacute;n Integrante: 
+                            </td>
+							<td colspan="1" rowspan="1" width="28%;" style="padding:1rem;text-align:left;border-bottom:.1rem solid #01325D;">
+                            	<select name="region1" style="width:97%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" required>
+                                	<option value="{REGION1_INICIO}" selected>{VALOR_REGION1_INICIO}</option>                                	
+                                    <!-- START BLOCK : REGION1 -->
+                                    <option value="{NOMBRE_REGION1}">{VALOR_NOMBRE_REGION1}</option>
+                                    <!-- END BLOCK : REGION1 -->
+                                    <option value="{REGION1_FINAL}">{VALOR_REGION1_FINAL}</option>
+                                </select>
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem;text-align:left;border-bottom:.1rem solid #01325D;font-weight:bolder;">
+                            	Regi&oacute;n Integrante:
+                            </td>
+							<td colspan="1" rowspan="1" width="28%;" style="padding:1rem;text-align:left;border-bottom:.1rem solid #01325D;">
+                            	<select name="region2" style="width:97%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" required>
+                                	<option value="{REGION2_INICIO}" selected>{VALOR_REGION2_INICIO}</option>                                	
+                                    <!-- START BLOCK : REGION2 -->
+                                    <option value="{NOMBRE_REGION2}">{VALOR_NOMBRE_REGION2}</option>
+                                    <!-- END BLOCK : REGION2 -->
+                                    <option value="{REGION2_FINAL}">{VALOR_REGION2_FINAL}</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Inspector Fiscal: 
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="asesoria1" value="{INTEGRANTEASESORIA}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" required/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Representante Empresa:
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="constructora1" value="{INTEGRANTECONSTRUCTORA}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" required/>
+                            </td>
+                        </tr>
+						<tr>
+                        	<td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Profesi&oacute;n Integrante: (Opcional)
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="profesionasesoria1" value="{PROFESIONINTEGRANTEASESORIA}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;"/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Profesi&oacute;n Integrante: (Opcional)
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="profesionconstructora1" value="{PROFESIONINTEGRANTECONSTRUCTORA}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;"/>
+                            </td>
+                        </tr
+                        <tr>
+                        	<td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Cargo Integrante: (Opcional)
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="deptoAsesoria1" value="{DEPARTAMENTOASESORIA}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;"/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Cargo Integrante: (Opcional)
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="cargoConstructora1" value="{CARGOEMPRESACONSTRUCTORA}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;"/>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td colspan="1" rowspan="1" width="21%" style="padding:1rem;text-align:left;border-bottom:.1rem solid #01325D;font-weight:bolder;">
+                            	Regi&oacute;n Integrante:
+                            </td>
+							<td colspan="1" rowspan="1" width="28%;" style="padding:1rem;text-align:left;border-bottom:.1rem solid #01325D;">
+                            	<select name="region3" style="width:97%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" required>
+                                	<option value="{REGION3_INICIO}" selected>{VALOR_REGION3_INICIO}</option>                                	
+                                    <!-- START BLOCK : REGION3 -->
+                                    <option value="{NOMBRE_REGION3}">{VALOR_NOMBRE_REGION3}</option>
+                                    <!-- END BLOCK : REGION3 -->
+                                    <option value="{REGION3_FINAL}">{VALOR_REGION3_FINAL}</option>
+                                </select>
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem;text-align:left;border-bottom:.1rem solid #01325D;font-weight:bolder;">
+                            	Regi&oacute;n Integrante:
+                            </td>
+							<td colspan="1" rowspan="1" width="28%;" style="padding:1rem;text-align:left;border-bottom:.1rem solid #01325D;">
+                            	<select name="region4" style="width:97%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" required>
+                                	<option value="{REGION4_INICIO}" selected>{VALOR_REGION4_INICIO}</option>                                	
+                                    <!-- START BLOCK : REGION4 -->
+                                    <option value="{NOMBRE_REGION4}">{VALOR_NOMBRE_REGION4}</option>
+                                    <!-- END BLOCK : REGION4 -->
+                                    <option value="{REGION4_FINAL}">{VALOR_REGION4_FINAL}</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr id="fila_titulo">
+                        	<td colspan="4" style="padding:1rem;border-bottom:.1rem solid #01325D;">DATOS DEL CONTRATO</td>
+                        </tr>
+                        <tr>
+                        	<td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	Resoluci&oacute;n:
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="resolucion" value="{RESOLUCION}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" placeholder="N° dd-mm-aaaa" readonly="readonly" color="blue"/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Monto Contrato Vigente:
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="montoCttoVigente" value="{MONTOVIGENTE}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" placeholder="Ej. $1.111.111.111.-" readonly="readonly" color="blue"/>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Monto Nivel de Servicio:
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="montoCttoNivelServicio" value="{MONTONIVELSERVICIO}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" placeholder="Ej. $1.111.111.111.-"readonly="readonly" color="blue"/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Resoluci&oacute;n Modificaci&oacute;n: (Opcional)
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="resolucionModificada" value="{RESOLUCIONMODIFICADA}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" placeholder="N° Día-Mes-Año" readonly="readonly" color="blue"/>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Empresa Constructora:
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="contructora" value="{EMPRESACONSTRUCTORA}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" readonly="readonly" color="blue"/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	RUT. Emp. Constructora:
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="rutEmpresaConstructora" value="{RUTCONSTRUCTORA}" placeholder="Ej. 1.111.111-1" onKeyPress="return soloNumero(event, 3);" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" readonly="readonly" color="blue"/>                            	
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Inspector Fiscal:
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="inspectorFiscal" value="{INSPECTORFISCAL}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" readonly="readonly=" color="blue"/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Inicio Legal:
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="date" name="inicioLegal" value="{INICIOLEGAL}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" readonly="readonly" color="blue"/>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Resoluci&oacute;n de Recepci&oacute;n: (Opcional)
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="resolucionRecepcion" value="{RESOLRECEPCION}" placeholder="N° Día-Mes-Año" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;"/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                            	Memor&aacute;ndum N&deg;: (Opcional)
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                            	<input type="text" name="memorandum" value="{MEMORANDUMN}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;"/>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 1rem 1rem;text-align:left;font-weight:bolder;">
+                            	Fecha Memorandum: (Opcional)
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 1rem 1rem;text-align:left;">
+                            	<input type="date" name="fechaMemorandum" value="{FECHAMEMORANDUM}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;"/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 1rem 1rem;text-align:left;font-weight:bolder;">
+                            	Otros Puntos: (Opcional)
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 1rem 1rem;text-align:left;">
+                            	<textarea name="otrosPuntos" rows="5" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;">{OTROSPUNTOS}</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                        	<td colspan="4" rowspan="1" style="padding:3rem;">
+                        		<input type="submit" name="enviar" value="INGRESAR ACTA" id="boton_envio"/>                  
+                            </td>                   		
+                        </tr>
+            		</table>                	
+                    <input type="hidden" name="cargador" value="1"/>
+            	</form>       
+            </article>
+        </section>
+        <footer></footer>
+        <script src="JS/funciones.js"></script>
+    </body>
+</html>
+  

@@ -1,0 +1,977 @@
+<html><head><title>TemplatePower Manual</title><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head><body bgcolor="#FFFFFF"><a name="top">&nbsp;</a><a name="index"></a><font face="Verdana, Arial, Helvetica, sans-serif"> 
+<h3>TemplatePower manual</h3>
+<!-- start -->
+<font size="2"> CopyRights &copy; 2001, 2002 Ron P.J. Velzeboer<br>
+<hr size="1" width="400" noshade align="left">
+<ol>
+  <li><b>Introduction</b><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#introduction">What is TemplatePower?</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#introduction">What can TemplatePower do?</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#introduction">Why should you use TemplatePower?</a><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;<a href="#introduction">Requirements</a><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;<a href="#introduction">GNU General Public License</a><br>	
+  <li><b><a href="#templateformat">Templateformat</a></b> 
+  <li><a href="#TemplatePower"><b>TemplatePower object</b></a> 
+  <li><b>Functions</b><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#assign">assign</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#assignGlobal">assignGlobal</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#assignInclude">assignInclude</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#getOutputContent">getOutputContent</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#getVarValue">getVarValue</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#gotoBlock">gotoBlock</a><br>	
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#newBlock">newBlock</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#prepare">prepare</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#printToScreen">printToScreen</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#serializedBase">serializedBase</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#showUnAssigned">showUnAssigned</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#version">version</a><br>	
+</ol>
+</font> 
+<!-- end -->
+</font><p><a href="#index">Index</a></p><a name="introduction"></a><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+<!-- start -->
+<h3><a name="witp"><font color="#000099">What is TemplatePower?</font></a></h3>
+TemplatePower offers you the ability to separate your PHP code and your (HTML) 
+layoutfile. It's simular to the popular template class FastTemplate, but than 
+a lot faster (about 6x faster). <br>
+<br>
+<h3><a name="wctpd"><font color="#000099">What can TemplatePower do?</font></a></h3>
+<b>TemplatePower</b> 1.6.2 supports the following:<br>
+<br>
+- nested dynamic block support.<br>
+- block / file include support (note: PHP code will NOT be executed, use v2.0).<br>
+- show / hide unassigned variables.<br>
+<br>
+<b>TemplatePower 2.0 includes extra:</b><br>
+- ingore tag.<br>
+- PHP-file include tag, this code will be executed.<br>
+- global assign of variable<br>
+- multiple variable assign in one assign statement, using an associative array.<br>
+- save / use parsed template on / from disk.<br>
+- reuse tag (test state).<br>
+<br>
+<b>TemplatePower 3.0 includes extra</b><br>
+- database template support.<br>
+<br>
+<h3><a name="wutp"><font color="#000099">Why should you use TemplatePower?</font></a></h3>
+First of all, its free for personal use (<a href="#gnu">General Public License</a>)! 
+<br>
+<br>
+The reason that I developed TemplatePower was that FastTemplate wasn't so easy 
+to use (that's my opinion). At least it could be done easier, that's why I called 
+it EasyTemplate first, but that name was already in use I noticed later. So, i 
+changed the name into TemplatePower. I hope you agree with me, that TemplatePower 
+is easier in use than FastTemplate. And as I wrote above TemplatePower is a lot 
+faster than FastTemplate. These are probably the most important reasons why you 
+should use TemplatePower instead of FastTemplate.<br>
+<br>
+If you find a bug(s) please fill in the bugreport which you can find <a href="../bug.php">here</a>. 
+<br>
+<br>
+<h3><a name="rqm"><font color="#000099">Requirements</font></a></h3>
+TemplatePower requires PHP 4.0.1 or higher and runs on windows and unix-based 
+systems. <br>
+<br>
+<h3><a name="gnu"><font color="#000099">GNU General Public License</font></a></h3>
+TemplatePower is released under the <a href="http://www.gnu.org/copyleft/gpl.html" target="_blank">GNU 
+General Public License</a>. If you want to sell an application/site where TemplatePower is a part of, you can buy a special 'Certificate of Distribution'. This certificate allows you to sell a number (minimum quantity of five) of applications/sites with TemplatePower. It will cost (number x EUR 10) + EUR 5.00 (for administration costs). If you use TemplatePower for commercial purposes without a 'Certificate of Distribution' you will risk a fine of EUR 1000 + license costs. 
+<!-- end -->
+</font> <p><a href="#index">Index</a></p><a name="templateformat"></a><font face="Verdana, Arial, Helvetica, sans-serif"> 
+<h3><font color="#000099">TemplateFormat</font></h3>
+<font size="2"> </font> <br>
+<h4><font color="#000099">Main template markers/tags</font></h4>
+<h5>Variables</h5>
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <font size="3"> 
+      <!-- START SCRIPTCODE -->
+      <PRE>{variablename}</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+<font size="2"> Like most other template system TemplatePower uses {variablename} 
+as a marker for some value. The <i>variablename</i> must be either a nonnegative 
+integer or a string. However this string may not contain a curly bracket (<b> 
+{</b> ) or a white space. This means that variablemarkers like {-1}, {a{name} 
+or {a name} are not allowed.<br>
+<br>
+<font face="Verdana, Arial, Helvetica, sans-serif"><font size="2">In your controllscript 
+you can assign the variable with the function <a href="#assign">assign()</a>. 
+All variable markers, inside a block, with the same name will be seen as one variable. 
+So, you only have to assign them once.</font></font> <br>
+<br>
+</font> 
+<h5>Dynamic blocks</h5>
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <font size="3"> 
+      <!-- START SCRIPTCODE -->
+      <PRE>&lt;!-- START BLOCK : blockname --&gt;
+
+&lt;!-- END BLOCK : blockname --&gt;</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+<font size="2"> You can use <i>dynamic blocks</i>, for example, when you want 
+to create a table with products with on each row a productnumber, productname 
+and price. Just place the rowcode between the above start/end markers. These markers 
+<u>must</u> be on a separate line each, in order to work properly. The <i>blockname</i> 
+must be either a nonnegative integer or a string. However this string may not 
+contain a dot (<b>.</b>).<br>
+<br>
+In your controllscript you can use these blocks with the function <a href="#newBlock">newBlock()</a>.<br>
+<br>
+Blocks can also be used to hide or show information. If you have defined a block 
+in your template but you don't create it with the function <a href="#newBlock">newBlock()</a>, 
+the blockcode will be hidden. This is handy to show/hide errormessages for example. 
+<h5>Include blocks</h5>
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <font size="3"> 
+      <!-- START SCRIPTCODE -->
+      <PRE>&lt;!-- INCLUDE BLOCK : iblockname --&gt;
+</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+With include blocks you can include files like subtemplates (the templatecode 
+itself, no objects), HTML, etc. However, if you include a PHP-file, the PHP-code 
+will not be executed. Including PHP-files is possible using the includescript 
+block tag, see the TemplatePower v2.0+ template tag section below. This marker 
+<u>must</u> be on a separate line, in order to work properly. The <i>iblockname</i> 
+must be either a nonnegative integer or a string. However this string may not 
+contain a dot (<b>.</b>).<br>
+<br>
+In your controllscript you can assign files to <i>iblockname</i> with the function 
+<a href="#assignInclude">assignInclude()</a>.<br>
+<br>
+In TemplatePower v3.0+ it's also possible to create a constant include block.<br>
+<br>
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <font size="3"> 
+      <!-- START SCRIPTCODE -->
+      <PRE>&lt;!-- INCLUDE BLOCK : ./header.tpl --&gt;
+</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+<h4><font color="#000099">TemplatePower v2.0+ template tags</font></h4>
+<h5>Includescript blocks</h5>
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <font size="3"> 
+      <!-- START SCRIPTCODE -->
+      <PRE>&lt;!-- INCLUDESCRIPT BLOCK : iblockname --&gt;
+</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+With the includescript block tag you can insert a PHP-file, the code will be executed. 
+This marker <u>must</u> be on a separate line, in order to work properly. The 
+<i>iblockname</i> must be either a nonnegative integer or a string. However this 
+string may not contain a dot (<b>.</b>).<br>
+<br>
+In your controllscript you can assign files to <i>iblockname</i> with the function 
+<a href="#assignInclude">assignInclude()</a>. <br>
+<br>
+Like with the include block tag, it's also possible to create a constant includescript 
+block. This feature is supported by TemplatePower v3.0 or higher.<br>
+<br>
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <font size="3"> 
+      <!-- START SCRIPTCODE -->
+      <PRE>&lt;!-- INCLUDESCRIPT BLOCK : ./header.php --&gt;
+</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+<h5>Ignore block</h5>
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <font size="3"> 
+      <!-- START SCRIPTCODE -->
+      <PRE>&lt;!-- START IGNORE --&gt;
+	  
+&lt;!-- END IGNORE --&gt;
+</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+If you place any code between the start/end ignore tag, this code will just be 
+parsed as code. This means that no variable or block will be processed in this 
+code. These markers <u>must</u> be on a separate line each, in order to work properly.<br>
+<br>
+<h5>ReUse block</h5>
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <font size="3"> 
+      <!-- START SCRIPTCODE -->
+      <PRE>&lt;!-- REUSE BLOCK : orig_bname AS copy_bname --&gt;</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+With the reuse tag you can reuse an other block and give it a different blockname. 
+This feature is not totally bug-proof. The reuse tag will only work properly when 
+the block you want to reuse has <u>no</u> child block(s).<br>
+<br>
+The copyblockname must be either a nonnegative integer or a string. However this 
+string may not contain a dot (<b>.</b>). <br>
+<br>
+<br>
+<h4><font color="#000099">Database templates</font></h4>
+Database Templates have to be stored in the same format as normal templates. So, 
+the Carriage Return (cr) and Line Feed (lf) must be stored in the database as 
+well.</font> </font><p><a href="#index">Index</a></p><a name="TemplatePower"></a><font face="Verdana, Arial, Helvetica, sans-serif"> 
+<h3><font color="#000099">TemplatePower object</font></h3>
+<font size="2">(unknown)<br>
+<br>
+Create a new TemplatePower object.</font><br>
+<h3><font color="#000099">Description</font></h3>
+<font size="2">object TemplatePower ( string <i>basefile/content</i>, [const 
+<i>type</i>] )<br>
+<br>
+The default value of the parameter <i>type</i> is the constant <i>T_BYFILE</i>, 
+in case the first parameter is a filename. If the first parameter for example 
+is a variable with the content of a template, <i>type</i> should be set to <i>T_BYVAR</i>. 
+<br><br>
+<br>
+<font color="#999999"> 
+<hr width=120 heigth=1 noshade size="1" align="left">
+</font>
+See also: <a href="#assignInclude">assignInclude()</a>. 
+</font> <br>
+<br>
+<h5>Examples of TemplatePower v3.0+ objects.</h5>
+
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2">
+      <font size="3"> 
+      <!-- START SCRIPTCODE -->
+ <PRE>//create a new TemplatePower object using a file<br><FONT COLOR="#000000">
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000"> = <B>new</B> TemplatePower( </FONT><FONT COLOR="#0000FF">&quot;./base.tpl&quot;</FONT><FONT COLOR="#000000"> );</FONT>
+<FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000"> = <B>new</B> TemplatePower( </FONT><FONT COLOR="#0000FF">&quot;./base.tpl&quot;</FONT><FONT COLOR="#000000">, T_BYFILE );
+
+
+</FONT>//create a new TemplatePower object using a variable
+
+<FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000"> = <B>new</B> TemplatePower( </FONT><FONT COLOR="#800080">$base_content</FONT><FONT COLOR="#000000">, T_BYVAR );
+</FONT>
+
+//create a new TemplatePower object using a 
+//serialized template
+
+<FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000"> = <B>new</B> TemplatePower( </FONT><FONT COLOR="#800080">$base_content</FONT><FONT COLOR="#000000"> );</FONT>
+<FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">->serializedBase();
+</FONT>
+</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br><br>
+<font size="2"> In version 1.6.2 of TemplatePower there was only one parameter, 
+this was <i>basefile</i>. In version 2.0 there was a second parameter added, to 
+tell if <i>basefile</i> was a serialized template. In version 3.0+ this is done 
+different, using the function <a href="#serializedBase">serializedBase()</a>. 
+<h5>Examples of TemplatePower v2.0 objects.</h5>
+
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2">
+      <font size="3"> 
+      <!-- START SCRIPTCODE -->
+ <PRE>//create a new TemplatePower object using a file<br><FONT COLOR="#000000">
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000"> = <B>new</B> TemplatePower( </FONT><FONT COLOR="#0000FF">&quot;./base.tpl&quot;</FONT><FONT COLOR="#000000"> );
+
+
+</FONT>//create a new TemplatePower object using a 
+//serialized template
+
+<FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000"> = <B>new</B> TemplatePower( </FONT><FONT COLOR="#0000FF">&quot;./base.stpl&quot;</FONT><FONT COLOR="#000000">, true );
+</FONT>
+</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+</font>
+
+</font><p><a href="#index">Index</a></p><a name="assign"></a><font face="Verdana, Arial, Helvetica, sans-serif"> 
+<h3><font color="#000099">assign</font></h3>
+<font size="2">Assign a value to a variable.</font><br>
+<h3><font color="#000099">Description</font></h3>
+<font size="2">assign ( string <i>[blockname.]variablename</i>, mixed <i>value</i> 
+)<br>
+assign ( Array( <i>[blockname.]variablename</i> => <i>value</i> ) )<br>
+<br>
+The default value of <i>value</i> is ''. <br>
+<br>
+<br>
+<font color="#999999"> 
+<hr width=120 heigth=1 noshade size="1" align="left">
+</font> See also: <a href="#assignGlobal">assignGlobal()</a>, 
+<a href="#getVarValue"> getVarValue()</a>, and <a href="#showUnAssigned"> 
+showUnAssigned()</a>. </font><br>
+<br>
+<h5>Example 1.</h5>
+<table border="0" cellspacing="0" cellpadding="4" width="400">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <b>simple.tpl</b> 
+      <hr noshade size="1">
+      <!-- START SCRIPTCODE -->
+      &lt;html&gt;<br>
+      &lt;head&gt;<br>
+      &nbsp;&nbsp;&lt;title&gt;Simple Template Example&lt;/title&gt;<br>
+      &lt;/head&gt;<BR>
+      &lt;body&gt;<br>
+      &nbsp;&nbsp;&lt;H2&gt;Welcome <b>{name}</b>!&lt;/H2&gt;<br>
+      &lt;/body&gt;<br>
+      &lt;/html&gt; 
+      <!-- END SCRIPTCODE -->
+      </font> </td>
+  </tr>
+</table>
+<br>
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <b>myscript.php</b> 
+      <hr noshade size="1">
+      <font size="3"> 
+      <!-- START SCRIPTCODE -->
+      <PRE>
+<FONT COLOR="#FF0000"><B>&lt;?php</B></FONT><FONT COLOR="#000000">
+<B>include_once</B>( </FONT><FONT COLOR="#0000FF">&quot;./class.TemplatePower.inc.php&quot;</FONT><FONT COLOR="#000000"> );
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000"> = <B>new</B> TemplatePower( </FONT><FONT COLOR="#0000FF">&quot;./simple.tpl&quot;</FONT><FONT COLOR="#000000"> );
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;prepare();
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assign( </FONT><FONT COLOR="#0000FF">&quot;name&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#0000FF">&quot;Ron&quot;</FONT><FONT COLOR="#000000"> );
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;printToScreen();
+</FONT><FONT COLOR="#FF0000"><B>?&gt;</B></FONT>
+</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+<h5>Examples of the assign function</h5>
+<table border="0" cellspacing="0" cellpadding="4" width="400">
+  <tr> 
+    <td bgcolor="#E8E8E8"> 
+      <PRE>
+<FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assign( </FONT><FONT COLOR="#0000FF">&quot;name&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#0000FF">&quot;Ron&quot;</FONT><FONT COLOR="#000000"> );</FONT>
+<FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assign( </FONT><FONT COLOR="#000080">Array</FONT><FONT COLOR="#000000">( product_id  =&gt; </FONT><FONT COLOR="#800080">$pid</FONT><FONT COLOR="#000000">,
+                     productname =&gt; </FONT><FONT COLOR="#800080">$pname</FONT><FONT COLOR="#000000"> ));
+
+</FONT></PRE>
+    </td>
+  </tr>
+</table>
+<br>
+<h4><a name="vab">Variables and Blocks</a></h4>
+<font size="2"> Each variable is a child of a parent block. Even in example 1, 
+where no block is defined, the variable <i>name</i> has a parent block. The parent 
+block of <i>name</i> is <i>_ROOT</i>, this is the default block if a variable 
+has no user-defined parent-block.<br>
+<br>
+Variables can also be defined together with the parent-blockname, in the format 
+of 'blockname<b>.</b>variablename'.<br>
+<br>
+<table border="0" cellspacing="0" cellpadding="4" width="400">
+  <tr> 
+    <td bgcolor="#E8E8E8"> 
+      <PRE><FONT FACE="Courier New"><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assign( </FONT><FONT COLOR="#0000FF">&quot;_ROOT.name&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#0000FF">&quot;Ron&quot;</FONT><FONT COLOR="#000000"> );</FONT>
+<FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assign( </FONT><FONT COLOR="#0000FF">&quot;book.title&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#0000FF">&quot;Core PHP Programming&quot;</FONT><FONT COLOR="#000000"> );</FONT></font>
+
+</PRE>
+    </td>
+  </tr>
+</table>
+<br>
+</font> </font> <p><a href="#index">Index</a></p><a name="assignGlobal"></a><font face="Verdana, Arial, Helvetica, sans-serif"> 
+<h3><font color="#000099">assignGlobal</font></h3>
+<font size="2">(TP 2.0+)<br>
+<br>
+Assign a value to all variables with a specific name.</font><br>
+<h3><font color="#000099">Description</font></h3>
+<font size="2">
+assignGlobal ( string <i>variablename</i>, mixed <i>value</i> )<br>
+assignGlobal ( array( <i>variablename</i> => <i>value</i> ) )<br>
+<br><br>
+The function assignGlobal() gives a default value to all variables, even in child 
+blocks, with a specific name. This default value can be replaced in each block, 
+which has a that variable, with the function <a href="#assign">assign()</a>. 
+</font> <br>
+<h5>Example 1.</h5>
+<table border="0" cellspacing="0" cellpadding="4" width="400">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <b>img.tpl</b> 
+      <hr noshade size="1">
+      <!-- START SCRIPTCODE -->
+      &lt;html&gt;<br>
+      &lt;head&gt;<br>
+      &nbsp;&nbsp;&lt;title&gt;AssignGlobal Example&lt;/title&gt;<br>
+      &lt;/head&gt;<BR>
+      &lt;body&gt;<br>
+      &nbsp;&nbsp;&lt;img src=&quot;<b>{imagedir}</b>/logo.gif&quot;&gt;<br>
+      <br>
+      &nbsp;&nbsp;&lt;!-- START BLOCK : image --&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src=&quot;<b>{imagedir}</b>/img_<b>{id}</b>.gif&quot;&gt;<br>
+      &nbsp;&nbsp;&lt;!-- END BLOCK : image --&gt;<br>
+      &lt;/body&gt;<br>
+      &lt;/html&gt; 
+      <!-- END SCRIPTCODE -->
+      </font> </td>
+  </tr>
+</table>
+<br>
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <b>myscript.php</b> 
+      <hr noshade size="1">
+      <font size="3"> 
+      <!-- START SCRIPTCODE -->
+      <PRE><FONT COLOR="#FF0000"><B>&lt;?php</B></FONT><FONT COLOR="#000000">
+<B>include_once</B>( </FONT><FONT COLOR="#0000FF">&quot;./class.TemplatePower.inc.php&quot;</FONT><FONT COLOR="#000000"> );
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000"> = <B>new</B> TemplatePower( </FONT><FONT COLOR="#0000FF">&quot;./img.tpl&quot;</FONT><FONT COLOR="#000000"> );</FONT>
+<FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;prepare();
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assignGlobal( </FONT><FONT COLOR="#0000FF">&quot;imagedir&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#0000FF">&quot;images&quot;</FONT><FONT COLOR="#000000">);
+
+<B>for</B> ( </FONT><FONT COLOR="#800080">$i</FONT><FONT COLOR="#000000">=</FONT><FONT COLOR="#FF0000">1</FONT><FONT COLOR="#000000">; </FONT><FONT COLOR="#800080">$i</FONT><FONT COLOR="#000000">&lt;=</FONT><FONT COLOR="#FF0000">10</FONT><FONT COLOR="#000000">; </FONT><FONT COLOR="#800080">$i</FONT><FONT COLOR="#000000">++ )
+{
+    </FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;newBlock( </FONT><FONT COLOR="#0000FF">&quot;image&quot;</FONT><FONT COLOR="#000000"> );
+    </FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assign( </FONT><FONT COLOR="#0000FF">&quot;id&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#800080">$i</FONT><FONT COLOR="#000000"> );
+}
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;printToScreen();
+</FONT><FONT COLOR="#FF0000"><B>?&gt;</b></FONT></PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+<h5>Examples of the assignGlobal function</h5>
+<table border="0" cellspacing="0" cellpadding="4" width="550">
+  <tr> 
+    <td bgcolor="#E8E8E8"><font face="Courier New, Courier, mono" size="3">
+<!-- START SCRIPTCODE -->
+      <PRE><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assignGlobal( </FONT><FONT COLOR="#0000FF">&quot;basedir&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#0000FF">&quot;/usr/local/apache/www/&quot;</FONT><FONT COLOR="#000000">);</FONT>
+<FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assignGlobal( </FONT><FONT COLOR="#000080">Array</FONT><FONT COLOR="#000000">( basedir  =&gt; </FONT><FONT COLOR="#0000FF">&quot;/usr/local/apache/www/&quot;</FONT><FONT COLOR="#000000">,
+                           imagedir =&gt; </FONT><FONT COLOR="#0000FF">&quot;images/&quot;</FONT><FONT COLOR="#000000"> ));
+
+</FONT>
+</PRE>
+<!-- END SCRIPTCODE -->
+     </font>
+	</td>
+  </tr>
+</table>
+</font>
+<p><a href="#index">Index</a></p><a name="assignInclude"></a><font face="Verdana, Arial, Helvetica, sans-serif"> 
+<h3><font color="#000099">assignInclude</font></h3>
+<font size="2">(TP 2.0+)<br>
+<br>
+Tell which file/content to include.</font><br>
+<h3><font color="#000099">Description</font></h3>
+<font size="2"> assignInclude ( string <i>includename</i>, string <i>filename/content</i>, 
+[const <i>type</i>] )<br>
+<br>
+<br>
+The default value of the parameter <i>type</i> is the constant <i>T_BYFILE</i>, 
+in case the second parameter is a filename. If the second parameter for example 
+is a variable with the content of a template, <i>type</i> should be set to <i>T_BYVAR</i>.<br>
+</font> 
+<h5>Example 1.</h5>
+<table border="0" cellspacing="0" cellpadding="4" width="400">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <b>include.tpl</b> 
+      <hr noshade size="1">
+      <!-- START SCRIPTCODE -->
+      &lt;html&gt;<br>
+      &lt;head&gt;<br>
+      &nbsp;&nbsp;&lt;title&gt;AssignInclude Example&lt;/title&gt;<br>
+      &lt;/head&gt;<BR>
+      &lt;body&gt;<br>
+      &nbsp;&nbsp;&lt;!-- INCLUDE BLOCK : header --&gt;<br>
+      <br>
+      &nbsp;&nbsp;&lt;!-- INCLUDESCRIPT BLOCK : content --&gt;<br>
+      &lt;/body&gt;<br>
+      &lt;/html&gt; 
+      <!-- END SCRIPTCODE -->
+      </font> </td>
+  </tr>
+</table>
+<br>
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <b>myscript.php</b> 
+      <hr noshade size="1">
+      <font size="3"> 
+      <!-- START SCRIPTCODE -->
+      <PRE><FONT COLOR="#FF0000"><B>&lt;?php</B></FONT><FONT COLOR="#000000">
+<B>include_once</B>( </FONT><FONT COLOR="#0000FF">&quot;./class.TemplatePower.inc.php&quot;</FONT><FONT COLOR="#000000"> );
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000"> = <B>new</B> TemplatePower( </FONT><FONT COLOR="#0000FF">&quot;./include.tpl&quot;</FONT><FONT COLOR="#000000"> );</FONT>
+<FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assignInclude( </FONT><FONT COLOR="#0000FF">&quot;header&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#0000FF">&quot;./header.tpl&quot;</FONT><FONT COLOR="#000000"> );</FONT>
+<FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assignInclude( </FONT><FONT COLOR="#0000FF">&quot;content&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#0000FF">&quot;./about.php&quot;</FONT><FONT COLOR="#000000"> );</FONT>
+<FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;prepare();
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;printToScreen();
+</FONT><FONT COLOR="#FF0000"><B>?&gt;</b></FONT>
+</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+<br>
+<h5>Examples of the assignInclude function</h5>
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"><font face="Courier New, Courier, mono" size="3"> 
+      <!-- START SCRIPTCODE -->
+      <PRE>
+<FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assignInclude( </FONT><FONT COLOR="#0000FF">&quot;header&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#0000FF">&quot;./header.tpl&quot;</FONT><FONT COLOR="#000000"> );</FONT>
+<FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assignInclude( </FONT><FONT COLOR="#0000FF">&quot;content&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#800080">$content</FONT><FONT COLOR="#000000">, T_BYVAR );</font>
+</PRE>
+      <!-- END SCRIPTCODE -->
+      </font> </td>
+  </tr>
+</table>
+<br>
+<br>
+<h5>Example 2. &nbsp;Database Templates</h5>
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"><font face="Courier New, Courier, mono" size="3"> 
+      <!-- START SCRIPTCODE -->
+      <PRE><FONT FACE="Courier New">
+</FONT><FONT COLOR="#FF0000"><B>&lt;?php</b></FONT><B><FONT COLOR="#000000"></font></B><FONT COLOR="#000000">
+  <B>include</B>( </FONT><FONT COLOR="#0000FF">&quot;./class.TemplatePower.inc.php&quot;</FONT><FONT COLOR="#000000">);
+
+ </FONT><FONT COLOR="#C0C0C0">//connect to database</FONT>
+ <FONT COLOR="#000000">  </FONT><FONT COLOR="#800080">$link</FONT><FONT COLOR="#000000"> = </FONT><FONT COLOR="#000080">mysql_connect</FONT><FONT COLOR="#000000">(</FONT><FONT COLOR="#0000FF">&quot;host&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#0000FF">&quot;user&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#0000FF">&quot;passwd&quot;</FONT><FONT COLOR="#000000">)
+              <B>or</B> </FONT><FONT COLOR="#000080">die</FONT><FONT COLOR="#000000">(</FONT><FONT COLOR="#0000FF">&quot;Could not connect&quot;</FONT><FONT COLOR="#000000">);
+&nbsp;&nbsp;&nbsp;  
+  </FONT><FONT COLOR="#000080">mysql_select_db</FONT><FONT COLOR="#000000">(</FONT><FONT COLOR="#0000FF">&quot;my_database&quot;</FONT><FONT COLOR="#000000">) 
+      <B>or</B> </FONT><FONT COLOR="#000080">die</FONT><FONT COLOR="#000000">(</FONT><FONT COLOR="#0000FF">&quot;Could not select database&quot;</FONT><FONT COLOR="#000000">);  
+
+ </FONT><FONT COLOR="#C0C0C0">//get database templates</FONT>
+ <FONT COLOR="#000000">  </FONT><FONT COLOR="#800080">$qry</FONT><FONT COLOR="#000000"> = </FONT><FONT COLOR="#0000FF">&quot;SELECT base, header FROM templates&quot;</FONT><FONT COLOR="#000000">;
+
+  </FONT><FONT COLOR="#800080">$result</FONT><FONT COLOR="#000000"> = </FONT><FONT COLOR="#000080">mysql_query</FONT><FONT COLOR="#000000">(</FONT><FONT COLOR="#800080">$qry</FONT><FONT COLOR="#000000">);
+  
+  <B>if</B>( </FONT><FONT COLOR="#000080">mysql_num_rows</FONT><FONT COLOR="#000000">(</FONT><FONT COLOR="#800080">$result</FONT><FONT COLOR="#000000">) &gt; </FONT><FONT COLOR="#FF0000">0</FONT><FONT COLOR="#000000">)
+  {
+      </FONT><FONT COLOR="#000080">list</FONT><FONT COLOR="#000000">(</FONT><FONT COLOR="#800080">$base</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#800080">$header</FONT><FONT COLOR="#000000">) = </FONT><FONT COLOR="#000080">mysql_fetch_row</FONT><FONT COLOR="#000000">(</FONT><FONT COLOR="#800080">$result</FONT><FONT COLOR="#000000">);
+  }
+ 
+ </FONT><FONT COLOR="#C0C0C0">//make a new TemplatePower object</FONT>
+ <FONT COLOR="#800080"> $tpl</FONT><FONT COLOR="#000000"> = <B>new</B> TemplatePower( </FONT><FONT COLOR="#800080">$base</FONT><FONT COLOR="#000000">, T_BYVAR );
+
+ </FONT><FONT COLOR="#C0C0C0">//assign include template by variable</FONT>
+ <FONT COLOR="#800080"> $tpl</FONT><FONT COLOR="#000000">-&gt;assignInclude( </FONT><FONT COLOR="#0000FF">&quot;header&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#800080">$header</FONT><FONT COLOR="#000000">, T_BYVAR );
+  </FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;prepare();
+
+ </FONT><FONT COLOR="#C0C0C0">//print the result</FONT>
+ <FONT COLOR="#800080"> $tpl</FONT><FONT COLOR="#000000">-&gt;printToScreen();</FONT>
+ <FONT COLOR="#FF0000"><B>?&gt;</b></font></PRE>
+      <!-- END SCRIPTCODE -->
+      </font> </td>
+  </tr>
+</table>
+</font> <p><a href="#index">Index</a></p><a name="getOutputContent"></a><font face="Verdana, Arial, Helvetica, sans-serif"> 
+<h3><font color="#000099">getOutputContent</font></h3>
+<font size="2">(unknown)<br>
+<br>
+Returns a string with all templatedata, equal to the output of the printToScreen 
+function.</font><br>
+<h3><font color="#000099">Description</font></h3>
+<font size="2"> getOutputContent ()<br>
+<br>
+<br>
+</font> 
+</font>
+<p><a href="#index">Index</a></p><a name="getVarValue"></a><font face="Verdana, Arial, Helvetica, sans-serif"> 
+<h3><font color="#000099">getVarValue</font></h3>
+<font size="2">(unknown)<br>
+<br>
+Returns the value of a variable.</font><br>
+<h3><font color="#000099">Description</font></h3>
+<font size="2"> getVarValue ( string <i>[blockname.]variablename</i> )<br>
+<br><br>
+<b>Note:</b> You are only able to retreive the value of the last instance of a 
+variable. This means that if you have a repeating block, you can only retreive 
+the the variablevalues of the last created block.<br>
+</font>
+<h5>Example 1.</h5>
+<table border="0" cellspacing="0" cellpadding="4" width="400">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <b>number.tpl</b> 
+      <hr noshade size="1">
+      <!-- START SCRIPTCODE -->
+      &lt;html&gt;<br>
+      &lt;head&gt;<br>
+      &nbsp;&nbsp;&lt;title&gt;AssignInclude Example&lt;/title&gt;<br>
+      &lt;/head&gt;<BR>
+      &lt;body&gt;<br>
+      &nbsp;&nbsp;&lt;!-- START BLOCK : number --&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;{number}<br>
+      &nbsp;&nbsp;&lt;!-- END BLOCK : number --&gt;<br>
+	  &nbsp;&nbsp;{total}
+      <br>
+      &lt;/body&gt;<br>
+      &lt;/html&gt; 
+      <!-- END SCRIPTCODE -->
+      </font> </td>
+  </tr>
+</table>
+<br>
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <b>myscript.php</b> 
+      <hr noshade size="1">
+      <font size="3"> 
+      <!-- START SCRIPTCODE -->
+      <PRE><FONT COLOR="#FF0000"><B>&lt;?php</B></FONT><FONT COLOR="#000000">
+<B>include_once</B>( </FONT><FONT COLOR="#0000FF">&quot;./class.TemplatePower.inc.php&quot;</FONT><FONT COLOR="#000000"> );
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000"> = <B>new</B> TemplatePower( </FONT><FONT COLOR="#0000FF">&quot;./number.tpl&quot;</FONT><FONT COLOR="#000000"> );
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;prepare();
+
+<B>for</B>( </FONT><FONT COLOR="#800080">$i</FONT><FONT COLOR="#000000">=</FONT><FONT COLOR="#FF0000">1</FONT><FONT COLOR="#000000">; </FONT><FONT COLOR="#800080">$i</FONT><FONT COLOR="#000000"> &lt;= </FONT><FONT COLOR="#FF0000">10</FONT><FONT COLOR="#000000">; </FONT><FONT COLOR="#800080">$i</FONT><FONT COLOR="#000000">++ )
+{
+ </FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;newBlock( </FONT><FONT COLOR="#0000FF">&quot;number&quot;</FONT><FONT COLOR="#000000"> );
+ 
+&nbsp;</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assign( </FONT><FONT COLOR="#0000FF">&quot;number&quot;     </FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#800080">$i</FONT><FONT COLOR="#000000"> );
+&nbsp;</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assign( </FONT><FONT COLOR="#0000FF">&quot;_ROOT.total&quot;</FONT><FONT COLOR="#000000">, (</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;getVarValue( </FONT><FONT COLOR="#0000FF">&quot;_ROOT.total&quot;</FONT><FONT COLOR="#000000"> ) + </FONT><FONT COLOR="#800080">$i</FONT><FONT COLOR="#000000">) );
+}
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;printToScreen();
+</FONT><FONT COLOR="#FF0000"><B>?&gt;</b></FONT>
+</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+</font>
+<p><a href="#index">Index</a></p><a name="gotoBlock"></a><font face="Verdana, Arial, Helvetica, sans-serif"> 
+<h3><font color="#000099">gotoBlock</font></h3>
+<font size="2">(unknown)<br>
+<br>
+Move the 'blockpointer' to a block, to make it the currentblock.</font><br>
+<h3><font color="#000099">Description</font></h3>
+<font size="2"> gotoBlock ( string <i>blockname</i> )<br>
+<br>
+The function gotoBlock() moves the 'blockpointer' to the block <i>blockname</i>, 
+to make it the currentblock. This is useful when you want to return to a previously 
+made block and assign its variables.</font> <br>
+<h5>Example 1.</h5>
+<table border="0" cellspacing="0" cellpadding="4" width="400">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <b>newBlock.tpl</b> 
+      <hr noshade size="1">
+      <font size="3"> 	  
+      <!-- START SCRIPTCODE -->
+       
+      <PRE><font color="#000000">&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;NewBlock&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;table&gt;
+  &lt;tr&gt;&lt;td&gt;Names&lt;/td&gt;&lt;/tr&gt;
+  <b>&lt;!-- START BLOCK : name_row --&gt;</b>
+  &lt;tr&gt;
+    &lt;td&gt;<b>{name}</b>&lt;/td&gt;
+  &lt;/tr&gt;
+  <b>&lt;!-- END BLOCK : name_row --&gt;</b>&nbsp;
+&lt;/table&gt;
+&lt;br&gt;
+<b>{total_names}</b>
+&lt;/body&gt;
+&lt;/html&gt;      </font>
+</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <b>myscript.php</b> 
+      <hr noshade size="1">
+      <font size="3"> 
+      <!-- START SCRIPTCODE -->
+      <PRE><FONT COLOR="#FF0000"><B>&lt;?php</B></FONT><FONT COLOR="#000000">
+<B>include_once</B>( </FONT><FONT COLOR="#0000FF">&quot;./class.TemplatePower.inc.php&quot;</FONT><FONT COLOR="#000000"> );
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000"> = <B>new</B> TemplatePower( </FONT><FONT COLOR="#0000FF">&quot;./newBlock.tpl&quot;</FONT><FONT COLOR="#000000"> );
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;prepare();
+
+</FONT><FONT COLOR="#800080">$count</FONT><FONT COLOR="#000000"> = </FONT><FONT COLOR="#FF0000">0</FONT><FONT COLOR="#000000">;
+
+<B>while</B>( </FONT><FONT COLOR="#800080">$count</FONT><FONT COLOR="#000000"> &lt; </FONT><FONT COLOR="#FF0000">10</FONT><FONT COLOR="#000000"> )
+{
+    </FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;newBlock( </FONT><FONT COLOR="#0000FF">&quot;name_row&quot;</FONT><FONT COLOR="#000000"> );
+    </FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assign( </FONT><FONT COLOR="#0000FF">&quot;name&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#0000FF">&quot;Ron&quot;</FONT><FONT COLOR="#000000"> );
+&nbsp;
+&nbsp;</FONT><FONT COLOR="#800080">   $count</FONT><FONT COLOR="#000000">++;
+}
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;gotoBlock( </FONT><FONT COLOR="#0000FF">&quot;_ROOT&quot;</FONT><FONT COLOR="#000000"> );
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assign( </FONT><FONT COLOR="#0000FF">&quot;total_names&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#800080">$count</FONT><FONT COLOR="#000000"> );
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;printToScreen();
+</FONT><FONT COLOR="#FF0000"><B>?&gt;</b></FONT>
+</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+
+</font>
+<p><a href="#index">Index</a></p><a name="newBlock"></a><font face="Verdana, Arial, Helvetica, sans-serif"> 
+<h3><font color="#000099">newBlock</font></h3>
+<font size="2">(unknown)<br>
+<br>
+Create a new block.</font><br>
+<h3><font color="#000099">Description</font></h3>
+<font size="2"> newBlock ( string <i>blockname</i> )<br>
+<br>
+After using the function newBlock() TemplatePower will set the 'blockpointer' 
+to the block <i>blockname</i>. So, if you want to assign a variable of an other 
+block, you have to move the 'blockpointer' to that block (see <a href="#gotoBlock">gotoBlock()</a> 
+) or use the variablename in combination with its blockname (see <a href="#assign">Variables 
+and Blocks)</a>. If you don't TemplatePower will assume that the variable is part 
+of the currentblock.</font> <br>
+<h5>Example 1.</h5>
+<table border="0" cellspacing="0" cellpadding="4" width="400">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <b>newBlock.tpl</b> 
+      <hr noshade size="1">
+      <font size="3"> 	  
+      <!-- START SCRIPTCODE -->
+       
+      <PRE><font color="#000000">&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;NewBlock&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;table&gt;
+  &lt;tr&gt;&lt;td&gt;Names&lt;/td&gt;&lt;/tr&gt;
+  <b>&lt;!-- START BLOCK : name_row --&gt;</b>
+  &lt;tr&gt;
+    &lt;td&gt;<b>{name}</b>&lt;/td&gt;
+  &lt;/tr&gt;
+  <b>&lt;!-- END BLOCK : name_row --&gt;</b>&nbsp;
+&lt;/table&gt;
+&lt;br&gt;
+<b>{total_names}</b>
+&lt;/body&gt;
+&lt;/html&gt;      </font>
+</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <b>myscript.php</b> 
+      <hr noshade size="1">
+      <font size="3"> 
+      <!-- START SCRIPTCODE -->
+      <PRE><FONT COLOR="#FF0000"><B>&lt;?php</B></FONT><FONT COLOR="#000000">
+<B>include_once</B>( </FONT><FONT COLOR="#0000FF">&quot;./class.TemplatePower.inc.php&quot;</FONT><FONT COLOR="#000000"> );
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000"> = <B>new</B> TemplatePower( </FONT><FONT COLOR="#0000FF">&quot;./newBlock.tpl&quot;</FONT><FONT COLOR="#000000"> );
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;prepare();
+
+</FONT><FONT COLOR="#800080">$count</FONT><FONT COLOR="#000000"> = </FONT><FONT COLOR="#FF0000">0</FONT><FONT COLOR="#000000">;
+
+<B>while</B>( </FONT><FONT COLOR="#800080">$count</FONT><FONT COLOR="#000000"> &lt; </FONT><FONT COLOR="#FF0000">10</FONT><FONT COLOR="#000000"> )
+{
+    </FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;newBlock( </FONT><FONT COLOR="#0000FF">&quot;name_row&quot;</FONT><FONT COLOR="#000000"> );
+    </FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assign( </FONT><FONT COLOR="#0000FF">&quot;name&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#0000FF">&quot;Ron&quot;</FONT><FONT COLOR="#000000"> );
+&nbsp;
+&nbsp;</FONT><FONT COLOR="#800080">   $count</FONT><FONT COLOR="#000000">++;
+}
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;gotoBlock( </FONT><FONT COLOR="#0000FF">&quot;_ROOT&quot;</FONT><FONT COLOR="#000000"> );
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assign( </FONT><FONT COLOR="#0000FF">&quot;total_names&quot;</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#800080">$count</FONT><FONT COLOR="#000000"> );
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;printToScreen();
+</FONT><FONT COLOR="#FF0000"><B>?&gt;</b></FONT>
+</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+<br>
+<font size="2"> If you don't use the function newBlock() to create a block, the 
+code inside the block will be hidden. In 'Example 2' you see an example of this 
+where an emailaddress can be submitted by a form. If no emailadress is enterred 
+an errormessage will be printed.</font> 
+<h5>Example 2.</h5>
+<table border="0" cellspacing="0" cellpadding="4" width="400">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <b>form.tpl</b> 
+      <hr noshade size="1">
+      <font size="3"> 	  
+      <!-- START SCRIPTCODE -->
+      <PRE>&lt;html&gt;
+&lt;head&gt;
+&nbsp;&lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+<b>&lt;!-- START BLOCK : error --&gt;</b>
+The following errors occurred.&lt;br&gt;
+  <b>&lt;!-- START BLOCK : message --&gt;</b>
+  - <b>{message}</b>&lt;br&gt;
+  <b>&lt;!-- END BLOCK : message --&gt;</b>
+<b>&lt;!-- END BLOCK : error --&gt;</b>
+
+&lt;form method=&quot;post&quot; action=&quot;myscript.php&quot;&gt;
+  Email:
+  &lt;input type=&quot;text&quot; name=&quot;email&quot;&gt;
+  &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+<table border="0" cellspacing="0" cellpadding="4" width="450">
+  <tr> 
+    <td bgcolor="#E8E8E8"> <font face="Courier New, Courier, mono" size="2"> <b>myscript.php</b> 
+      <hr noshade size="1">
+      <font size="3"> 
+      <!-- START SCRIPTCODE -->
+      <PRE><FONT COLOR="#FF0000"><B>&lt;?php</B></FONT><FONT COLOR="#000000">
+<B>include_once</B>(</FONT><FONT COLOR="#0000FF">'./class.TemplatePower.inc.php'</FONT><FONT COLOR="#000000">);
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000"> = <B>new</B> TemplatePower(</FONT><FONT COLOR="#0000FF">'form.tpl'</FONT><FONT COLOR="#000000">);
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;prepare();
+
+</FONT><FONT COLOR="#800080">$errorMessage</FONT><FONT COLOR="#000000"> = </FONT><FONT COLOR="#000080">Array</FONT><FONT COLOR="#000000">();
+</FONT><FONT COLOR="#800080">$errorFound</FONT><FONT COLOR="#000000">   = </FONT><FONT COLOR="#800080"><B>false</B></FONT><FONT COLOR="#000000">;
+
+<B>if</B>( </FONT><FONT COLOR="#000080">isset</FONT><FONT COLOR="#000000">( </FONT><FONT COLOR="#800080">$submit</FONT><FONT COLOR="#000000"> ) )
+{
+  <B>if</B>(</FONT><FONT COLOR="#800080">$email</FONT><FONT COLOR="#000000"> == </FONT><FONT COLOR="#0000FF">''</FONT><FONT COLOR="#000000">)
+  {
+    </FONT><FONT COLOR="#800080">$errorMessage</FONT><FONT COLOR="#000000">[] = </FONT><FONT COLOR="#0000FF">'No emailadress entered'</FONT><FONT COLOR="#000000">;   
+    </FONT><FONT COLOR="#800080">$errorFound</FONT><FONT COLOR="#000000">     = </FONT><FONT COLOR="#800080"><B>true</B></FONT><FONT COLOR="#000000">;
+  }
+    
+  <B>if</B>( </FONT><FONT COLOR="#800080">$errorFound</FONT><FONT COLOR="#000000"> )
+  {
+    </FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;newBlock(</FONT><FONT COLOR="#0000FF">'error'</FONT><FONT COLOR="#000000">);
+    
+</FONT><FONT COLOR="#800080">    $size</FONT><FONT COLOR="#000000"> = </FONT><FONT COLOR="#000080">sizeof</FONT><FONT COLOR="#000000">(</FONT><FONT COLOR="#800080">$errorMessage</FONT><FONT COLOR="#000000">);
+
+    <B>for</B>( </FONT><FONT COLOR="#800080">$i</FONT><FONT COLOR="#000000">=</FONT><FONT COLOR="#FF0000">0</FONT><FONT COLOR="#000000">; </FONT><FONT COLOR="#800080">$i</FONT><FONT COLOR="#000000"> &lt; </FONT><FONT COLOR="#800080">$size</FONT><FONT COLOR="#000000">; </FONT><FONT COLOR="#800080">$i</FONT><FONT COLOR="#000000">++ )
+    {
+      </FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;newBlock(</FONT><FONT COLOR="#0000FF">'message'</FONT><FONT COLOR="#000000">);
+      </FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;assign(</FONT><FONT COLOR="#0000FF">'message'</FONT><FONT COLOR="#000000">, </FONT><FONT COLOR="#800080">$errorMessage</FONT><FONT COLOR="#000000">[</FONT><FONT COLOR="#800080">$i</FONT><FONT COLOR="#000000">]);
+    }
+  }
+  <B>else</B>
+  {
+    </FONT><FONT COLOR="#000080">Header</FONT><FONT COLOR="#000000">(</FONT><FONT COLOR="#0000FF">'Location: member.php'</FONT><FONT COLOR="#000000">);
+  }
+}
+
+</FONT><FONT COLOR="#800080">$tpl</FONT><FONT COLOR="#000000">-&gt;printToScreen();
+</FONT><FONT COLOR="#FF0000"><B>?&gt;</b></FONT>
+</PRE>
+      <!-- END SCRIPTCODE -->
+      </font></font> </td>
+  </tr>
+</table>
+<br>
+</font>
+<p><a href="#index">Index</a></p><a name="prepare"></a><font face="Verdana, Arial, Helvetica, sans-serif"> 
+<h3><font color="#000099">prepare</font></h3>
+<font size="2">(unknown)<br>
+<br>
+Parse the templates.</font><br>
+<h3><font color="#000099">Description</font></h3>
+<font size="2"> prepare ()<br>
+<br>
+The prepare function has to be used for each TemplatePower object in order to 
+make it work. Otherwise the templates will not be parsed and variables will not 
+be assigned. <br>
+<br>
+<b>Note:</b> The prepare function has to be executed before you create new blocks and/or 
+assign variables and after function like <a href="#assignInclude">assignInclude()</a> 
+and <a href="#serializedBase">serializedBase()</a>.<br>
+</font> <br>
+</font>
+<p><a href="#index">Index</a></p><a name="printToScreen"></a><font face="Verdana, Arial, Helvetica, sans-serif"> 
+<h3><font color="#000099">printToScreen</font></h3>
+<font size="2">(unknown)<br>
+<br>
+Outputs all templatedata.</font><br>
+<h3><font color="#000099">Description</font></h3>
+<font size="2"> printToScreen ()<br>
+<br>
+<br>
+</font> 
+</font>
+<p><a href="#index">Index</a></p><a name="serializedBase"></a><font face="Verdana, Arial, Helvetica, sans-serif"> 
+<h3><font color="#000099">serializedBase</font></h3>
+<font size="2">(TP 3.0+)<br>
+<br>
+Tell TemplatePower that the basefile/content is serialized.</font><br>
+<h3><font color="#000099">Description</font></h3>
+<font size="2"> serializedBase ()<br>
+<br><br>
+</font> <br>
+
+</font>
+<p><a href="#index">Index</a></p><a name="showUnAssigned"></a><font face="Verdana, Arial, Helvetica, sans-serif"> 
+<h3><font color="#000099">showUnAssigned</font></h3>
+<font size="2">(TP 3.0+)<br>
+<br>
+Show/hide unassigned variables.</font><br>
+<h3><font color="#000099">Description</font></h3>
+<font size="2"> showUnAssigned ( bool <i>state</i> )<br>
+<br><br>
+</font> <br>
+
+</font>
+<p><a href="#index">Index</a></p><a name="version"></a><font face="Verdana, Arial, Helvetica, sans-serif"> 
+<h3><font color="#000099">version</font></h3>
+<font size="2">(TP 2.0+)<br>
+<br>
+Returns the version of TemplatePower.</font
