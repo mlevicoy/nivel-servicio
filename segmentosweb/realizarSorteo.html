@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>        
+        <title>Dirección de Vialidad.</title>           
+    </head>
+    <body>
+    	<header>        
+        	<div id="Contenedor1">      
+            <img src="imagenes/vialidad.jpg" id="imagen"/>
+            </div> 
+           
+            <ul id="datos_usuario">
+	            <li>{NOMBRE}</li>
+	            <li>{CARGO}</li>
+	            <li>{OBRA}</li>
+                <li><a href="contrasena.php">Cambiar contrase&ntilde;a</a></li>
+            </ul>
+        </header>                
+        <header>
+       
+
+        <article id="menu-acordeon">
+                <nav>
+                    <ul class="list-menu">
+                        <li style="border-right:0.1px solid #126EBF;"><a href="#">USUARIO</a>
+                            <ul id="administracion">
+                                <li style="border-right:0.1px solid #fff;"><a href="ingresarUsuario.php">Ingresar Usuario</a></li>
+                                <li><a href="modificarUsuario.php">Modificar Usuario</a></li>
+                            </ul>                                                            
+                        </li>
+                        <li style="border-right:0.1px solid #126EBF;"><a href="#">CONTRATO</a>
+                            <ul id="administracion">
+                                <li><a href="ingresarContrato.php">Ingresar Contrato</a></li>
+                            </ul>                                                            
+                        </li>
+                        <li style="border-right:0.1px solid #126EBF;"><a href="#">OBRA</a>
+                            <ul id="administracion">
+                                <li style="border-right:0.1px solid #fff;"><a href="ingresarObra.php">Ingresar Obra</a></li>
+                                <li style="border-right:0.1px solid #fff;"><a href="modificarObra.php">Modificar Obra</a></li>
+                                <li><a href="modificarNombreFaena.php">Modificar Nombre Faena</a></li>
+                            </ul>                                                            
+                        </li>
+                        <li style="border-right:0.1px solid #126EBF;"><a href="#">RED DE CAMINOS</a>
+                            <ul id="administracion">
+                                <li style="border-right:0.1px solid #fff;"><a href="ingresarCamino.php">Ingresar Camino</a></li>
+                                <li style="border-right:0.1px solid #fff;"><a href="modificarCamino.php">Modificar Camino</a></li>
+                                <li style="border-right:0.1px solid #fff;"><a href="verRedCaminos.php">Ver Red de Caminos</a></li>
+                                <li style="border-right:0.1px solid #fff;"><a href="verSegmentos.php">Ver Segmentos</a></li>
+                                <li style="border-right:0.1px solid #fff;"><a href="verSubSegmentos.php">Ver Sub-Segmentos</a></li>
+                                <li><a href="modificarcomponente.php">Modificar COD. Componente</a></li>
+                            </ul>                                                            
+                        </li>
+                        <li style="border-right:0.1px solid #126EBF;"><a href="#">EXCLUSIONES</a>
+                            <ul id="administracion">
+                                <li style="border-right:0.1px solid #fff;"><a href="tutoExclusiones.php">Ingresar Exclusiones</a></li>
+                                <li style="border-right:0.1px solid #fff;"><a href="modificarExclusion.php">Modificar Exclusiones</a></li>
+                                <li><a href="verExclusion.php">Ver Exclusiones</a></li>
+                            </ul>                                                            
+                        </li>
+                        <li style="border-right:0.1px solid #126EBF;"><a href="#">SORTEO</a>
+                            <ul id="administracion">
+                                <li style="border-right:0.1px solid #fff;"><a href="acta.php">Datos para el Acta</a></li>
+                                <li style="border-right:0.1px solid #fff;"><a href="sorteo.php">Realizar Sorteo</a></li>
+                                <li style="border-right:0.1px solid #fff;"><a href="modificarFecha.php">Modificar Fecha Sorteo Actual</a></li>
+                                <li><a href="modificarRecepcionAnterior.php">Modificar Recepci&oacute;n Anterior</a></li>
+                            </ul>                                                            
+                        </li>                                                
+                        <li style="border-right:0.1px solid #126EBF;"><a href="#">INFORMES</a>
+                            <ul id="administracion">
+                                <li style="border-right:0.1px solid #fff;"><a href="informeSegmentos.php">Segmentos Sorteados</a></li>
+                                <li style="border-right:0.1px solid #fff;"><a href="informeHojasTerreno.php">Hojas de Terreno</a></li>
+                                <li style="border-right:0.1px solid #fff;"><a href="informeTablaIncumplimiento.php">Tabla de Incumplimientos</a></li>
+                                <li style="border-right:0.1px solid #fff;"><a href="informeFinal.php">Informe Final</a></li>
+                                <li><a href="avisoIncumplimiento.php">Aviso de Incumplimiento</a></li>
+                            </ul>                                                            
+                        </li>                                                
+                        <li><a href="salir.php">CERRAR SESI&Oacute;N</a></li>                        
+                    </ul>
+                </nav>            
+            </article>
+    </header>
+         <section>
+            <article id="datosActa">            	
+           		<form id="formulario_acta" action="repetirSorteo.php" method="post" autocomplete="off">
+                	<table width="100%" cellpadding="0" cellspacing="0" style="position:relative;top:90px;left:90px;border:.1rem solid #01325D;">
+                    	<tr id="fila_titulo">
+                        	<td colspan="8" style="padding:1rem;">SEGMENTOS ESCOGIDOS
+                            <br/><br/>INSPECCI&Oacute;N DE PAGO:{BIMESTRE_PAGO}
+                            </td>
+                        </tr>
+                        <tr id="fila_titulo">
+                        	<td colspan="1" style="padding:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">N&deg;</td>
+							<td colspan="1" style="padding:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">N&deg; Camino</td>
+                            <td colspan="1" style="padding:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">C&oacute;digo</td>
+                            <td colspan="1" style="padding:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">ROL</td>
+                            <td colspan="1" style="padding:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">Nombre Camino</td>
+                            <td colspan="1" style="padding:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">KM Inicio</td>
+                            <td colspan="1" style="padding:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">KM T&eacute;rmino</td>
+                            <td colspan="1" style="padding:1rem;border-top:.1rem solid #fff;">Segmento</td>                            
+                        </tr>                        
+                        <!-- START BLOCK : SEGMENTOS_SORTEADOS -->
+                        <tr>
+                        	<td colspan="1" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">{N}</td>
+							<td colspan="1" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">{N_CAMINO}</td>
+                            <td colspan="1" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">{CODIGO}</td>
+                            <td colspan="1" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">{ROL}</td>
+                            <td colspan="1" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">{NOMBRE_CAMINO}</td>
+                            <td colspan="1" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">{KM_INICIO}</td>
+                            <td colspan="1" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">{KM_TERMINO}</td>
+                            <td colspan="1" style="padding:1rem;border-top:.1rem solid #01325D;">{SEGMENTO}</td>                            
+                        </tr>                        
+                        <!-- END BLOCK : SEGMENTOS_SORTEADOS -->
+						<tr id="fila_titulo">
+                        	<td colspan="6" rowspan="1" width="97%" 
+                            style="padding:1rem .5rem .5rem 0;border-top:.1rem solid #01325D;text-align:left;">
+                            &nbsp;&nbsp;Longitud Insp. de Pago Faja Vial (KM): {LONGITUD_KM_FAJA} - % Inspeccionar (PI): {PORCENTAJE_PI_FAJA} - 
+							N&deg; de Segmentos Elegidos: {SEGMENTO_SORTEO_FAJA}
+                            </td>
+                            <td colspan="2" rowspan="1" width="1%" 
+                            style="padding:1rem 0 .5rem .5rem;border-top:.1rem solid #01325D;text-align:left;"></td>
+                        </tr>
+						<tr id="fila_titulo">
+                        	<td colspan="6" rowspan="1" width="97%" 
+                            style="padding:1rem .5rem .5rem 0;border-top:.1rem solid #01325D;text-align:left;">
+                            &nbsp;&nbsp;Longitud Insp. de Pago Saneamiento (KM): {LONGITUD_KM_SANEAMIENTO} - % Inspeccionar (PI): {PORCENTAJE_PI_SANEAMIENTO} - 
+							N&deg; de Segmentos Elegidos: {SEGMENTO_SORTEO_SANEAMIENTO}
+                            </td>
+                            <td colspan="2" rowspan="1" width="1%" 
+                            style="padding:1rem 0 .5rem .5rem;border-top:.1rem solid #01325D;text-align:left;"></td>
+                        </tr>
+						<tr id="fila_titulo">
+                        	<td colspan="6" rowspan="1" width="97%" 
+                            style="padding:1rem .5rem .5rem 0;border-top:.1rem solid #01325D;text-align:left;">
+                            &nbsp;&nbsp;Longitud Insp. de Pago Calzada (KM): {LONGITUD_KM_CALZADA} - % Inspeccionar (PI): {PORCENTAJE_PI_CALZADA} - 
+							N&deg; de Segmentos Elegidos: {SEGMENTO_SORTEO_CALZADA}
+                            </td>
+                            <td colspan="2" rowspan="1" width="1%" 
+                            style="padding:1rem 0 .5rem .5rem;border-top:.1rem solid #01325D;text-align:left;"></td>
+                        </tr>
+						<tr id="fila_titulo">
+                        	<td colspan="6" rowspan="1" width="97%" 
+                            style="padding:1rem .5rem .5rem 0;border-top:.1rem solid #01325D;text-align:left;">
+                            &nbsp;&nbsp;Longitud Insp. de Pago Bermas (KM): {LONGITUD_KM_BERMA} - % Inspeccionar (PI): {PORCENTAJE_PI_BERMA} - 
+							N&deg; de Segmentos Elegidos: {SEGMENTO_SORTEO_BERMA}
+                            </td>
+                            <td colspan="2" rowspan="1" width="1%" 
+                            style="padding:1rem 0 .5rem .5rem;border-top:.1rem solid #01325D;text-align:left;"></td>
+                        </tr>
+						<tr id="fila_titulo">
+                        	<td colspan="6" rowspan="1" width="97%" 
+                            style="padding:1rem .5rem .5rem 0;border-top:.1rem solid #01325D;text-align:left;">
+                            &nbsp;&nbsp;Longitud Insp. de Pago SE&Ntilde;ALIZACI&Oacute;N (KM): {LONGITUD_KM_SENALIZACION} - % Inspeccionar (PI): {PORCENTAJE_PI_SENALIZACION} - 
+							N&deg; de Segmentos Elegidos: {SEGMENTO_SORTEO_SENALIZACION}
+                            </td>
+                            <td colspan="2" rowspan="1" width="1%" 
+                            style="padding:1rem 0 .5rem .5rem;border-top:.1rem solid #01325D;text-align:left;"></td>
+                        </tr>
+						<tr id="fila_titulo">
+                        	<td colspan="6" rowspan="1" width="97%" 
+                            style="padding:1rem .5rem .5rem 0;border-top:.1rem solid #01325D;text-align:left;">
+                            &nbsp;&nbsp;Longitud Insp. de Pago Demarcaci&oacute;n (KM): {LONGITUD_KM_DEMARCACION} - % Inspeccionar (PI): {PORCENTAJE_PI_DEMARCACION} - 
+							N&deg; de Segmentos Elegidos: {SEGMENTO_SORTEO_DEMARCACION}
+                            </td>
+                            <td colspan="2" rowspan="1" width="1%" 
+                            style="padding:1rem 0 .5rem .5rem;border-top:.1rem solid #01325D;text-align:left;"></td>
+                        </tr>
+						
+                        <!--<tr id="fila_titulo">
+                        	<td colspan="6" rowspan="1" width="77%" 
+                            style="padding:.5rem .5rem .5rem 0;text-align:right;">
+                            % Inspeccionar (PI):
+                            </td>
+                            <td colspan="2" rowspan="1" width="21%" 
+                            style="padding:.5rem 0 .5rem .5rem;text-align:left;">                            
+                            {PORCENTAJE_PI}
+                            </td>
+                        </tr>
+                        <tr id="fila_titulo">
+                        	<td colspan="6" rowspan="1" width="77%" 
+                            style="padding:.5rem .5rem 1rem 0;text-align:right;">
+                        	N&deg; de Segmentos Elegidos:</td>
+                            <td colspan="2" rowspan="1" width="21%" 
+                            style="padding:.5rem 0 1rem .5rem;text-align:left;">                            
+                            {SEGMENTO_SORTEO}
+                            </td>
+                        </tr>-->					
+                        <tr>
+                        	<td colspan="8" rowspan="1" width="98%" style="padding-top:2rem;border-top:.1rem solid #01325D;">
+                        		<input type="submit" name="enviar" value="REPETIR SORTEO" id="boton_envio"/><br/><br/>
+                            </td>                   		
+                        </tr>
+            		</table>                	
+            	</form>       
+            </article>
+        </section>
+        <footer>	        
+        <!--	
+        onKeyPress="return numeroPunto1(event,8)" onBlur="sumakm(8)"
+         -->
+        </footer>
+    </body>
+</html>
+  

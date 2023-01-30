@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>        
+        <link rel="stylesheet" href="css/barra.css"/>        
+        <title>Dirección de Vialidad.</title>   
+    </head>
+    <body onLoad="itv = setInterval(prog, 15)">
+    	
+        <!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu --> 
+        
+         <section>
+            <article id="datosActa">            	
+	           	<div id="precargador">
+  					<p id="progressnum"></p> 
+  					<div id="progressbar">
+     					<div id="indicador"></div>
+  					</div>            
+				</div>
+    		</article>
+        </section>
+        <footer></footer>
+        <script>
+      		var maxprogress = 300;
+			var actualprogress = 0;
+			var itv = 0;
+			function prog(){
+  				if(actualprogress >= maxprogress){
+    				clearInterval(itv);       
+            					
+          window.location="modificarCamino.php";
+		    		return;					
+  				}    
+  				var progressnum = document.getElementById("progressnum");
+  				var indicador = document.getElementById("indicador");
+  				actualprogress += 1;    
+  				indicador.style.width=actualprogress + "px";
+  				progressnum.innerHTML = "GENERANDO SEGMENTOS Y SUBSEGMENTOS";				
+			}      
+    	</script>        
+    </body>
+</html>

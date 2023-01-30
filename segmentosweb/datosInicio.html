@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/> 
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>    
+        <script type="text/javascript" src="JS/jprueba.js"></script>   
+        <title>Dirección de Vialidad.</title>
+        <script type="text/javascript">			
+             $(document).ready(function(){
+            $("#componentes1").change(function(){
+                $.ajax({
+                    url:"procesa.php",
+                    type: "POST",
+                    data:"componente="+$("#componentes1").val(),
+                    success: function(opciones){
+                        $("#items1").html(opciones);
+                    }
+                })
+            });
+            });
+            $(document).ready(function(){
+            $("#componentes2").change(function(){
+                $.ajax({
+                    url:"procesa.php",
+                    type: "POST",
+                    data:"componente="+$("#componentes2").val(),
+                    success: function(opciones){
+                        $("#items2").html(opciones);
+                    }
+                })
+            });
+            });
+            $(document).ready(function(){
+            $("#componentes3").change(function(){
+                $.ajax({
+                    url:"procesa.php",
+                    type: "POST",
+                    data:"componente="+$("#componentes3").val(),
+                    success: function(opciones){
+                        $("#items3").html(opciones);
+                    }
+                })
+            });
+            });
+            $(document).ready(function(){
+            $("#componentes4").change(function(){
+                $.ajax({
+                    url:"procesa.php",
+                    type: "POST",
+                    data:"componente="+$("#componentes4").val(),
+                    success: function(opciones){
+                        $("#items4").html(opciones);
+                    }
+                })
+            });
+            });
+            $(document).ready(function(){
+            $("#componentes5").change(function(){
+                $.ajax({
+                    url:"procesa.php",
+                    type: "POST",
+                    data:"componente="+$("#componentes5").val(),
+                    success: function(opciones){
+                        $("#items5").html(opciones);
+                    }
+                })
+            });
+            //
+            $("#componentes6").change(function(){
+                $.ajax({
+                    url:"procesa.php",
+                    type: "POST",
+                    data:"componente="+$("#componentes6").val(),
+                    success: function(opciones){
+                        $("#items6").html(opciones);
+                    }
+                })
+            });
+            //
+        });
+		</script>
+    </head>
+    <body>
+    	<header>        
+        	<div id="Contenedor1">      
+            <img src="imagenes/vialidad.jpg" id="imagen"/>
+            </div> 
+         
+        </header>                
+        <section>
+        	<form id="formulario_ingreso" action="datosInicio.php" method="post" autocomplete="off" onSubmit="return bloquear();">
+            	<ul>
+                	<li class="titulo_campo">INFORMACI&Oacute;N DE INICIO</li><br/><br/><br/>
+                	<li class="nombre_campo"><b>Nombre obra</b></li>
+                    <li>:</li>
+                    <li class="valor_campo">&nbsp;&nbsp;<input type="text" name="nombreObra" value="" placeholder="p. ej. Mixta Limar&iacute; Sur" autofocus required/></li><br/>
+                    <li class="nombre_campo"><b>¿Cu&aacute;l es el primer Bimestre a pago?</b></li>
+                    <li>:</li>
+                    <li class="valor_campo">
+                    &nbsp;&nbsp;<select name="bimestrePagoUno" required>
+                    	<option value="" selected>--- SELECCIONAR OPCI&Oacute;N ---</option>
+                    	<option value="1">Bimestre 1</option>
+                        <option value="2">Bimestre 2</option>
+                        <option value="3">Bimestre 3</option>
+                        <option value="4">Bimestre 4</option>
+                        <option value="5">Bimestre 5</option>
+                        <option value="6">Bimestre 6</option>
+                        <option value="7">Bimestre 7</option>
+                        <option value="8">Bimestre 8</option>
+                        <option value="9">Bimestre 9</option>
+                        <option value="10">Bimestre 10</option>
+                        <option value="11">Bimestre 11</option>
+                        <option value="12">Bimestre 12</option>
+                        <option value="13">Bimestre 13</option>
+                        <option value="14">Bimestre 14</option>
+                        <option value="15">Bimestre 15</option>
+                        <option value="16">Bimestre 16</option>
+                        <option value="17">Bimestre 17</option>
+                        <option value="18">Bimestre 18</option>
+                        <option value="19">Bimestre 19</option>
+                        <option value="20">Bimestre 20</option>
+                        <option value="21">Bimestre 21</option>
+                        <option value="22">Bimestre 22</option>
+                        <option value="23">Bimestre 23</option>
+                        <option value="24">Bimestre 24</option>
+						<option value="19">Bimestre 25</option>
+                        <option value="20">Bimestre 26</option>
+                        <option value="21">Bimestre 27</option>
+                        <option value="22">Bimestre 28</option>
+                        <option value="23">Bimestre 29</option>
+                        <option value="24">Bimestre 30</option>
+                    </select>
+                    </li><br/>
+                    <li class="nombre_campo"><b>¿Cu&aacute;l Bimestre se va a sortear ahora?</b></li>
+                    <li>:</li>
+                    <li class="valor_campo">
+                    &nbsp;&nbsp;<select name="bimestrePrimerSorteo" required>
+                    	<option value="" selected>--- SELECCIONAR OPCI&Oacute;N ---</option>
+                    	<option value="1">Bimestre 1</option>
+                        <option value="2">Bimestre 2</option>
+                        <option value="3">Bimestre 3</option>
+                        <option value="4">Bimestre 4</option>
+                        <option value="5">Bimestre 5</option>
+                        <option value="6">Bimestre 6</option>
+                        <option value="7">Bimestre 7</option>
+                        <option value="8">Bimestre 8</option>
+                        <option value="9">Bimestre 9</option>
+                        <option value="10">Bimestre 10</option>
+                        <option value="11">Bimestre 11</option>
+                        <option value="12">Bimestre 12</option>
+                        <option value="13">Bimestre 13</option>
+                        <option value="14">Bimestre 14</option>
+                        <option value="15">Bimestre 15</option>
+                        <option value="16">Bimestre 16</option>
+                        <option value="17">Bimestre 17</option>
+                        <option value="18">Bimestre 18</option>
+                        <option value="19">Bimestre 19</option>
+                        <option value="20">Bimestre 20</option>
+                        <option value="21">Bimestre 21</option>
+                        <option value="22">Bimestre 22</option>
+                        <option value="23">Bimestre 23</option>
+                        <option value="24">Bimestre 24</option>
+						<option value="19">Bimestre 25</option>
+                        <option value="20">Bimestre 26</option>
+                        <option value="21">Bimestre 27</option>
+                        <option value="22">Bimestre 28</option>
+                        <option value="23">Bimestre 29</option>
+                        <option value="24">Bimestre 30</option>
+                    </select>
+                    </li><br/>	
+                    <table cellpadding="0" cellspacing="0" style=" margin:0 auto;width:57%;border:.1rem solid #01325D;color:#01325D;text-align:center; ">                   
+                        <tr>
+                            <td colspan="2" rowspan="1" width="98" style="background-color:#01325D;font-weight:bolder;padding:1rem;color:white;">
+                                INGRESAR C&Oacute;DIGOS COMPONENTES
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1" width="60%" 
+                            style="background-color:#01325D;font-weight:bolder;padding:1rem;border-right:.1rem solid #fff;border-top:.1rem solid #fff;color:white;">
+                                OPERACIONES
+                            </td>
+                            <td colspan="1" rowspan="1" width="38%" 
+                            style="background-color:#01325D;font-weight:bolder;padding:1rem;border-top:.1rem solid #fff;color:white;">
+                                C&Oacute;DIGO
+                            </td>
+                        </tr>
+                        <tr>                       
+                            <td colspan="1" rowspan="1" width="50%" 
+                            style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;text-align:left;">
+                                
+                            <select name="componentes1" id="componentes1" >
+                                <option value="" selected>--- SELECCIONAR OPCI&Oacute;N ---</option>
+                                <option value="FAJA">FAJA VIAL</option>
+                                <option value="SANEAMIENTO">SANEAMIENTO</option>                        
+                                <option value="CALZADA">CALZADAS</option> 
+                                <option value="BERMA">BERMAS</option> 
+                                <option value="SENALIZACION">SEÑALIZACION</option> 
+                                <option value="DEMARCACION">DEMARCACION</option> 
+                            </select>
+
+                            </td>                        
+                            <td colspan="1" rowspan="1" width="48%" style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">    
+
+                                <select name="items1" id="items1" style="width:100%;color:#01325D;padding-top:.3rem;padding-bottom:.3rem;">                                                      
+                                </select>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1" width="50%" 
+                            style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;text-align:left;">                           
+
+                                <select name="componentes2" id="componentes2" >
+                                    <option value="" selected>--- SELECCIONAR OPCI&Oacute;N ---</option>
+                                    <option value="FAJA">FAJA VIAL</option>
+                                    <option value="SANEAMIENTO">SANEAMIENTO</option>                        
+                                    <option value="CALZADA">CALZADAS</option> 
+                                    <option value="BERMA">BERMAS</option> 
+                                    <option value="SENALIZACION">SEÑALIZACION</option> 
+                                    <option value="DEMARCACION">DEMARCACION</option> 
+                                </select>
+
+                            </td>
+                            <td colspan="1" rowspan="1" width="48%" style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                                
+                                 <select name="items2" id="items2" style="width:100%;color:#01325D;padding-top:.3rem;padding-bottom:.3rem;">                                                      
+                                </select>
+                            </td>
+                        </tr>
+                          <tr>
+                            <td colspan="1" rowspan="1" width="50%" 
+                            style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;text-align:left;">                            
+
+                                <select name="componentes3" id="componentes3" >
+                                    <option value="" selected>--- SELECCIONAR OPCI&Oacute;N ---</option>
+                                    <option value="FAJA">FAJA VIAL</option>
+                                    <option value="SANEAMIENTO">SANEAMIENTO</option>                        
+                                    <option value="CALZADA">CALZADAS</option> 
+                                    <option value="BERMA">BERMAS</option> 
+                                    <option value="SENALIZACION">SEÑALIZACION</option> 
+                                    <option value="DEMARCACION">DEMARCACION</option> 
+                                </select>
+
+                            </td>
+                            <td colspan="1" rowspan="1" width="48%" style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                               
+                                 <select name="items3" id="items3" style="width:100%;color:#01325D;padding-top:.3rem;padding-bottom:.3rem;">                                                      
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1" width="50%" 
+                            style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;text-align:left;">                           
+
+                                <select name="componentes4" id="componentes4" >
+                                    <option value="" selected>--- SELECCIONAR OPCI&Oacute;N ---</option>
+                                    <option value="FAJA">FAJA VIAL</option>
+                                    <option value="SANEAMIENTO">SANEAMIENTO</option>                        
+                                    <option value="CALZADA">CALZADAS</option> 
+                                    <option value="BERMA">BERMAS</option> 
+                                    <option value="SENALIZACION">SEÑALIZACION</option> 
+                                    <option value="DEMARCACION">DEMARCACION</option> 
+                                </select>
+
+                            </td>
+                            <td colspan="1" rowspan="1" width="48%" style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                                
+
+                                 <select name="items4" id="items4"  style="width:100%;color:#01325D;padding-top:.3rem;padding-bottom:.3rem;">                                                      
+                                </select>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1" width="50%" 
+                            style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;text-align:left;">                           
+
+                               <select name="componentes5" id="componentes5" >
+                                    <option value="" selected>--- SELECCIONAR OPCI&Oacute;N ---</option>
+                                    <option value="FAJA">FAJA VIAL</option>
+                                    <option value="SANEAMIENTO">SANEAMIENTO</option>                        
+                                    <option value="CALZADA">CALZADAS</option> 
+                                    <option value="BERMA">BERMAS</option> 
+                                    <option value="SENALIZACION">SEÑALIZACION</option> 
+                                    <option value="DEMARCACION">DEMARCACION</option> 
+                                </select>
+
+                            </td>
+                            <td colspan="1" rowspan="1" width="48%" style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                                
+                                 <select name="items5" id="items5"  style="width:100%;color:#01325D;padding-top:.3rem;padding-bottom:.3rem;">                                                      
+                                </select>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1" width="50%" 
+                            style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;text-align:left;">                           
+
+                                <select name="componentes6" id="componentes6" >
+                                    <option value="" selected>--- SELECCIONAR OPCI&Oacute;N ---</option>
+                                    <option value="FAJA">FAJA VIAL</option>
+                                    <option value="SANEAMIENTO">SANEAMIENTO</option>                        
+                                    <option value="CALZADA">CALZADAS</option> 
+                                    <option value="BERMA">BERMAS</option> 
+                                    <option value="SENALIZACION">SEÑALIZACION</option> 
+                                    <option value="DEMARCACION">DEMARCACION</option> 
+                                </select>
+
+                            </td>
+                            <td colspan="1" rowspan="1" width="48%" style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                                
+                                 <select name="items6" id="items6"  style="width:100%;color:#01325D;padding-top:.3rem;padding-bottom:.3rem;">                                                      
+                                </select>
+                            </td>
+                        </tr>                        
+                    </table>
+
+                    <br/><br/>
+                    <li><input type="submit" name="enviar" value="Enviar" id="boton_envio"/></li><br/><br/>
+                    <li style="position:relative;bottom:663px;color:red;text-align:center;font-weight:bolder;">{MENSAJE}</li>
+                </ul>
+                <input type="hidden" name="cargador1" value="1"/>
+            </form>            
+            <article></article>
+            <article></article>
+        </section>
+        <footer></footer>
+    </body>
+</html>

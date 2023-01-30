@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/menu.css"/>        
+        <title>Dirección de Vialidad.</title>             
+        <style>
+			.tabla_exclusiones{
+				border-top:.1rem solid #01325D;
+				border-bottom:.1rem solid #01325D;
+				border-left:.1rem solid #01325D;
+				color:#fff;
+			}
+			.tr_cabecera{
+				background-color:#01325D;
+				font-weight:bolder;
+				text-align:center;
+			}
+			.tr_cuerpo{
+				 font-weight:bolder;
+				text-align:center;
+			}
+			.td_cabecera{
+				padding-top:1rem;
+				padding-bottom:1rem;
+				border-top:.1rem solid #fff;
+				border-right:.1rem solid #fff;
+			}
+			.td_cuerpo{
+				padding-top:1rem;
+				padding-bottom:1rem;
+				border-top:.1rem solid #01325D;
+				border-right:.1rem solid #01325D;	
+			}			
+			.td_cuerpo select{
+				width:80%; 
+				padding-bottom:.3rem; 
+				padding-top:.3rem; 
+				border:.1rem solid #01325D;
+			}			 
+			.td_cuerpo input{
+				padding-bottom:.3rem;
+				padding-top:.3rem;
+				width:80%;
+				border:.1rem solid #01325D;
+			}			 
+		</style>    
+    </head>
+    <body>
+    	<!-- INCLUDE BLOCK : header -->
+        
+            <article id="crearExclusion" style="padding:0;width:100%;">             	
+            <br/>
+            <img src="imagenes/iconos/flecha_izquierda.png" style="position:relative;left:50px;" />
+            <input type="button" name="regresarMenu" value="Regresar al Men&uacute;" onClick="location.href = 'redireccionar.php'" 
+            	style="
+					color:#fff;
+					font-weight:bolder;
+					background-color:#01325D;
+					padding:1rem 0rem 1rem 0rem;
+					transition-duration:1s;
+					width:13%;
+                    -webkit-box-shadow: 3px 2px 9px 0px rgba(50, 50, 50, 0.93);
+                    -moz-box-shadow:    3px 2px 9px 0px rgba(50, 50, 50, 0.93);
+                    box-shadow:         3px 2px 9px 0px rgba(50, 50, 50, 0.93);
+					display:inline-block; 
+                    border-radius: 20px 200px 20px 200px;
+                    -moz-border-radius: 20px 200px 20px 200px;
+                    -webkit-border-radius: 20px 200px 20px 200px;
+					cursor:pointer;"
+          	  />  
+          	  <p style="width: 100%;color:red;text-align:center;font-weight:bolder;position:relative;right:50px;">{MENSAJE}</p>
+          	  <form id="formulario_camino" action="ingresarExclusionesFormulario.php" onSubmit="return aprobar(3)" method="post" autocomplete="off">
+              	<table width="100%" class="tabla_exclusiones" cellpadding="0" cellspacing="0">
+               		<tr style="background-color:#01325D;font-weight:bolder;text-align:center;">
+                    	<td colspan="15" rowspan="1" width="98%" style="padding-top:1rem;padding-bottom:1rem;">INGRESO DE EXCLUSIONES</td>
+                    </tr>                    
+                 <tr class="tr_cabecera">
+                        <td colspan="1" rowspan="2" width="6%" class="td_cabecera">ROL</td>
+                        <td colspan="3" rowspan="1" width="22%" class="td_cabecera">Tramo en NS (KM)</td>                        
+                        <td colspan="2" rowspan="1" width="15%" class="td_cabecera">Fecha<br><br>{CONTROLAR} No Considerar la Fecha</td>                        
+                        <td colspan="6" rowspan="1" width="36%" class="td_cabecera">Componentes (SI: Incluir - NO: Excluir)</td>
+                        <td colspan="1" rowspan="2" width="5%" class="td_cabecera">Exc. Inicial</td>                   
+                        <td colspan="1" rowspan="2" width="9%" class="td_cabecera">Resoluci&oacute;n</td>                   
+                        <td colspan="1" rowspan="2" width="5%" class="td_cabecera">Quitar<br/><br/>
+                        <input type="checkbox" name="todo" onClick="seleccionar()" class="td_cabecera"/></td>                   
+                    </tr>
+                    <tr class="tr_cabecera">
+                        <td colspan="1" rowspan="1" width="7.333333333333333%" class="td_cabecera">Desde</td>
+                        <td colspan="1" rowspan="1" width="7.333333333333333%" class="td_cabecera">Hasta</td>
+                        <td colspan="1" rowspan="1" width="7.333333333333333%" class="td_cabecera">Long.</td>
+                        <td colspan="1" rowspan="1" width="7.5%" class="td_cabecera">Inicio</td>
+                        <td colspan="1" rowspan="1" width="7.5%" class="td_cabecera">Termino</td>
+                        <td colspan="1" rowspan="1" width="6%" class="td_cabecera">Faja Vial</td>
+                        <td colspan="1" rowspan="1" width="6%" class="td_cabecera">Saneam.</td>
+                        <td colspan="1" rowspan="1" width="6%" class="td_cabecera">Calzada</td>
+                        <td colspan="1" rowspan="1" width="6%" class="td_cabecera">Bermas</td>
+                        <td colspan="1" rowspan="1" width="6%" class="td_cabecera">Se&ntilde;al.</td>
+                        <td colspan="1" rowspan="1" width="6%" class="td_cabecera">Demarc.</td>                        
+                    </tr>                    
+                    <!-- START BLOCK : EXCLUSIONES -->
+                    <tr class="tr_cuerpo">                    
+                    	<td colspan="1" rowspan="1" width="6%" class="td_cuerpo">
+                        	<select name="rolCamino[]" required autofocus>                        		
+                           		<option value="{VALORROL}" selected>{VALORROL}</option>
+                            	<!-- START BLOCK : ROL_CAMINO -->
+                            	<option value="{ROL}">{ROL}</option>
+                            	<!-- END BLOCK : ROL_CAMINO -->                            	
+                        	</select>
+                        </td>                    
+                    	<td colspan="1" rowspan="1" width="7.333333333333333%" class="td_cuerpo">
+                        	<input type="text" name="kmInicio[]" value="{KM_INICIO}" required onKeyPress="return soloNumero(event,1)" onBlur="sumakm({INDICE_ARRAY})"/>
+                        </td>
+                        <td colspan="1" rowspan="1" width="7.333333333333333%" class="td_cuerpo">
+                        	<input type="text" name="kmFinal[]" value="{KM_FINAL}" required onKeyPress="return soloNumero(event,1)" onBlur="sumakm({INDICE_ARRAY})"/> 
+                        </td>
+                        <td colspan="1" rowspan="1" width="7.333333333333333%" class="td_cuerpo">
+                        	<input type="text" name="longitud[]" value="{LONGITUD}" required readonly/>
+                        </td>
+                        <td colspan="1" rowspan="1" width="12%" class="td_cuerpo">
+                        	<input type="date" name="fechaInicio[]" value="{FECHA_INICIO}" placeholder="Día-Mes-Año" required/>
+                        </td>
+                        <td colspan="1" rowspan="1" width="12%" class="td_cuerpo">
+                        	<input type="date" name="fechaTermino[]" value="{FECHA_TERMINO}" placeholder="Día-Mes-Año" required/>
+                        </td>                        
+                        <td colspan="1" rowspan="1" width="6%" class="td_cuerpo">
+                        	<select name="faja[]" required>
+								<option value="{VALORFAJASELECT}" selected>{VALORFAJASELECT}</option>
+								<option value="{VALORFAJA1}">{VALORFAJA1}</option>
+								<option value="{VALORFAJA2}">{VALORFAJA2}</option>
+                        	</select>
+                        </td>
+                        <td colspan="1" rowspan="1" width="6%" class="td_cuerpo">
+                        	<select name="saneamiento[]" required>
+								<option value="{VALORSANEAMIENTOSELECT}" selected>{VALORSANEAMIENTOSELECT}</option>
+								<option value="{VALORSANEAMIENTO1}">{VALORSANEAMIENTO1}</option>
+								<option value="{VALORSANEAMIENTO2}">{VALORSANEAMIENTO2}</option>
+                        	</select>
+                        </td>
+                        <td colspan="1" rowspan="1" width="6%" class="td_cuerpo">
+                        	<select name="calzada[]" required>
+								<option value="{VALORCALZADASELECT}" selected>{VALORCALZADASELECT}</option>
+								<option value="{VALORCALZADA1}">{VALORCALZADA1}</option>
+								<option value="{VALORCALZADA2}">{VALORCALZADA2}</option>
+                        	</select>
+                        </td>
+                        <td colspan="1" rowspan="1" width="6%" class="td_cuerpo">
+                        	<select name="bermas[]" required>
+								<option value="{VALORBERMASELECT}" selected>{VALORBERMASELECT}</option>
+								<option value="{VALORBERMA1}">{VALORBERMA1}</option>
+								<option value="{VALORBERMA2}">{VALORBERMA2}</option>
+                        	</select>
+                        </td>
+                        <td colspan="1" rowspan="1" width="6%" class="td_cuerpo">
+                        	<select name="senalizacion[]" required>
+								<option value="{VALORSENALIZACIONSELECT}" selected>{VALORSENALIZACIONSELECT}</option>
+								<option value="{VALORSENALIZACION1}">{VALORSENALIZACION1}</option>
+								<option value="{VALORSENALIZACION2}">{VALORSENALIZACION2}</option>
+                        	</select>
+                        </td>
+                        <td colspan="1" rowspan="1" width="6%" class="td_cuerpo">
+                        	<select name="demarcacion[]" required>
+								<option value="{VALORDEMARCACIONSELECT}" selected>{VALORDEMARCACIONSELECT}</option>
+								<option value="{VALORDEMARCACION1}">{VALORDEMARCACION1}</option>
+								<option value="{VALORDEMARCACION2}">{VALORDEMARCACION2}</option>
+                        	</select>
+                        </td>                   
+						<td colspan="1" rowspan="1" width="5%" class="td_cuerpo">
+							<input type="checkbox" name="excInicial[]" value="{VALOR_EXCLUSION_INICIAL}" {CHECK}/>
+                        </td>                   						
+                        <td colspan="1" rowspan="1" width="9%" class="td_cuerpo">
+							<input type="text" name="resolucion[]" value="{RESOLUCION}" required/>
+                        </td>                   
+                        <td colspan="1" rowspan="1" width="5%" class="td_cuerpo">
+							<input type="checkbox" name="excEliminar[]" id="IDELIMINAR" value="{VALOR_EXCLUSION_INICIAL}" onClick="armarDesarmar({VALOR_EXCLUSION_INICIAL})"/>
+                        </td>                   						
+                    </tr>
+                    <!-- END BLOCK : EXCLUSIONES -->
+                    <tr class="tr_cuerpo">
+                    	<td colspan="15" rowspan="1" width="98%" class="td_cuerpo">                        
+                        	<input type="submit" name="enviar" value="INGRESAR EXCLUSI&Oacute;N" id="boton_envio"/>                    	
+                        </td>
+                    </tr>
+                </table>
+                <input type="hidden" name="cargador" value="1"/>                
+            </form>          	        	        	  
+            </article>
+        </section>
+        <footer></footer>
+        <script src="JS/funciones.js"></script>        	
+    </body>
+</html>  

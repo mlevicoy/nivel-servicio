@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/menu.css"/>        
+        <title>Dirección de Vialidad.</title>
+        <script>
+			var nav4 = window.Event ? true : false;
+			
+			function redireccionar(){        
+				location.href = 'redireccionar.php';				
+			}			
+			function caminos(){
+				//Variables
+				var i=0;
+				var j=0;				
+				var largo = document.getElementsByName('rolCamino[]').length;
+				//Recorremos los arreglos
+				for(i=0;i<largo;i++){
+					if(document.getElementsByName('rolCamino[]').item(i).value != ''){
+						if(document.getElementsByName('desde[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('desde[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('hasta[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('hasta[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('longitud[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('longitud[]').item(i).focus();
+							return false;
+						}
+						/*if(document.getElementsByName('inicio[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('inicio[]').item(i).focus();
+							return false;
+						}*/
+						/*if(document.getElementsByName('termino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('termino[]').item(i).focus();
+							return false;
+						}*/
+						if(document.getElementsByName('faja[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('faja[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('saneamiento[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('saneamiento[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('calzada[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('calzada[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('bermas[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('bermas[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('senalizacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('senalizacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('demarcacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('demarcacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('resolucion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('resolucion[]').item(i).focus();
+							return false;
+						}							
+						j++;
+					}
+					else if(document.getElementsByName('desde[]').item(i).value != ''){
+						if(document.getElementsByName('rolCamino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('rolCamino[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('hasta[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('hasta[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('longitud[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('longitud[]').item(i).focus();
+							return false;
+						}
+						/*if(document.getElementsByName('inicio[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('inicio[]').item(i).focus();
+							return false;
+						}*/
+						/*if(document.getElementsByName('termino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('termino[]').item(i).focus();
+							return false;
+						}*/
+						if(document.getElementsByName('faja[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('faja[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('saneamiento[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('saneamiento[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('calzada[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('calzada[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('bermas[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('bermas[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('senalizacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('senalizacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('demarcacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('demarcacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('resolucion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('resolucion[]').item(i).focus();
+							return false;
+						}							
+						j++;
+					}
+					else if(document.getElementsByName('hasta[]').item(i).value != ''){
+						if(document.getElementsByName('rolCamino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('rolCamino[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('desde[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('desde[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('longitud[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('longitud[]').item(i).focus();
+							return false;
+						}
+						/*if(document.getElementsByName('inicio[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('inicio[]').item(i).focus();
+							return false;
+						}*/
+						/*if(document.getElementsByName('termino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('termino[]').item(i).focus();
+							return false;
+						}*/
+						if(document.getElementsByName('faja[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('faja[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('saneamiento[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('saneamiento[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('calzada[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('calzada[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('bermas[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('bermas[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('senalizacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('senalizacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('demarcacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('demarcacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('resolucion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('resolucion[]').item(i).focus();
+							return false;
+						}							
+						j++;
+					}
+					else if(document.getElementsByName('longitud[]').item(i).value != ''){
+						if(document.getElementsByName('rolCamino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('rolCamino[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('desde[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('desde[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('hasta[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('hasta[]').item(i).focus();
+							return false;
+						}
+						/*if(document.getElementsByName('inicio[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('inicio[]').item(i).focus();
+							return false;
+						}*/
+						/*if(document.getElementsByName('termino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('termino[]').item(i).focus();
+							return false;
+						}*/
+						if(document.getElementsByName('faja[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('faja[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('saneamiento[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('saneamiento[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('calzada[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('calzada[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('bermas[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('bermas[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('senalizacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('senalizacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('demarcacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('demarcacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('resolucion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('resolucion[]').item(i).focus();
+							return false;
+						}						
+						j++;
+					}
+					/*else if(document.getElementsByName('inicio[]').item(i).value != ''){
+						if(document.getElementsByName('rolCamino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('rolCamino[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('desde[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('desde[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('hasta[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('hasta[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('longitud[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('longitud[]').item(i).focus();
+							return false;
+						}
+						/*if(document.getElementsByName('termino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('termino[]').item(i).focus();
+							return false;
+						}*/
+					/*	if(document.getElementsByName('faja[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('faja[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('saneamiento[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('saneamiento[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('calzada[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('calzada[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('bermas[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('bermas[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('senalizacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('senalizacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('demarcacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('demarcacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('resolucion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('resolucion[]').item(i).focus();
+							return false;
+						}							
+						j++;
+					}*/
+					/*else if(document.getElementsByName('termino[]').item(i).value != ''){
+						if(document.getElementsByName('rolCamino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('rolCamino[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('desde[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('desde[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('hasta[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('hasta[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('longitud[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('longitud[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('inicio[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('inicio[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('faja[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('faja[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('saneamiento[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('saneamiento[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('calzada[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('calzada[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('bermas[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('bermas[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('senalizacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('senalizacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('demarcacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('demarcacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('resolucion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('resolucion[]').item(i).focus();
+							return false;
+						}							
+						j++;
+					}*/
+					else if(document.getElementsByName('faja[]').item(i).value != ''){
+						if(document.getElementsByName('rolCamino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('rolCamino[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('desde[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('desde[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('hasta[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('hasta[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('longitud[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('longitud[]').item(i).focus();
+							return false;
+						}
+						/*if(document.getElementsByName('inicio[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('inicio[]').item(i).focus();
+							return false;
+						}*/
+						/*if(document.getElementsByName('termino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('termino[]').item(i).focus();
+							return false;
+						}*/
+						if(document.getElementsByName('saneamiento[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('saneamiento[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('calzada[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('calzada[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('bermas[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('bermas[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('senalizacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('senalizacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('demarcacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('demarcacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('resolucion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('resolucion[]').item(i).focus();
+							return false;
+						}							
+						j++;
+					}
+					else if(document.getElementsByName('saneamiento[]').item(i).value != ''){
+						if(document.getElementsByName('rolCamino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('rolCamino[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('desde[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('desde[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('hasta[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('hasta[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('longitud[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('longitud[]').item(i).focus();
+							return false;
+						}
+						/*if(document.getElementsByName('inicio[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('inicio[]').item(i).focus();
+							return false;
+						}*/
+						/*if(document.getElementsByName('termino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('termino[]').item(i).focus();
+							return false;
+						}*/
+						if(document.getElementsByName('faja[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('faja[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('calzada[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('calzada[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('bermas[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('bermas[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('senalizacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('senalizacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('demarcacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('demarcacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('resolucion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('resolucion[]').item(i).focus();
+							return false;
+						}							
+						j++;
+					}
+					else if(document.getElementsByName('calzada[]').item(i).value != ''){
+						if(document.getElementsByName('rolCamino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('rolCamino[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('desde[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('desde[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('hasta[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('hasta[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('longitud[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('longitud[]').item(i).focus();
+							return false;
+						}
+						/*if(document.getElementsByName('inicio[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('inicio[]').item(i).focus();
+							return false;
+						}*/
+						/*if(document.getElementsByName('termino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('termino[]').item(i).focus();
+							return false;
+						}*/
+						if(document.getElementsByName('faja[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('faja[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('saneamiento[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('saneamiento[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('bermas[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('bermas[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('senalizacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('senalizacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('demarcacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('demarcacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('resolucion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('resolucion[]').item(i).focus();
+							return false;
+						}							
+						j++;
+					}
+					else if(document.getElementsByName('bermas[]').item(i).value != ''){
+						if(document.getElementsByName('rolCamino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('rolCamino[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('desde[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('desde[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('hasta[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('hasta[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('longitud[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('longitud[]').item(i).focus();
+							return false;
+						}
+						/*if(document.getElementsByName('inicio[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('inicio[]').item(i).focus();
+							return false;
+						}*/
+						/*if(document.getElementsByName('termino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('termino[]').item(i).focus();
+							return false;
+						}*/
+						if(document.getElementsByName('faja[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('faja[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('saneamiento[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('saneamiento[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('calzada[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('calzada[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('senalizacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('senalizacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('demarcacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('demarcacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('resolucion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('resolucion[]').item(i).focus();
+							return false;
+						}							
+						j++;
+					}
+					else if(document.getElementsByName('senalizacion[]').item(i).value != ''){
+						if(document.getElementsByName('rolCamino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('rolCamino[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('desde[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('desde[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('hasta[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('hasta[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('longitud[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('longitud[]').item(i).focus();
+							return false;
+						}
+						/*if(document.getElementsByName('inicio[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('inicio[]').item(i).focus();
+							return false;
+						}*/
+						/*if(document.getElementsByName('termino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('termino[]').item(i).focus();
+							return false;
+						}*/
+						if(document.getElementsByName('faja[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('faja[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('saneamiento[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('saneamiento[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('calzada[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('calzada[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('bermas[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('bermas[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('demarcacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('demarcacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('resolucion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('resolucion[]').item(i).focus();
+							return false;
+						}							
+						j++;
+					}
+					else if(document.getElementsByName('demarcacion[]').item(i).value != ''){
+						if(document.getElementsByName('rolCamino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('rolCamino[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('desde[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('desde[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('hasta[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('hasta[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('longitud[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('longitud[]').item(i).focus();
+							return false;
+						}
+						/*if(document.getElementsByName('inicio[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('inicio[]').item(i).focus();
+							return false;
+						}*/
+						/*if(document.getElementsByName('termino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('termino[]').item(i).focus();
+							return false;
+						}*/
+						if(document.getElementsByName('faja[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('faja[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('saneamiento[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('saneamiento[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('calzada[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('calzada[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('bermas[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('bermas[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('senalizacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('senalizacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('resolucion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('resolucion[]').item(i).focus();
+							return false;
+						}							
+						j++;
+					}
+					else if(document.getElementsByName('resolucion[]').item(i).value != ''){
+						if(document.getElementsByName('rolCamino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('rolCamino[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('desde[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('desde[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('hasta[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('hasta[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('longitud[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('longitud[]').item(i).focus();
+							return false;
+						}
+						/*if(document.getElementsByName('inicio[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('inicio[]').item(i).focus();
+							return false;
+						}*/
+						/*if(document.getElementsByName('termino[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('termino[]').item(i).focus();
+							return false;
+						}*/
+						if(document.getElementsByName('faja[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('faja[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('saneamiento[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('saneamiento[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('calzada[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('calzada[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('bermas[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('bermas[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('senalizacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('senalizacion[]').item(i).focus();
+							return false;
+						}
+						if(document.getElementsByName('demarcacion[]').item(i).value == ''){
+							alert("ERROR: No se ha ingresado toda la información.");
+							//document.getElementsByName('longitud[]').item(i).value = "";
+							document.getElementsByName('demarcacion[]').item(i).focus();
+							return false;
+						}							
+						j++;
+					}					
+				}			
+				if(j == 0){
+					alert("ERROR: No se ha ingresado ningún camino.");
+					document.getElementsByName('rolCamino[]').item(0).focus();
+					return false;
+				}
+				else{
+					var indice  = validarNegativo();
+					if(indice == -1){
+						if(confirm("¿Seguro que desea realizar la exclusión?")){						
+							return true;
+						}
+						else{
+							return false;
+						}
+					}
+					else{
+						alert("ERROR: La longitud no puede ser negativa o cero.");
+						document.getElementsByName('longitud[]').item(indice).value = "";
+						document.getElementsByName('desde[]').item(indice).focus();
+						return false;
+					}					
+				}				
+			}		
+			function validarNegativo(){
+				longitud = document.getElementsByName('longitud[]').length;
+				for(var i=0;i<longitud;i++){
+					if(document.getElementsByName('longitud[]').item(i).value != '' && document.getElementsByName('longitud[]').item(i).value <= 0){
+						return i;
+					}
+				}				
+				return -1;
+
+			}	
+			//restringe km inicial para aceptar solo número y un punto
+			function numeroPunto1(evt,valor){
+				var key = nav4 ? evt.which : evt.keyCode;				
+				var cadena = document.getElementsByName('desde[]').item(valor).value;
+				if(cadena.indexOf('.') == -1){
+					return (key <= 13 || (key >= 48 && key <= 57) || key == 46);						
+				}					
+				else{
+					return (key <= 13 || (key >= 48 && key <= 57));						
+				}											
+			}	
+			//restringe km final para aceptar solo número y un punto
+			function numeroPunto2(evt,valor){
+				var key = nav4 ? evt.which : evt.keyCode;
+				cadena = document.getElementsByName('hasta[]').item(valor).value;					
+				if(cadena.indexOf('.') == -1){
+					return (key <= 13 || (key >= 48 && key <= 57) || key == 46);						
+				}					
+				else{
+					return (key <= 13 || (key >= 48 && key <= 57));						
+				}											
+			}					
+			//suma los valores de km inicio y km final para generar la longitud del camino
+			function sumakm(valor){
+				numero1 = document.getElementsByName('desde[]').item(valor).value;
+				numero2 = document.getElementsByName('hasta[]').item(valor).value;									
+				resta = numero2 - numero1;
+				document.getElementsByName('longitud[]').item(valor).value = resta.toFixed(2);				
+			}				
+		</script>
+    </head>
+    <body>
+    	
+    	<!-- INCLUDE BLOCK : header -->              
+
+        <section>        	
+
+            <article id="crearExclusion" style="padding:0;width:100%;">             	
+            <br/>
+            <img src="imagenes/iconos/flecha_izquierda.png" style="position:relative;left:50px;" />
+            <input type="button" value="Regresar al Men&uacute;" onClick="redireccionar();"             
+            style="
+            	color:#fff;
+				font-weight:bolder;
+				background-color:#01325D;
+				padding:1rem 0rem 1rem 0rem;
+				transition-duration:1s;
+				width:13%;
+				display:inline-block;
+				-webkit-box-shadow: 3px 2px 9px 0px rgba(50, 50, 50, 0.93);
+                -moz-box-shadow:    3px 2px 9px 0px rgba(50, 50, 50, 0.93);
+                box-shadow:         3px 2px 9px 0px rgba(50, 50, 50, 0.93);
+                border-radius: 20px 200px 20px 200px;
+                -moz-border-radius: 20px 200px 20px 200px;
+                -webkit-border-radius: 20px 200px 20px 200px;
+				cursor:pointer;"/>
+              <p style="width: 100%;color:red;text-align:center;font-weight:bolder;">{MENSAJE}</p>
+           	  <form id="formulario_camino" action="verExclusion.php" onSubmit="return caminos()" method="post" autocomplete="off">
+              	<table width="100%" cellpadding="0" cellspacing="0" style="border:.1rem solid #fff;color:#fff;">
+                	<tr style="background-color:#01325D;font-weight:bolder;text-align:center;">
+                    	<td colspan="13" rowspan="1" width="98%" style="padding-top:1rem;padding-bottom:1rem;">REVISAR EXCLUSIONES</td>
+                    </tr>
+                    <tr style="background-color:#01325D;font-weight:bolder;text-align:center;">
+                    	<td colspan="1" rowspan="2" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                        ROL</td>
+                        <td colspan="3" rowspan="1" width="18%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                        Tramo en NS (KM)</td>
+                        <td colspan="2" rowspan="1" width="12%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                        Fecha</td>
+                        <td colspan="6" rowspan="1" width="36%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                        Componentes (SNS: Excluido)
+                        </td>
+                        <td colspan="1" rowspan="2" width="26%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #fff;">
+                        Resoluci&oacute;n</td>                   
+                    </tr>
+                    <tr style="background-color:#01325D;font-weight:bolder;text-align:center;">
+                    	<td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                        Desde</td>
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                        Hasta</td>
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                        Long.</td>
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                        Inicio</td>
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                       	Termino</td>
+                       	<!-- START BLOCK : NOMBRES_COMPONENTES -->
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                        {valor_componente}</td>
+                        <!-- END BLOCK : NOMBRES_COMPONENTES -->
+                        <!--
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                        Saneam.</td>
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                        Calzada</td>
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                        Bermas</td>
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                        Se&ntilde;al.</td>
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                        Demarc.</td>  -->                      
+                    </tr>
+                    
+                    <!-- START BLOCK : EXCLUSIONES -->
+                    <tr style="text-align:center;">                    
+                    <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;border-left:.1rem solid #01325D;border-bottom:.1rem solid #01325D;color:#01325D;">
+                        {ROL_EXCLUSION}
+                        </td>                    
+                    	<td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;color:#01325D;border-bottom:.1rem solid #01325D;">
+                        {DESDE_EXCLUSION}
+                        </td>
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;color:#01325D;border-bottom:.1rem solid #01325D;">
+                        {HASTA_EXCLUSION}
+                        </td>
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;color:#01325D;border-bottom:.1rem solid #01325D;">
+                        {LONGITUD_EXCLUSION}
+                        </td>
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;color:#01325D;border-bottom:.1rem solid #01325D;">
+                        {FECHA_INICIO_EXCLUSION}
+                        </td>
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;color:#01325D;border-bottom:.1rem solid #01325D;">
+                        {FECHA_TERMINO_EXCLUSION}
+                        </td>
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;color:#01325D;border-bottom:.1rem solid #01325D;">
+                        {FAJA_EXCLUSION}
+                        </td>
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;color:#01325D;border-bottom:.1rem solid #01325D;">
+                        {SANEAMIENTO_EXCLUSION}
+                        </td>                        
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;color:#01325D;border-bottom:.1rem solid #01325D;">
+                        {CALZADA_EXCLUSION}
+                        </td>
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;color:#01325D;border-bottom:.1rem solid #01325D;">
+                        {BERMAS_EXCLUSION}
+                        </td>
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;color:#01325D;border-bottom:.1rem solid #01325D;">
+                        {SENALIZACION_EXCLUSION}
+                        </td>
+                        <td colspan="1" rowspan="1" width="6%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;color:#01325D;border-bottom:.1rem solid #01325D;">
+                        {DEMARCACION_EXCLUSION}
+                        </td>                        
+                        <td colspan="1" rowspan="1" width="26%" 
+                        style="padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #01325D;color:#01325D;border-bottom:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+                        {RESOLUCION_EXCLUSION}
+                        </td>                   
+                    </tr>
+                    <!-- END BLOCK : EXCLUSIONES -->
+                    </table>                
+                <input type="hidden" name="cargador" value="1"/>                
+            </form>       
+            </article>
+        </section>
+        <footer></footer>
+    </body>
+</html>
+  

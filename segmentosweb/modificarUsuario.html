@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+         <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>        
+        <title>Dirección de Vialidad.</title>        
+    </head>
+    <body>
+    	<!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu --> 
+        
+         <section>
+            </article>
+            <article id="crearUsuario">   
+            	<p style="position:relative;bottom:60px;left:120px;width: 100%;color:red;text-align:center;font-weight:bolder;">{MENSAJE}</p>         	
+				<form id="formulario_ingreso2" action="modificarUsuario.php" method="post" autocomplete="off">
+            		<ul>
+                    	<li class="titulo_campo">SELECCIONAR USUARIO</li><br/><br/><br/>
+                		<li class="nombre_campo"><b>Usuario</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">
+                        &nbsp;&nbsp;<select name="usuarioBuscar" onChange="redireccionar(value);" required autofocus>
+                        	<option value="{SELECT_INICIO}" selected>{VALOR_SELECT_INICIO}</option>
+                        	<!-- START BLOCK : USUARIO_BUSCAR -->
+                            <option value="{CODIGO_USUARIO}">{NOMBRE_USUARIO}</option>	
+                            <!-- END BLOCK : USUARIO_BUSCAR -->
+                            <option value="{SELECT_TERMINO}">{VALOR_SELECT_TERMINO}</option>
+                        </select>
+                        </li><br/><br/><br/>
+                		<li class="titulo_campo">INFORMACI&Oacute;N DE USUARIO</li><br/><br/><br/>
+                		<li class="nombre_campo"><b>Nombre (s)</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">&nbsp;&nbsp;<input type="text" name="nombre" value="{NOMBRE_UPDATE}" required/></li><br/>
+                        <li class="nombre_campo"><b>Apellido (s)</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">&nbsp;&nbsp;<input type="text" name="apellido" value="{APELLIDO_UPDATE}" required/></li><br/>
+                        <li class="nombre_campo"><b>E-Mail</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">
+                        	&nbsp;&nbsp;<input type="email" name="email" value="{EMAIL_UPDATE}" placeholder="p. ej. usuario@dominio.cl" required/>
+                        </li><br/>                        
+                    	<li class="nombre_campo"><b>Contrase&ntilde;a</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">&nbsp;&nbsp;<input type="password" name="contrasena" value="{CONTRASENA_UPDATE}" required/></li><br/>
+                        <li class="nombre_campo"><b>Cargo</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">
+                    		&nbsp;
+                    		<select name="cargo" required>                            	
+                    	    	<option value="{CARGO_INICIO}" selected>{CARGO_INICIO_NOMBRE}</option>
+                    	        <!-- START BLOCK : CODIGO_CARGO -->
+                    	    	<option value="{COD_CARGO}">{NOM_CARGO}</option>                            
+                    	        <!-- END BLOCK : CODIGO_CARGO -->
+                                <option value="{CARGO_INICIO_FIN}">{CARGO_FIN_NOMBRE}</option>
+                    	    </select>
+                    	</li><br/><br/>
+                    	<li style="width:70%;text-align:center;">
+                        	<input type="submit" name="enviar" value="ACTUALIZAR" id="boton_envio" style="width:30%;"/>
+                            <input type="submit" name="enviar" value="ELIMINAR" id="boton_envio" style="width:30%;"/>
+                        
+                        </li>                    	
+	                </ul>
+	                <input type="hidden" name="cargador" value="1"/>
+            </form>       
+            </article>
+        </section>
+        <footer></footer>
+        <script src="JS/funciones.js"></script>  
+    </body>
+</html>

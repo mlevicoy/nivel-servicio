@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>        
+        <title>Dirección de Vialidad.</title>          
+    </head>
+    <body>
+    	<!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu -->
+         <section>
+            <article id="crearUsuario"> 
+            	<p style="position:relative;top:-60px; left:70px;width: 100%;color:red;text-align:center;font-weight:bolder;margin-left:90px;">{MENSAJE}</p>           	
+           		<form id="formulario_ingreso2" action="modificarRecepcionAnterior.php" method="post" autocomplete="off">            	
+					<table cellpadding="0" cellspacing="0" style=" margin:0 90px;width:90%;border:.1rem solid #01325D;color:#fff;text-align:center;">
+						<tr>
+							<td colspan="7" rowspan="1" width="98%" style="background-color:#01325D;font-weight:bolder;padding:1rem;">
+								ACTUALIZAR RECEPCI&Oacute;N ANTERIOR
+							</td>
+						</tr>
+						<tr>
+							<td colspan="1" rowspan="1" width="14%" 
+							style="background-color:#01325D;font-weight:bolder;padding:1rem;border-right:.1rem solid #fff;border-top:.1rem solid #fff;">
+								INSPECCI&Oacute;N DE PAGO N&deg;
+							</td>
+							<td colspan="1" rowspan="1" width="14%" 
+							style="background-color:#01325D;font-weight:bolder;padding:1rem;border-right:.1rem solid #fff;border-top:.1rem solid #fff;">
+								FAJA VIAL
+							</td>
+							<td colspan="1" rowspan="1" width="14%" 
+							style="background-color:#01325D;font-weight:bolder;padding:1rem;border-right:.1rem solid #fff;border-top:.1rem solid #fff;">
+								SANEAMIENTO
+							</td>
+							<td colspan="1" rowspan="1" width="14%" 
+							style="background-color:#01325D;font-weight:bolder;padding:1rem;border-right:.1rem solid #fff;border-top:.1rem solid #fff;">
+								CALZADA
+							</td>
+							<td colspan="1" rowspan="1" width="14%" 
+							style="background-color:#01325D;font-weight:bolder;padding:1rem;border-right:.1rem solid #fff;border-top:.1rem solid #fff;">
+								BERMAS
+							</td>
+							<td colspan="1" rowspan="1" width="14%" 
+							style="background-color:#01325D;font-weight:bolder;padding:1rem;border-right:.1rem solid #fff;border-top:.1rem solid #fff;">
+								SENALIZACI&Oacute;N
+							</td>
+							<td colspan="1" rowspan="1" width="14%" 
+							style="background-color:#01325D;font-weight:bolder;padding:1rem;border-top:.1rem solid #fff;">
+								DEMARCACI&Oacute;N
+							</td>
+						</tr>
+						<!-- START BLOCK : RECEPCION_ANTERIOR -->
+						<tr>
+							<td colspan="1" rowspan="1" width="14%" 
+							style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+								<input type="text" name="inspeccion[]" value="{INSPECCION}" style="width:98%;color:#01325D;text-align: center;" readonly/>
+							</td>
+							<td colspan="1" rowspan="1" width="14%" 
+							style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+								<input type="text" name="fajaVial[]" value="{FAJA_VIAL}" style="width:98%;color:#01325D;" onKeyPress="return soloNumero(event, 1);" required/>
+							</td>
+							<td colspan="1" rowspan="1" width="14%" 
+							style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+								<input type="text" name="saneamiento[]" value="{SANEAMIENTO}" style="width:98%;color:#01325D;" onKeyPress="return soloNumero(event, 1);" required/>
+							</td>
+							<td colspan="1" rowspan="1" width="14%" 
+							style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+								<input type="text" name="calzada[]" value="{CALZADA}" style="width:98%;color:#01325D;" onKeyPress="return soloNumero(event, 1);" required/>
+							</td>
+							<td colspan="1" rowspan="1" width="14%" 
+							style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+								<input type="text" name="bermas[]" value="{BERMAS}" style="width:98%;color:#01325D;" onKeyPress="return soloNumero(event, 1);" required/>
+							</td>
+							<td colspan="1" rowspan="1" width="14%" 
+							style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+								<input type="text" name="senalizacion[]" value="{SENALIZACION}" style="width:98%;color:#01325D;" onKeyPress="return soloNumero(event, 1);" required/>
+							</td>
+							<td colspan="1" rowspan="1" width="14%" 
+							style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+								<input type="text" name="demarcacion[]" value="{DEMARCACION}" style="width:98%;color:#01325D;" onKeyPress="return soloNumero(event, 1);" required/>
+							</td>							
+						</tr>	
+							<input type="hidden" name="bimestre[]" value="{NRO_BIMESTRE}"/>
+						<!-- END BLOCK : RECEPCION_ANTERIOR -->					
+						<tr>
+							<td colspan="7" rowspan="1" width="98%" style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+								
+								<input type="submit" name="enviar" value="ACTUALIZAR RECEPCIONES" id="boton_envio" style="width:25%;text-align:center;"/>      
+							</td>
+						</tr>
+					</table>
+					<input type="hidden" name="buscador" value="1"/>
+            	</form> 
+            </article>
+        </section>
+        <footer></footer>
+        <script src="JS/funciones.js"></script>
+    </body>
+</html>
+  

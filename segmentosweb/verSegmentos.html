@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>        
+        <title>Dirección de Vialidad.</title>   
+        <script>
+	        function redireccionar(id){        
+				if(id == 0){
+					return false;
+				}
+				else{
+					location.href = 'acta.php?id='+id;
+				}
+			}   
+		</script>  
+    </head>
+    <body>
+    	<!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu -->
+         <section>
+            <article id="datosActa">   
+            	<p style="text-align:center;color:#01325D;position:relative;top:-70px;left:150px;">
+                	<img src="imagenes/iconos/check.png" width="25" height="25">&nbsp;:&nbsp;{INGRESA_SORTEO} segmentos ingresan al sorteo&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
+                    <img src="imagenes/iconos/equis.png" width="25" height="25">&nbsp;:&nbsp;{EXCLUIDO_DEL_SORTEO} segmentos fueron excluidos del sorteo
+                </p>    
+           		<form id="formulario_acta" action="verSegmentos.php" method="post" autocomplete="off">
+                	<table width="100%" cellpadding="0" cellspacing="0" style="border:.1rem solid #01325D;position:relative;top:50px;left:93px;">
+                    	<tr id="fila_titulo">
+                        	<td colspan="9" rowspan="1" width="98%" style="padding-top:1rem;padding-bottom:1rem;">
+                            LISTA DE SEGMENTOS
+                            </td>
+                        </tr>                        
+                        <tr id="fila_titulo">
+                        	<td colspan="1" rowspan="2" width="6%" 
+                            style="padding:1rem 0 1rem 0;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                            N&deg;
+                            </td>
+							<td colspan="1" rowspan="2" width="6%" 
+                            style="padding:1rem 0 1rem 0;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                            N&deg; Camino
+                            </td>
+                            <td colspan="1" rowspan="2" width="7%" 
+                            style="padding:1rem 0 1rem 0;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                            C&oacute;digo
+                            </td>
+                            <td colspan="1" rowspan="2" width="7%" 
+                            style="padding:1rem 0 1rem 0;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                            ROL
+                            </td>
+                            <td colspan="1" rowspan="2" width="38%" 
+                            style="padding:1rem 0 1rem 0;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                            Nombre Camino
+                            </td>
+                            <td colspan="2" rowspan="1" width="23%"
+                            style="padding:1rem 0 1rem 0;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                            Longitud
+                            </td>
+                            <td colspan="1" rowspan="2" width="6%"
+                            style="padding:1rem 0 1rem 0;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                            Tramos
+                            </td>
+                            <td colspan="1" rowspan="2" width="6%"
+                            style="padding:1rem 0 1rem 0;border-top:.1rem solid #fff;">
+                            Estado
+                            </td>
+                        </tr>
+                        <tr id="fila_titulo">
+                        	<td colspan="1" rowspan="1" width="10%" 
+                            style="padding:.5rem 0 .5rem 0;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                            KM Inicio
+                            </td>
+                            <td colspan="1" rowspan="1" width="10%" 
+                            style="padding:.5rem 0 .5rem 0;border-top:.1rem solid #fff;border-right:.1rem solid #fff;">
+                            KM T&eacute;rmino
+                            </td>                            
+                        </tr>
+                        <!-- START BLOCK : MOSTRAR_SEGMENTO -->
+                       	<tr>
+							<td colspan="1" rowspan="1" width="6%" 
+                            style="padding:1rem 0 1rem 0;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+                            {NUMERO_SEGMENTO}
+                            </td>
+                         	<td colspan="1" rowspan="1" width="6%" 
+                            style="padding:1rem 0 1rem 0;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+                            {NUMERO_CAMINO}
+                            </td>
+                            <td colspan="1" rowspan="1" width="7%" 
+                            style="padding:1rem 0 1rem 0;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+                            {CODIGO_SEGMENTO}
+                            </td>
+                            <td colspan="1" rowspan="1" width="7%" 
+                            style="padding:1rem 0 1rem 0;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+                            {ROL_SEGMENTO}
+                            </td>
+                            <td colspan="1" rowspan="1" width="38%" 
+                            style="padding:1rem 0 1rem 0;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+                            {NOMBRE_SEGMENTO}
+                            </td>
+                            <td colspan="1" rowspan="1" width="10%" 
+                            style="padding:.5rem 0 .5rem 0;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+                            {KMINICIO_SEGMENTO}
+                            </td>
+                            <td colspan="1" rowspan="1" width="10%" 
+                            style="padding:.5rem 0 .5rem 0;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+                            {KMTERMINO_SEGMENTO}
+                            </td>
+                            <td colspan="1" rowspan="1" width="6%"
+                            style="padding:1rem 0 1rem 0;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+                            <a href="verSubSegmentos.php?id={VER_SUBSEGMENTO}" style="text-decoration:none;color:#01325D;font-weight:bolder;cursor:pointer;">
+                            Ver
+                            </a>
+                            </td>
+                            <td colspan="1" rowspan="1" width="6%"
+                            style="padding:1rem 0 1rem 0;border-top:.1rem solid #01325D;">
+                            <!--<a href="verSubSegmentos.php?id={VER_SUBSEGMENTO}" style="text-decoration:none;color:#01325D;font-weight:bolder;cursor:pointer;">-->
+                            <img src="{ESTADO}" width="25" height="25"/>
+                            <!--</a>-->
+                            </td>
+                        </tr>
+                        <!-- END BLOCK : MOSTRAR_SEGMENTO -->
+                 	</table>                	
+                    <input type="hidden" name="cargador" value="1"/>
+            	</form>       
+            </article>
+        </section>
+        <footer></footer>
+    </body>
+</html>
+  

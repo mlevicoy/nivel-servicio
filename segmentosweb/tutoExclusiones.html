@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>     
+
+        <link rel="stylesheet" href="css/informacion.css"/>
+        <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+        <script type="text/javascript">
+           $(document).ready(function(){
+             $('.toggle').click(function(){
+                $('.toggle').toggleClass('active')
+            })
+             $('.toggle').click(function(){
+                $('.box').toggleClass('active')
+             })
+           })
+         
+
+        </script>   
+        <title>Dirección de Vialidad.</title>
+        
+        <style>
+		ol{
+			font-weight:bolder;	
+		}
+		ol p{
+			font-weight:normal;
+		}
+		</style>
+        
+    </head>
+    <body>
+    	<!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu -->
+
+
+
+         <section>
+            <article id="mensaje_inicio" style="position:relative;top:100px;left:300px;text-align:left; color:#01325D;"><br/><br/><br/>
+				<form id="formulario_tutoExclusiones" action="ingresarExclusion.php" method="post">
+                    <b>Instrucciones: </b>
+                    <div class="box">
+                        <div class="toggle"><span></span></div>
+                  
+                    <b>Considerar los siguientes punto antes de ingresar las Exclusiones:</b>
+                  
+                    	<p>1. Realizar las exclusiones en papel antes de pasarlas al programa.</p>
+                    	<p>2. Las exclusiones deben ser ordenadas, por ejemplo:</p>
+                        
+                            	<ol><p> 1.Ingresamos la exclusión KMi = 64.350, KMf = 64.769.</p></ol>
+                                <ol><p>2. La siguiente exclusión debe ser mayor o igual a 64.769. Si hay una exclusi&oacute;n menor se debe ir a modificar exclusiones.<p/></ol>
+                                                   
+                      
+                        <p>3. No se debe intervenir una exclusi&oacute;n ya ingresada, por ejemplo:<p/>
+                        
+                            	<ol><p>1. Si ya existe la exclusi&oacute;n KMi = 2.093, KMf = 7.222, no se puede agregar la exclusi&oacute;n, KMi = 4.000, KMf = 9.100.</p></ol>
+                                <ol><p>2. Se debe realizar una modificación de la exclusi&oacute;n quedando de la siguiente forma:
+                                	<ul>
+                                        <p>•  KMi = 2.093, KMf = 4.000</p>
+                                        <p>•  KMi = 4.000, KMf = 7.222</p>
+                                        <p>•  KMi = 7.222, KMf = 9.100</p>
+                                        
+                                    </ul></p></ol>
+                         </div>
+
+                      <div>
+                <br>
+                <br>
+                </br>
+                </br>
+ 
+                    <img src="imagenes/iconos/flecha_derecha.png" style="position:relative;top:398px;z-index:2;left:137px;" />
+                    <input type="submit" name="botonExclusiones" value="CONTINUAR" id="boton_envio"/>
+                 </div>
+                </form>
+
+           	</article>
+        </section>
+        <footer>	        
+
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>        
+        <title>Dirección de Vialidad.</title>        
+    </head>
+    <body onLoad="javascript: {CARGAINICIO}">
+    	
+         <!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu -->
+        
+         <section>
+            <article id="crearUsuario">
+            	<p style="position:relative;top:-75px;left:125px;width: 100%;color:red;text-align:center;font-weight:bolder;">{MENSAJE}</p>          	
+				<form id="formulario_ingreso2" action="ingresarContrato.php" onSubmit="return rut();" method="post" autocomplete="off">
+            		<ul>
+                		<li class="titulo_campo">INFORMACI&Oacute;N DEL CONTRATO</li><br/><br/><br/>
+                		<li class="nombre_campo"><b>Resoluci&oacute;n</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">
+                        &nbsp;&nbsp;<input type="text" name="resolucion" value="" placeholder="p. ej. 78 21-12-2012" autofocus required/></li><br/>
+                        <li class="nombre_campo"><b>Inicio Legal</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">&nbsp;&nbsp;<input type="date" name="inicioLegal" placeholder="Año-Mes-Día" value="" required/></li><br/>
+                        <li class="nombre_campo"><b>Monto Contrato Vigente</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">
+                        	&nbsp;&nbsp;<input type="text" name="montoCV" value="" placeholder="p. ej. $1.111.111.-" onKeyPress="return soloNumero(event, 2);" required/>
+                        </li><br/>                        
+                    	<li class="nombre_campo"><b>Monto Contrato por Nivel de Servicio</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">&nbsp;&nbsp;<input type="text" name="montoNS" value="" placeholder="p. ej. $1.111.111.-" onKeyPress="return soloNumero(event, 2);" required/></li><br/>                    
+                        <li class="nombre_campo"><b>Nombre Empresa Constructora</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">&nbsp;&nbsp;<input type="text" name="nombreEmpresaConstructora" value="" required/></li><br/>                    
+                        <li class="nombre_campo"><b>R.U.T. Empresa Constructora (Opcional)</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">
+                        &nbsp;&nbsp;<input type="text" name="rutEmpresaConstructora" value="" placeholder="Ej. 1.111.111-1" onKeyPress="return soloNumero(event, 3);"/>
+                        </li><br/>
+                        <li class="nombre_campo"><b>Nombre Inspector(a) Fiscal</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">&nbsp;&nbsp;<input type="text" name="nombreInspectorFiscal" value="" required/></li><br/><br/><br/>
+                    	<li><input type="submit" name="enviar" value="INGRESAR CONTRATO" id="boton_envio"/></li>                    	
+	                </ul>
+	                <input type="hidden" name="cargador" value="1"/>
+                    <input type="hidden" name="bimestre" value="1"/>
+            </form>       
+            </article>
+        </section>
+        <footer></footer>  
+        <script src="JS/funciones.js"></script>      
+    </body>
+</html>

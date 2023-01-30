@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>
+        <link rel="stylesheet" href="css/informacionCamino.css"/> 
+        <link rel="stylesheet" href="css/boton-informacion.css"/>
+
+        <!-- ruta de iconos -->
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"/>
+       
+        <title>Dirección de Vialidad.</title>
+        <script type="text/javascript" src="JS/jquery-1.8.2.js"></script>
+        <script type="text/javascript" src="JS/instruccion.js"></script>
+
+    </head>
+    <body>
+
+      
+    	<!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu --> 
+
+        
+         <section>
+            <article id="crearCamino2">             	
+				
+              
+                
+               <div class="btn" id="mostrar"><p style="position:relative;top:10px;color:white;text-align:center;">Instrucciones</p><i style="position:relative;bottom:49px;color:#126EBF;left:135px;"class="fa fa-commenting fa-3x"></i>
+               </div>
+
+
+
+				<form id="formulario_camino2" action="modificarCamino.php" onSubmit="return aprobar(2);" method="post" autocomplete="off">
+                	<ul id="controles">
+                		<li class="titulo_campo2">MODIFICAR RED DE CAMINOS</li><br/><br/><br/><br/><br/><br/>  
+
+                                      	
+                        <!-- START BLOCK : CAMPOS_CAMINO -->
+                    	<li class="valor_campo2" id="li{I}">
+                            
+							<input type="text" name="numeroCamino[]" value="{NRO_CAMINO}" placeholder="N&deg; Camino" required/>
+                        	<input type="text" name="rol[]" value="{ROL_CAMINO}" placeholder="ROL" required/>
+                        	<input type="text" name="codigo[]" value="{CODIGO_CAMINO}" placeholder="C&oacute;digo" required />
+                        	<input type="text" name="nombre[]" value="{NOMBRE_CAMINO}" placeholder="Nombre Camino" style="width:25%" required/>                        
+                        	<input type="text" name="kmInicio[]" value="{KMINICIO_CAMINO}" placeholder="KM. Inicio" onKeyPress="return soloNumero(event,1)" onBlur="sumakm({I})" required/>
+                        	<input type="text" name="kmFinal[]" value="{KMFINAL_CAMINO}" placeholder="KM. Final" onKeyPress="return soloNumero(event,1)" onBlur="sumakm({I})" required/>
+                        	<input type="text" name="longitud[]" value="{LONGITUD_CAMINO}" placeholder="Longitud" required readonly="readonly"/>
+
+
+                        	<button style="
+                                position:relative;
+                                left:280px;
+                                top:152px;
+                                cursor:pointer;
+								color:#fff;
+								font-weight:bolder;
+								background-color:#01325D;
+								padding:0.45rem 0rem 0.45rem 0rem;
+								transition-duration:1s;
+								width:7%;
+								display:inline-block;" 
+                        	onClick="return eliminarControlesCamino({I})">Eliminar</button><br/>
+                        </li>
+                        <!-- END BLOCK : CAMPOS_CAMINO -->
+ 						<br/><br/>
+                    	<li><input type="submit" name="enviar" value="MODIFICAR RED CAMINOS" id="boton_envio2" style="display:{DISPLAY}"/></li><br/><br/>
+	                </ul>
+	                <input type="hidden" name="cargador" value="1"/>
+            </form>  
+            <!-- Instrucciones -->
+            <div id="contenedor5"></div>
+               <div id="contenedor5Form">
+
+                <b>Instrucciones:</b>
+                  
+                        <p>1. Al modificar la red de caminos deberá ingresar nuevamente las exclusiones.</p>
+                        <p>2. Pasos para eliminar o modificar las exclusiones:</p>
+                        
+                                <ol><p>• Seleccionamos el boton eliminar y/o modificar posteriormente seleccionamos el boton "MODIFICAR RED CAMINOS" para efectuar los cambios.</p></ol>
+                                <ol><p>• Al modificar o eliminar las exclusiones se generara nuevamente los segmentos y tramos.<p/></ol>
+                        <p>3. Para salir de las instrucciones, haga click en las partes oscuras del sitio web.</p>
+                                                   
+                 </div>     
+            </article>
+        </section>
+        <footer></footer>
+        <script src="JS/funciones.js"></script>
+    </body>
+</html>
+  

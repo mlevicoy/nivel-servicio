@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/menu.css"/>        
+        <title>Dirección de Vialidad.</title>
+    </head>
+    <body onload="calculoInicial();">	
+    	<!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu -->           
+        <section>
+            <article id="datosActa" style="width:94%;">
+            	<br/>
+            	<img src="imagenes/iconos/flecha_izquierda.png" style="position:relative;left:50px;" />
+            	<input type="button" value="Regresar al Men&uacute;" onClick="location.href = 'redireccionar.php'"             
+            	style="
+            	color:#fff;
+				font-weight:bolder;
+				background-color:#01325D;
+				padding:1rem 0rem 1rem 0rem;
+				-webkit-box-shadow: 3px 2px 9px 0px rgba(50, 50, 50, 0.93);
+                -moz-box-shadow:    3px 2px 9px 0px rgba(50, 50, 50, 0.93);
+                box-shadow:         3px 2px 9px 0px rgba(50, 50, 50, 0.93);
+				transition-duration:1s;
+				width:15%;
+				border-radius: 20px 200px 20px 200px;
+                -moz-border-radius: 20px 200px 20px 200px;
+                -webkit-border-radius: 20px 200px 20px 200px;
+				display:inline-block; 
+                cursor:pointer;"/>  
+                <p style="width: 100%;color:red;text-align:center;font-weight:bolder;">{MENSAJE}</p>          	                
+           		<form id="formulario_acta" action="informeTablaIncumplimiento.php" method="post" autocomplete="off" >
+                	<table width="100%" cellpadding="0" cellspacing="0" style="border:.1rem solid #01325D;">
+                    	<tr id="fila_titulo">
+                        	<td colspan="14" width="100%" style="padding:1rem;border-bottom:.1rem solid #01325D;">INSPECCI&Oacute;N DE PAGO NIVEL DE SERVICIO N&deg; {PAGONUMERO}</td>
+                        </tr>
+                        <tr>
+                        	<td colspan="14" rowspan="1" width="100%" style="text-align:left;border-bottom:.1rem solid #01325D;padding-bottom:1rem;padding-left:1rem;padding-top:1rem; font-weight:bolder;">
+                            	Segmento N&deg;:&nbsp;
+                                <select name="id_bimestre" autofocus style="width:37.8%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" onChange="redireccionarIncumplimiento(value);" required>
+                                	<option value="{SELECT_INICIO}" selected>{VALOR_SELECT_INICIO}</option>                                	
+                                    <!-- START BLOCK : SEGMENTO -->
+                                    <option value="{NRO_SEGMENTO}">{NOMBRE_SEGMENTO}</option>
+                                    <!-- END BLOCK : SEGMENTO -->
+                                    <option value="{SELECT_FINAL}">{VALOR_SELECT_FINAL}</option>
+                                </select>
+                            </td>                            
+                        </tr>                                                
+                        <tr>
+                        	<td colspan="14" rowspan="1" width="100%" style="text-align:left;border-bottom:.1rem solid #01325D;padding-bottom:1rem;padding-left:1rem;padding-top:1rem;font-weight:bolder;">
+                            	1. FECHA:&nbsp;{FECHA_SORTEO}
+                            </td>                            
+                        </tr>                                                
+                        <tr>
+                        	<td colspan="14" rowspan="1" width="100%" style="text-align:left;padding-left:1rem;padding-top:1rem;font-weight:bolder;">
+                            	2. CAMINO:<br/><br/>								
+                                <label style="margin-left:5rem;">ROL:</label>&nbsp;<label style="text-align:left;font-weight:normal;">{ROLSEGMENTO}</label><br/>
+                                <label style="margin-left:5rem;">NOMBRE:</label>&nbsp;<label style="text-align:left;font-weight:normal;">{NOMBRESEGMENTO}</label><br/>
+								<label style="margin-left:5rem;">N&Uacute;MERO CAMINO:</label>&nbsp;<label style="text-align:left;font-weight:normal;">{NROCAMINO}</label><br/>
+                                <label style="margin-left:5rem;">SEGMENTO N&deg;:</label>&nbsp;
+	                            <label style="text-align:left;font-weight:normal;">
+    	                        	{NUMEROSEGMENTO},&nbsp;DESDE&nbsp;KM&nbsp;{KMINICIOSEGMENTO}&nbsp;HASTA&nbsp;{KMFINALSEGMENTO}
+        	                    </label><br/><br/>                            
+                            </td>                            
+                        </tr>                                                
+                        <tr>
+                        	<td colspan="14" rowspan="1" width="100%" style="text-align:left;padding-left:1rem;padding-top:1rem;padding-bottom:1rem;border-top:.1rem solid #01325D;font-weight:bolder;">
+                            3. INCUMPLIMIENTO DEL SEGMENTO:
+                            </td>                            
+                        </tr>							
+						<tr>
+							<td colspan="2" rowspan="2" width="10%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;"> 
+								Todo Cumple&nbsp;<input name="chk_todos" id="seleccionar_todo" type="checkbox" onclick="todocumple();"/>
+							</td>
+							<!-- START BLOCK : NOMBRES_COMPONENTES -->
+							<td colspan="2" rowspan="2" width="16%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;">
+								{valor_componente}
+							</td>
+							<!-- END BLOCK : NOMBRES_COMPONENTES -->
+							 <!--
+							<td colspan="2" rowspan="2" width="16%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;">
+								SANEAMIENTO
+							</td>
+							<td colspan="2" rowspan="2" width="16%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;">
+								CALZADA 
+							</td>
+							<td colspan="2" rowspan="2" width="16%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;">
+								BERMAS
+							</td>
+							<td colspan="2" rowspan="2" width="16%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;">
+								SE&Ntilde;ALIZACI&Oacute;N
+							</td>
+							<td colspan="2" rowspan="2" width="16%" style="padding:1rem;border-top:.1rem solid #01325D;font-weight:bolder;">
+								DEMARCACI&Oacute;N
+							</td>	
+							-->						
+						</tr><tr></tr>
+						<tr>
+							<td colspan="2" rowspan="1" width="10%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;"> 
+								TRAMOS (KM)
+							</td>
+							<td colspan="1" rowspan="1" width="6%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;font-size:.7rem;">
+								Evaluaci&oacute;n
+							</td>
+							<td colspan="1" rowspan="1" width="10%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;font-size:.7rem;">
+								Observaci&oacute;n
+							</td>
+							<td colspan="1" rowspan="1" width="6%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;font-size:.7rem;">
+								Evaluaci&oacute;n
+							</td>
+							<td colspan="1" rowspan="1" width="10%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;font-size:.7rem;">
+								Observaci&oacute;n
+							</td>
+							<td colspan="1" rowspan="1" width="6%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;font-size:.7rem;">
+								Evaluaci&oacute;n
+							</td>
+							<td colspan="1" rowspan="1" width="10%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;font-size:.7rem;">
+								Observaci&oacute;n
+							</td>
+							<td colspan="1" rowspan="1" width="6%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;font-size:.7rem;">
+								Evaluaci&oacute;n
+							</td>
+							<td colspan="1" rowspan="1" width="10%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;font-size:.7rem;">
+								Observaci&oacute;n
+							</td>
+							<td colspan="1" rowspan="1" width="6%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;font-size:.7rem;">
+								Evaluaci&oacute;n
+							</td>
+							<td colspan="1" rowspan="1" width="10%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;font-size:.7rem;">
+								Observaci&oacute;n
+							</td>
+							<td colspan="1" rowspan="1" width="6%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;font-size:.7rem;">
+								Evaluaci&oacute;n
+							</td>
+							<td colspan="1" rowspan="1" width="10%" style="padding:1rem;border-top:.1rem solid #01325D;font-weight:bolder;font-size:.7rem;">
+								Observaci&oacute;n
+							</td>												
+						</tr>			
+						<!-- START BLOCK : TRAMOS_TITULO -->
+						<tr>						
+							<td colspan="2" rowspan="1" width="10%" style="text-align:center;padding-left:.5rem;padding-right:.5rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;font-size:.7rem;">
+								{TRAMO_DESDE}&nbsp;al&nbsp;{TRAMO_HASTA}
+                            </td>                            						
+							<td colspan="1" rowspan="1" width="4.5%" style="text-align:center;padding-left:0rem;padding-right:0rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+								<select name="{NOMBRE_FAJA}" id="faja1" style="border-top:.1rem solid #01325D;border-bottom:.1rem solid #01325D;color:#01325D;" onChange="calculo('fajaTramo','nroIncumplimientoFaja','porcIncumplimientoFaja');" required>									
+									<option value="{SELECT_FAJA_TRAMO}" selected>{VALOR_SELECT_FAJA_TRAMO}</option>                									
+									<!-- START BLOCK : FAJA_TRAMO -->
+									<option value="{VALOR_FAJA_TRAMO}">{VALOR_FAJA_TRAMO}</option>
+									<!-- END BLOCK : FAJA_TRAMO -->
+								</select>
+                            </td>
+							<td colspan="1" rowspan="1" width="4.5%" style="text-align:center;padding-left:0rem;padding-right:0rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+								<input type="text" name="{NOMBRE_COMENTARIO_FAJA}" value="{VALOR_COMENTARIO_FAJA}" style="width:94%;border:.1rem solid #01325D;color:#01325D;padding:.1rem 0 .1rem 0;"/>
+							</td>							
+							<td colspan="1" rowspan="1" width="4.5%" style="text-align:center;padding-left:0rem;padding-right:0rem;padding-top:.5rem;padding-bottom:.5rem; border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+								<select name="{NOMBRE_SANEAMIENTO}" id="saneamiento1" style="border-top:.1rem solid #01325D;border-bottom:.1rem solid #01325D;color:#01325D;" onChange="calculo('saneamientoTramo','nroIncumplimientoSaneamiento','porcIncumplimientoSaneamiento');" required>
+									<option value="{SELECT_SANEAMIENTO_TRAMO}" selected>{VALOR_SELECT_SANEAMIENTO_TRAMO}</option>                                	
+									<!-- START BLOCK : SANEAMIENTO_TRAMO -->
+									<option value="{VALOR_SANEAMIENTO_TRAMO}">{VALOR_SANEAMIENTO_TRAMO}</option>
+									<!-- END BLOCK : SANEAMIENTO_TRAMO -->                                
+								</select>
+                            </td>
+							<td colspan="1" rowspan="1" width="4.5%" style="text-align:center;padding-left:0rem;padding-right:0rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+								<input type="text" name="{NOMBRE_COMENTARIO_SANEAMIENTO}" value="{VALOR_COMENTARIO_SANEAMIENTO}" style="width:94%;border:.1rem solid #01325D;color:#01325D;padding:.1rem 0 .1rem 0;"/>
+							</td>
+							<td colspan="1" rowspan="1" width="4.5%" style="text-align:center;padding-left:0rem;padding-right:0rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+								<select name="{NOMBRE_CALZADA}" id="calzada1" style="border-top:.1rem solid #01325D;border-bottom:.1rem solid #01325D;color:#01325D;" onChange="calculo('calzadaTramo','nroIncumplimientoCalzada','porcIncumplimientoCalzada');" required>
+									<option value="{SELECT_CALZADA_TRAMO}" selected>{VALOR_SELECT_CALZADA_TRAMO}</option>                                	
+									<!-- START BLOCK : CALZADA_TRAMO -->
+									<option value="{VALOR_CALZADA_TRAMO}">{VALOR_CALZADA_TRAMO}</option>
+									<!-- END BLOCK : CALZADA_TRAMO -->
+								</select>
+                            </td>
+							<td colspan="1" rowspan="1" width="4.5%" style="text-align:center;padding-left:0rem;padding-right:0rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+								<input type="text" name="{NOMBRE_COMENTARIO_CALZADA}" value="{VALOR_COMENTARIO_CALZADA}" style="width:94%;border:.1rem solid #01325D;color:#01325D;padding:.1rem 0 .1rem 0;"/>
+							</td>
+							<td colspan="1" rowspan="1" width="4.5%" style="text-align:center;padding-left:0rem;padding-right:0rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+								<select name="{NOMBRE_BERMA}" id="bermas1" style="border-top:.1rem solid #01325D;border-bottom:.1rem solid #01325D;color:#01325D;" onChange="calculo('bermaTramo','nroIncumplimientoBerma','porcIncumplimientoBerma');" required>
+									<option value="{SELECT_BERMAS_TRAMO}" selected>{VALOR_SELECT_BERMAS_TRAMO}</option>                                	
+									<!-- START BLOCK : BERMAS_TRAMO -->
+									<option value="{VALOR_BERMAS_TRAMO}">{VALOR_BERMAS_TRAMO}</option>
+									<!-- END BLOCK : BERMAS_TRAMO -->                               
+								</select>
+                            </td>
+							<td colspan="1" rowspan="1" width="4.5%" style="text-align:center;padding-left:0rem;padding-right:0rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+								<input type="text" name="{NOMBRE_COMENTARIO_BERMA}" value="{VALOR_COMENTARIO_BERMA}" style="width:94%;border:.1rem solid #01325D;color:#01325D;padding:.1rem 0 .1rem 0;"/>
+							</td>
+							<td colspan="1" rowspan="1" width="4.5%" style="text-align:center;padding-left:0rem;padding-right:0rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+								<select name="{NOMBRE_SENALIZACION}" id="senalizacion1" style="border-top:.1rem solid #01325D;border-bottom:.1rem solid #01325D;color:#01325D;" onChange="calculo('senalizacionTramo','nroIncumplimientoSenalizacion','porcIncumplimientoSenalizacion');" required>
+									<option value="{SELECT_SENALIZACION_TRAMO}" selected>{VALOR_SELECT_SENALIZACION_TRAMO}</option>                                	
+									<!-- START BLOCK : SENALIZACION_TRAMO -->
+									<option value="{VALOR_SENALIZACION_TRAMO}">{VALOR_SENALIZACION_TRAMO}</option>
+									<!-- END BLOCK : SENALIZACION_TRAMO -->                             
+								</select>
+                            </td>
+							<td colspan="1" rowspan="1" width="4.5%" style="text-align:center;padding-left:0rem;padding-right:0rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+								<input type="text" name="{NOMBRE_COMENTARIO_SENALIZACION}" value="{VALOR_COMENTARIO_SENALIZACION}" style="width:94%;border:.1rem solid #01325D;color:#01325D;padding:.1rem 0 .1rem 0;"/>
+							</td>
+							<td colspan="1" rowspan="1" width="4.5%" style="text-align:center;padding-left:0rem;padding-right:0rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;">
+								<select name="{NOMBRE_DEMARCACION}" id="demarcacion1" style="border-top:.1rem solid #01325D;border-bottom:.1rem solid #01325D;color:#01325D;" onChange="calculo('demarcacionTramo','nroIncumplimientoDemarcacion','porcIncumplimientoDemarcacion');" required>
+									<option value="{SELECT_DEMARCACION_TRAMO}" selected>{VALOR_SELECT_DEMARCACION_TRAMO}</option>                                	
+									<!-- START BLOCK : DEMARCACION_TRAMO -->
+									<option value="{VALOR_DEMARCACION_TRAMO}">{VALOR_DEMARCACION_TRAMO}</option>
+									<!-- END BLOCK : DEMARCACION_TRAMO -->                                 
+								</select>
+                            </td>
+							<td colspan="1" rowspan="1" width="4.5%" style="text-align:center;padding-left:0rem;padding-right:0rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;">
+								<input type="text" name="{NOMBRE_COMENTARIO_DEMARCACION}" value="{VALOR_COMENTARIO_DEMARCACION}" maxlength="25" style="width:94%;border:.1rem solid #01325D;color:#01325D;padding:.1rem 0 .1rem 0;"/>
+							</td>
+						</tr>
+						<!-- END BLOCK : TRAMOS_TITULO -->	
+						<tr>
+							<td colspan="2" rowspan="1" width="10%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;"> 
+								NRO. INCUMPLIMIENTOS
+							</td>                           						
+							<td colspan="2" rowspan="1" width="16%" style="text-align:center;padding-left:.5rem;padding-right:.5rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;">
+								<input type="text" name="nroIncumplimientoFaja" id="nroFaja" value="{NRO_INCUMPLIMIENTO_FAJA}" style="width:100%;color:#01325D;font-weight:bolder;text-align:center;" readonly/>								
+                            </td>                            						
+							<td colspan="2" rowspan="1" width="16%" style="text-align:center;padding-left:.5rem;padding-right:.5rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;">
+								<input type="text" name="nroIncumplimientoSaneamiento" id="nroSaneamiento" value="{NRO_INCUMPLIMIENTO_SANEAMIENTO}" style="width:100%;font-weight:bolder;color:#01325D;text-align:center;text-align:center;" readonly/>							
+                            </td>                            						
+							<td colspan="2" rowspan="1" width="16%" style="text-align:center;padding-left:.5rem;padding-right:.5rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;">
+								<input type="text" name="nroIncumplimientoCalzada" id="nroCalzada" value="{NRO_INCUMPLIMIENTO_CALZADA}" style="width:100%;font-weight:bolder;color:#01325D;text-align:center;text-align:center;" readonly/>								
+                            </td>                            						
+							<td colspan="2" rowspan="1" width="16%" style="text-align:center;padding-left:.5rem;padding-right:.5rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;">
+								<input type="text" name="nroIncumplimientoBerma" id="nroBerma" value="{NRO_INCUMPLIMIENTO_BERMA}" style="width:100%;font-weight:bolder;color:#01325D;text-align:center;text-align:center;" readonly/>		
+									
+							</td>                            						
+							<td colspan="2" rowspan="1" width="16%" style="text-align:center;padding-left:.5rem;padding-right:.5rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;">
+								<input type="text" name="nroIncumplimientoSenalizacion" id="nroSenalizacion" value="{NRO_INCUMPLIMIENTO_SENALIZACION}" style="width:100%;font-weight:bolder;color:#01325D;text-align:center;text-align:center;" readonly/>										
+                            </td>                            						
+							<td colspan="2" rowspan="1" width="16%" style="text-align:center;padding-left:.5rem;padding-right:.5rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;font-weight:bolder;">
+								<input type="text" name="nroIncumplimientoDemarcacion" id="nroDemarcacion" value="{NRO_INCUMPLIMIENTO_DEMARCACION}" style="width:100%;font-weight:bolder;color:#01325D;text-align:center;text-align:center;" readonly/>																		
+                            </td>                            													
+						</tr>
+						<tr>
+							<td colspan="2" rowspan="1" width="10%" style="padding:1rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;"> 
+								PORCENTAJE INCUMPLIMIENTOS																
+							</td>                           		
+							<td colspan="2" rowspan="1" width="16%" style="text-align:center;padding-left:.5rem;padding-right:.5rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;">
+								<input type="text" name="porcIncumplimientoFaja" id="porcFaja" value="{PORCENTAJE_INCUMPLIMIENTO_FAJA}" style="width:100%;font-weight:bolder;color:#01325D;text-align:center;" readonly/>								
+                            </td>                            						
+							<td colspan="2" rowspan="1" width="16%" style="text-align:center;padding-left:.5rem;padding-right:.5rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;">
+								<input type="text" name="porcIncumplimientoSaneamiento" id="porcSaneamiento" value="{PORCENTAJE_INCUMPLIMIENTO_SANEAMIENTO}" style="width:100%;font-weight:bolder;color:#01325D;text-align:center;" readonly/>							
+                            </td>                            						
+							<td colspan="2" rowspan="1" width="16%" style="text-align:center;padding-left:.5rem;padding-right:.5rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;">
+								<input type="text" name="porcIncumplimientoCalzada" id="porcCalzada" value="{PORCENTAJE_INCUMPLIMIENTO_CALZADA}" style="width:100%;font-weight:bolder;color:#01325D;text-align:center;" readonly/>								
+                            </td>                            						
+							<td colspan="2" rowspan="1" width="16%" style="text-align:center;padding-left:.5rem;padding-right:.5rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;">
+								<input type="text" name="porcIncumplimientoBerma" id="porcBerma" value="{PORCENTAJE_INCUMPLIMIENTO_BERMA}" style="width:100%;font-weight:bolder;color:#01325D;text-align:center;" readonly/>								
+                            </td>                            						
+							<td colspan="2" rowspan="1" width="16%" style="text-align:center;padding-left:.5rem;padding-right:.5rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;border-right:.1rem solid #01325D;font-weight:bolder;">
+								<input type="text" name="porcIncumplimientoSenalizacion" id="porcSenalizacion" value="{PORCENTAJE_INCUMPLIMIENTO_SENALIZACION}" style="width:100%;font-weight:bolder;color:#01325D;text-align:center;" readonly/>								
+                            </td>                            						
+							<td colspan="2" rowspan="1" width="16%" style="text-align:center;padding-left:.5rem;padding-right:.5rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;font-weight:bolder;">
+								<input type="text" name="porcIncumplimientoDemarcacion" id="porcDemarcacion" value="{PORCENTAJE_INCUMPLIMIENTO_DEMARCACION}" style="width:100%;font-weight:bolder;color:#01325D;text-align:center;" readonly/>								
+                            </td>                            													
+						</tr>
+						<tr>
+							<td colspan="14" rowspan="1" width="98%" style="text-align:right;padding-left:.5rem;padding-right:.5rem;padding-top:.5rem;padding-bottom:.5rem;border-top:.1rem solid #01325D;font-weight:bolder;">
+								(C) Cumple ; (NC) No Cumple ; (SNS) Sin Nivel de Servicio ; (-) Sin Tramo
+							</td>
+						</tr>
+						<tr>
+                        	<td colspan="7" rowspan="1" width="98%" style="text-align:center;padding-bottom:1rem;padding-left:1rem;padding-top:1rem; font-weight:bolder;border-top:.1rem solid #01325D;">
+								<input type="submit" name="enviar" value="GUARDAR INCUMPLIMIENTO" id="boton_envio" style="width:50%;position:relative;left:60px;"/>																
+                            </td>		            		    
+							<td colspan="7" rowspan="1" width="98%" style="text-align:center;padding-bottom:1rem;padding-left:1rem;padding-top:1rem; font-weight:bolder;border-top:.1rem solid #01325D;">								
+								<input type="button" name="generarInforme" value="GENERAR INFORME" id="boton_envio"  style=";width:50%;position:relative;" onClick="redireccionarIncumplimiento2();" {HABILITAR_BOTON}/>								
+                            </td>		            		    
+                        </tr>
+            		</table>    	        
+						<input type="hidden" name="buscador" value="1"/><br/><br/>
+						<p style="width: 100%;color:red;text-align:center;font-weight:bolder;position:relative;bottom:20px;">{MENSAJE}</p>   
+            	</form>  	   
+            </article>
+        </section>
+        <footer></footer>
+        <script src="JS/funciones.js"></script>
+    </body>
+</html>
+  

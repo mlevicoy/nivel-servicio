@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>        
+        <title>Dirección de Vialidad.</title>
+     
+
+    </head>
+    <body onLoad="cargar()">
+    	
+        <!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu -->
+        
+            
+       
+         <section>
+            <article id="crearCamino">                	
+				<div style="width:100%; height:700px; " >
+                    
+                
+                    <p style="
+    					width: 100%;
+    					text-align: center;
+    					margin-top: 8.5rem;
+                        margin-left: 32%;
+    					">
+    			    ¿Cuantos caminos va a ingresar? 
+    					<input type="text" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="2" size="10" name="cantidadCaminos" id="numeroCamino" autofocus style="
+    						border: 1px solid #01325D;
+    						height: 1.9rem;
+    						font-size: 1rem;
+    						width: 4rem;" required/>
+    					<button name="crearCamino" style="
+    						color:#fff;
+    						font-weight:bolder;
+    						background-color:#01325D;
+    						padding:.5rem 3rem .5rem 3rem;
+                            -webkit-box-shadow: 6px 6px 6px 0px rgba(50, 48, 50, 0.46);
+                            -moz-box-shadow:    6px 6px 6px 0px rgba(50, 48, 50, 0.46);
+                            box-shadow:         6px 6px 6px 0px rgba(50, 48, 50, 0.46);
+    						transition-duration:1s;
+    						width:15%;
+                            border-radius:7px;
+                            cursor:pointer;
+    						display:inline-block;" onClick="crearControlesCamino(numeroCamino.value,0)">Crear</button>            		
+    				</p> 
+                       
+                   		<form id="formulario_camino" action="ingresarCamino.php" onSubmit="return aprobar(1);" method="post" autocomplete="off">                
+               			<br/>
+                		<ul id="controles">            		
+                       		<li class="titulo_campo">INGRESAR RED DE CAMINOS</li> <br/><br/><br/>
+
+                       <!-- <p style='position:relative;top:-210px;left:180px;width: 100%;color:red;text-align:center;font-weight:bolder;z-index:2;'> 
+                            {MENSAJE}
+                        </p> -->
+	
+                           
+               			<input type="hidden" name="cargador" value="1"/>   
+                        </ul>        			
+                	</form> 
+                </div>        
+            </article>
+        </section>
+        <footer></footer>
+       <script src="JS/funciones.js"></script>        
+    </body>
+</html>
+  

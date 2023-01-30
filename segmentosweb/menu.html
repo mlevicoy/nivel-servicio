@@ -1,0 +1,93 @@
+
+<html>
+<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+<script src="js/sweetalert.min.js"></script>
+<header>  
+    <article id="menu-acordeon">
+            <nav>
+                <ul class="list-menu">
+                    <li style="border-right:0.1px solid #126EBF;"><a href="#">USUARIO</a>
+                        <ul id="administracion">
+                            <li style="border-right:0.1px solid #fff;"><a href="ingresarUsuario.php">Ingresar Usuario</a></li>
+                            <li><a href="modificarUsuario2.php">Modificar Usuario</a></li>
+                        </ul>                                                            
+                    </li>
+                    <li style="border-right:0.1px solid #126EBF;"><a href="#">CONTRATO</a>
+                        <ul id="administracion">
+                            <li style="border-right:0.1px solid #fff;"><a href="ingresarContrato.php">Ingresar Contrato</a></li>
+                            <li><a href="modificarContrato.php">Modificar Contrato</a></li>
+                        </ul>                                                            
+                    </li>
+                    <li style="border-right:0.1px solid #126EBF;"><a href="#">OBRA</a>
+                        <ul id="administracion">
+                            <li style="border-right:0.1px solid #fff;"><a href="ingresarObra.php">Ingresar Obra</a></li>
+                            <li style="border-right:0.1px solid #fff;"><a href="modificarObra.php">Modificar Obra</a></li>
+                            <li><a href="modificarNombreFaena.php">Modificar Nombre Faena</a></li>
+                        </ul>                                                            
+                    </li>
+                    <li style="border-right:0.1px solid #126EBF;"><a href="#">RED DE CAMINOS</a>
+                        <ul id="administracion">
+                            <li style="border-right:0.1px solid #fff;"><a href="ingresarCamino.php">Ingresar Camino</a></li>
+                            <li style="border-right:0.1px solid #fff;"><a href="modificarCamino.php">Modificar Camino</a></li>
+                            <li style="border-right:0.1px solid #fff;"><a href="verRedCaminos.php">Ver Red de Caminos</a></li>
+                            <li style="border-right:0.1px solid #fff;"><a href="verSegmentos.php">Ver Segmentos</a></li>
+                            <li style="border-right:0.1px solid #fff;"><a href="verSubSegmentos.php">Ver Sub-Segmentos</a></li>
+                            <li><a href="modificarcomponente.php">Modificar COD. Componente</a></li>
+                        </ul>                                                            
+                    </li>
+                    <li style="border-right:0.1px solid #126EBF;"><a href="#">EXCLUSIONES</a>
+                        <ul id="administracion">
+                            <li style="border-right:0.1px solid #fff;"><a href="tutoExclusiones.php">Ingresar Exclusiones</a></li>
+                            <li style="border-right:0.1px solid #fff;"><a href="modificarExclusion.php">Modificar Exclusiones</a></li>
+                            <li><a href="verExclusion.php">Ver Exclusiones</a></li>
+                        </ul>                                                            
+                    </li>
+                    <li style="border-right:0.1px solid #126EBF;"><a href="#">SORTEO</a>
+                        <ul id="administracion">
+                            <li style="border-right:0.1px solid #fff;"><a href="acta.php">Datos para el Acta</a></li>
+                            <li style="border-right:0.1px solid #fff;"><a href="sorteo.php">Realizar Sorteo</a></li>
+                            <li style="border-right:0.1px solid #fff;"><a href="modificarFecha.php">Modificar Fecha Sorteo Actual</a></li>
+                            <li><a href="modificarRecepcionAnterior.php">Modificar Recepci&oacute;n Anterior</a></li>
+                        </ul>                                                            
+                    </li>                                                
+                    <li style="border-right:0.1px solid #126EBF;"><a href="#">INFORMES</a>
+                        <ul id="administracion">
+                            <li style="border-right:0.1px solid #fff;"><a href="informeSegmentos.php">Segmentos Sorteados</a></li>
+                            <li style="border-right:0.1px solid #fff;"><a href="informeHojasTerreno.php">Hojas de Terreno</a></li>
+                            <li style="border-right:0.1px solid #fff;"><a href="informeTablaIncumplimiento.php">Tabla de Incumplimientos</a></li>
+                            <li style="border-right:0.1px solid #fff;"><a href="informeFinal.php">Informe Final</a></li>
+                            <li><a href="avisoIncumplimiento.php">Aviso de Incumplimiento</a></li>
+                        </ul>                                                            
+                    </li>                                                
+                    <li><a href="#" value="Alerta de confirmacion" onclick="
+                        swal({
+                                title: '¿Estás seguro de cerrar sesión?',
+                               
+                                type: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#DD6B55',
+                                confirmButtonText:  'Aceptar',
+                                cancelButtonText: 'Cancelar',
+                                closeOnConfirm: false,
+                                closeOnCancel: false
+                            },
+                            function(isConfirm)
+                            {
+                              if (isConfirm)
+                              {
+
+                                window.location = 'salir.php';
+                            }else{
+                                swal(
+                                'Petición Cancelada',
+                                '',
+                                'error'
+                                );
+                            }
+                        });">CERRAR SESI&Oacute;N</a></li>                        
+                </ul>
+            </nav>            
+        </article>
+</header>
+</html>

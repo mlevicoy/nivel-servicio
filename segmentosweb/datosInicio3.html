@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <title>Dirección de Vialidad.</title>
+        <script>
+	    	function bloquear(){
+				/*VARIABLES*/
+				var i=0;
+				var largo = document.getElementsByName('fechaInicio[]').length;
+				
+				/*SIMULAMOS EL READONLY*/
+				document.getElementsByName('webSite').item(0).style.cursor = 'default';
+				document.getElementsByName('webSite').item(0).style.pointerEvents = 'none';
+				
+				document.getElementsByName('webMail').item(0).style.cursor = 'default';
+				document.getElementsByName('webMail').item(0).style.pointerEvents = 'none';
+				
+				document.getElementsByName('ayuda').item(0).style.cursor = 'default';
+				document.getElementsByName('ayuda').item(0).style.pointerEvents = 'none';
+				
+				/*READONLY*/
+				document.getElementsByName('nombre').item(0).readOnly = true;
+				document.getElementsByName('apellido').item(0).readOnly = true;
+				document.getElementsByName('correo').item(0).readOnly = true;
+				document.getElementsByName('contrasena').item(0).readOnly = true;
+				
+				/*DISABLES*/				
+				document.getElementsByName('enviar').item(0).disabled = true;
+
+				/*RETORNAMOS VERDADERO*/
+				return true;
+			}
+	    </script>
+    </head>    
+	<body>
+    	<header>        
+        	<div id="Contenedor1">      
+            <img src="imagenes/vialidad.jpg" id="imagen"/>
+            </div> 
+         
+        </header>                
+        <section>
+        	<form id="formulario_ingreso" action="datosInicio.php" method="post" autocomplete="off" onSubmit="return bloquear();">
+            	<ul>
+                	<li class="titulo_campo">CREACI&Oacute;N DE USUARIO ADMINISTRADOR</li><br/><br/><br/>
+                    <li class="nombre_campo"><b>Nombre (s)</b></li>
+                    <li>:</li>
+                    <li class="valor_campo">&nbsp;&nbsp;<input type="text" name="nombre" value="" required autofocus/></li><br/>
+                    <li class="nombre_campo"><b>Apellido (s)</b></li>
+                    <li>:</li>
+                    <li class="valor_campo">&nbsp;&nbsp;<input type="text" name="apellido" value="" required/></li><br/>
+                    <li class="nombre_campo"><b>E-Mail</b></li>
+                    <li>:</li>
+                    <li class="valor_campo">&nbsp;&nbsp;<input type="email" name="correo" value="" placeholder="p. ej. usuario@dominio.cl" required/></li><br/>
+                    <li class="nombre_campo"><b>Contrase&ntilde;a</b></li>
+                    <li>:</li>
+                    <li class="valor_campo">&nbsp;&nbsp;<input type="password" name="contrasena" value="" required/></li><br/>
+                    <li class="nombre_campo"><b>Tipo de usuario</b></li>
+                    <li>:</li>
+                    <li class="valor_campo">&nbsp;&nbsp;<input type="text" name="tipoUsuario" value="Administrador" readonly required/></li><br/><br/>
+                    <li><input type="submit" name="enviar" value="Enviar" id="boton_envio"/></li><br/><br/>
+                    <li style="position:relative;top:20px;color:red;text-align:center;font-weight:bolder;">{MENSAJE}</li>
+                </ul>
+                <input type="hidden" name="cargador3" value="1"/>
+            </form>            
+            <article></article>
+            <article></article>
+        </section>
+        <footer></footer>
+    </body>
+</html>

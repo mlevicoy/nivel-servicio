@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+         <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>        
+        <title>Dirección de Vialidad.</title>        
+    </head>
+    <body onLoad="javascript: {CARGAINICIO}">
+        
+    	<!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu -->
+
+         <section>
+            <article id="crearUsuario">    
+            	       	
+				<form id="formulario_ingreso2" action="modificarNombreFaena.php" method="post" autocomplete="off">
+            		<ul>
+                		<li class="titulo_campo">INFORMACI&Oacute;N DE LA OBRA</li><br/><br/><br/>
+                        <p style="width: 100%;color:red;text-align:center;font-weight:bolder;">{MENSAJE}</p> 
+                		<li class="nombre_campo"><b>Nombre Faena</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">&nbsp;&nbsp;<input type="text" name="nombreFaena" value="{NOMBREFAENA_UPDATE}" autofocus required/></li>
+                        <br/><br/><br/>
+                       
+                    	<li><input type="submit" name="enviar" value="ACTUALIZAR FAENA" id="boton_envio"/></li>                    	
+	                </ul>
+	                <input type="hidden" name="cargador" value="1"/>
+            </form>       
+            </article>
+        </section>
+        <footer></footer>
+        <script src="JS/funciones.js"></script>
+    </body>
+</html>

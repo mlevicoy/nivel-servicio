@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/menu.css"/>        
+        <title>Dirección de Vialidad.</title>
+        <script>
+			//Bloquea controles cuando ya esta ingresada la informacion
+			function carga(){
+				document.getElementsByName('LIMPIAR_BD').item(0).disabled = true;
+				document.getElementsByName('bimestre').item(0).disabled = true;		
+				document.getElementsByName('LIMPIAR_EX').item(0).disabled = true;		
+			}
+			function carga2(){
+				document.getElementsByName('LIMPIAR_BD').item(0).disabled = false;
+				document.getElementsByName('bimestre').item(0).disabled = false;				
+				document.getElementsByName('LIMPIAR_EX').item(0).disabled = false;		
+			}	
+			function redireccionar1(bimestre){
+				if(bimestre == ''){
+					return false;
+				}        
+				else{
+					if(confirm("Liberar siempre desde el último bimestre, y los sorteados desde la configuración del programa, esta acción puede causar errores de ejecución. ¿Realmente desea continuar?")){
+						location.href = 'limpiarBD.php?BIMESTRE='+bimestre;				
+					}
+					else{
+						return false;
+					}
+				}
+			}			
+			function redireccionar2(){        
+				if(confirm("Si elimina la información de la base de datos, deberá ingresar todo nuevamente. ¿Realmente desea continuar?")){
+					location.href = 'limpiarBD.php?LIMPIAR_BD=1';				
+				}
+				else{
+					return false;
+				}
+			}	
+			function redireccionar3(){        
+				if(confirm("Se eliminaran todas las exclusiones del programa. Deberá ingresarlas nuevamente. ¿Realmente desea continuar?")){
+					location.href = 'limpiarBD.php?LIMPIAR_EX=1';				
+				}
+				else{
+					return false;
+				}
+			}				
+		</script>
+    </head>
+    <body onLoad="javascript: {CARGAINICIO}">
+    	<header>        
+        	<div id="Contenedor1">      
+            <img src="imagenes/vialidad.jpg" id="imagen"/>
+            </div> 
+                    
+        </header>                
+        <section>        	
+            <article></article>
+            <article id="crearUsuario" style="width:94%;">            	
+				<form id="formulario_ingreso2" action="limpiarBD.php" method="post" autocomplete="off">
+            		<ul>
+                		<li class="titulo_campo">MODIFICAR BASE DE DATOS</li><br/><br/><br/>
+                		<li class="nombre_campo"><b>Nombre de Usuario</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">&nbsp;&nbsp;<input type="text" name="nombreUsuario" value="{USER_NAME}" required/></li><br/>
+                        <li class="nombre_campo"><b>Contrase&ntilde;a</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">&nbsp;&nbsp;<input type="password" name="contrasenaUsuario" value="{USER_PASSWORD}" required/></li><br/><br/><br/>                        
+                    	<li class="nombre_campo"><b>Liberar Inspecci&oacute;n de Pago</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">
+                        &nbsp;&nbsp;<select name="bimestre" onChange="redireccionar1(value);" required style="width:93%;">
+                        	<option value="" selected>--- SELECCIONAR OPCI&Oacute;N ---</option>
+                            <!-- START BLOCK : BIMESTRE_SELECT -->
+							<option value="{NUMERO_BIMESTRE}">{NOMBRE_BIMESTRE}</option>
+                            <!-- END BLOCK : BIMESTRE_SELECT -->
+                        </select></li><br/><br/><br/>                        
+                        <li class="nombre_campo"><b>Eliminar Exclusiones</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">&nbsp;&nbsp;<input type="button" name="LIMPIAR_EX" value="Eliminar Exclusiones" 
+                        style="color:#fff;font-weight:bolder;background-color:#01325D;padding:1rem 0rem 1rem 0rem;border:.1rem solid #01325D;transition-duration:1s;
+						width:40%;display:inline-block;cursor:pointer;border-radius:7px;" onClick="redireccionar3();" required/></li><br/>                    
+                        </li><br/><br/><br/>
+                         <li class="nombre_campo"><b>Limpiar Base de Datos</b></li>
+                    	<li>:</li>
+                    	<li class="valor_campo">&nbsp;&nbsp;<input type="button" name="LIMPIAR_BD" value="Limpiar Base de Datos" 
+                        style="color:#fff;font-weight:bolder;background-color:#01325D;padding:1rem 0rem 1rem 0rem;border:.1rem solid #01325D;transition-duration:1s;
+						width:40%;display:inline-block;cursor:pointer;border-radius:7px;" onClick="redireccionar2();" required/></li><br/>                    
+                        </li><br/><br/><br/>
+                    	<li><input type="submit" name="enviar" value="VALIDAR USUARIO" id="boton_envio"/></li><br/><br/>
+                    	<li style="position:relative;top:20px;color:red;text-align:center;font-weight:bolder;">{MENSAJE}</li>
+	                </ul>
+	                <input type="hidden" name="cargador" value="1"/>
+            </form>       
+            </article>
+        </section>
+        <footer>	        
+      
+        </footer>
+    </body>
+</html>

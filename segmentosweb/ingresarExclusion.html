@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/menu.css"/>        
+        <title>Dirección de Vialidad.</title>                    
+    </head>
+    <body>
+    	<!-- INCLUDE BLOCK : header -->
+
+                       
+        <section>        	
+            <article id="crearExclusion" style="padding:0;width:100%;">             	
+            <br/>
+            <img src="imagenes/iconos/flecha_izquierda.png" style="position:relative;left:50px;" />
+            <input type="button" name="regresarMenu" value=" Regresar al Men&uacute;" onClick="location.href = 'redireccionar.php'" 
+            	style="
+					color:#fff;
+					font-weight:bolder;
+					background-color:#01325D;
+					padding:1rem 0rem 1rem 0rem;
+					transition-duration:1s;
+					width:13%;
+					-webkit-box-shadow: 3px 2px 9px 0px rgba(50, 50, 50, 0.93);
+                    -moz-box-shadow:    3px 2px 9px 0px rgba(50, 50, 50, 0.93);
+                    box-shadow:         3px 2px 9px 0px rgba(50, 50, 50, 0.93);
+					display:inline-block;
+					border-radius: 20px 200px 20px 200px;
+                    -moz-border-radius: 20px 200px 20px 200px;
+                    -webkit-border-radius: 20px 200px 20px 200px;
+					cursor:pointer;"
+          	  />
+          	  <p style="
+					width: 100%;
+					text-align: center;
+					margin-top: 2rem;
+					">
+					¿Cuantas exclusiones vas a ingresar? 
+					<input type="text" name="cantidadExclusiones" id="numeroExclusiones" maxlength="2" size="10" autofocus style="
+						border: 1px solid #01325D;
+						height: 1.9rem;
+						font-size: 1rem;
+						width: 3rem;" onKeyPress="return soloNumero(event, 0)" required/>
+					<button name="crearExclusiones" style="
+						color:#fff;
+						font-weight:bolder;
+						background-color:#01325D;
+						padding:.5rem 3rem .5rem 3rem;
+						transition-duration:1s;
+						cursor:pointer;
+						border-radius:8px;
+						width:10%;
+                        -webkit-box-shadow: 6px 6px 6px 0px rgba(50, 48, 50, 0.46);
+                        -moz-box-shadow:    6px 6px 6px 0px rgba(50, 48, 50, 0.46);
+                        box-shadow:         6px 6px 6px 0px rgba(50, 48, 50, 0.46);
+						display:inline-block;" onClick="redireccionarExclusiones(numeroExclusiones.value)">Crear</button> 
+						       
+				</p>
+            </article>
+        </section>
+        <footer></footer>
+        <script src="JS/funciones.js"></script>
+    </body>
+</html>  

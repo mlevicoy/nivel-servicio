@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>        
+        <title>Dirección de Vialidad.</title>        
+    </head>
+    <body onLoad="javascript: {CARGAINICIO}">
+    	
+         <!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu -->
+        
+        <section>
+            <article id="datosContrato">  
+                <p style="position:relative;top:-75px;left:-65px;width: 100%;color:red;text-align:center;font-weight:bolder;">{MENSAJE}</p>             
+                <form id="formulario_Contrato" action="modificarContrato.php" onSubmit="return rut()" method="post" autocomplete="off">              
+                    <table width="100%" cellpadding="0" cellspacing="0" style="position:relative;top:90px;left:90px;border:.1rem solid #01325D;">
+                      
+                     
+                        <tr id="fila_titulo">
+                            <td colspan="4" style="padding:1rem;border-bottom:.1rem solid #01325D;">DATOS DEL CONTRATO</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                                Resoluci&oacute;n:
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                                <input type="text" name="resolucion" value="{RESOLUCION}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" placeholder="N° dd-mm-aaaa" required/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                                Monto Contrato Vigente:
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                                <input type="text" name="montoCttoVigente" value="{MONTOVIGENTE}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" placeholder="Ej. $1.111.111.111.-" required/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                                Monto Nivel de Servicio:
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                                <input type="text" name="montoCttoNivelServicio" value="{MONTONIVELSERVICIO}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" placeholder="Ej. $1.111.111.111.-"required/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                                Resoluci&oacute;n Modificaci&oacute;n: (Opcional)
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                                <input type="text" name="resolucionModificada" value="{RESOLUCIONMODIFICADA}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" placeholder="N° dd-mm-aaaa" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                                Empresa Constructora:
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                                <input type="text" name="contructora" value="{EMPRESACONSTRUCTORA}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" required/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                                RUT. Emp. Constructora:
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                                <input type="text" name="rutEmpresaConstructora" value="{RUTCONSTRUCTORA}" placeholder="Ej. 1.111.111-1" onKeyPress="return soloNumero(event, 3);" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" required/>                             
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                                Inspector Fiscal:
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                                <input type="text" name="inspectorFiscal" value="{INSPECTORFISCAL}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" required/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="21%" style="padding:1rem 1rem 0 1rem;text-align:left;font-weight:bolder;">
+                                Inicio Legal:
+                            </td>
+                            <td colspan="1" rowspan="1" width="28%" style="padding:1rem 1rem 0 1rem;text-align:left;">
+                                <input type="date" name="inicioLegal" placeholder="Año-Mes-Día" value="{INICIOLEGAL}" style="width:90%;border:.1rem solid #01325D;padding:.5rem;color:#01325D;" required/>                                
+                            </td>
+                        </tr>
+                      
+                  
+                        <tr>
+                            <td colspan="4" rowspan="1" style="padding:3rem;">
+                               
+                                <input type="submit" name="enviar" value="ACTUALIZAR CONTRATO" id="boton_envio"/>                  
+                            </td>                           
+                        </tr>
+                    </table>                    
+                    <input type="hidden" name="cargador" value="1"/>
+                    <input type="hidden" name="bimestre" value="{bimestreContrato}"/>
+                </form>       
+            </article>
+        </section>
+        <footer></footer>
+        <script src="JS/funciones.js"></script>
+    </body>
+</html>
+  

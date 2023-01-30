@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>        
+        <title>Dirección de Vialidad.</title>           
+    </head>
+    <body>
+    	<!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu --> 
+
+    <!-- Fin Menu -->
+
+         <section>
+            <article id="crearUsuario">            	
+            	
+           		<form id="formulario_ingreso2" action="modificarcomponente.php" method="post" autocomplete="off">
+            	<table cellpadding="0" cellspacing="0" style=" margin:0 auto;width:57%;border:.1rem solid #01325D;color:#01325D;text-align:center; ">
+                    <p style="width: 100%;color:red;text-align:center;font-weight:bolder;">{MENSAJE}</p>
+                	<tr>
+                    	<td colspan="2" rowspan="1" width="98" style="background-color:#01325D;font-weight:bolder;padding:1rem;color:white;">
+                        	MODIFICAR C&Oacute;DIGO COMPONENTE
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td colspan="1" rowspan="1" width="60%" 
+                        style="background-color:#01325D;font-weight:bolder;padding:1rem;border-right:.1rem solid #fff;border-top:.1rem solid #fff;color:white;">
+                            OPERACIONES
+                        </td>
+                        <td colspan="1" rowspan="1" width="38%" 
+                        style="background-color:#01325D;font-weight:bolder;padding:1rem;border-top:.1rem solid #fff;color:white;">
+                          	C&Oacute;DIGO
+                        </td>
+                    </tr>
+                    <tr>                       
+                        <td colspan="1" rowspan="1" width="50%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;text-align:left;">
+                          	Faja Vial
+                        </td>                        
+                        <td colspan="1" rowspan="1" width="48%" style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">                        	
+							<select name="codigoFaja" required style="width:100%;color:#01325D;padding-top:.3rem;padding-bottom:.3rem;">
+								<option value="" selected>--- SELECCIONAR OPCI&Oacute;N ---</option>
+								<!-- START BLOCK : CODIGO_FAJA -->
+								<option value="{valor_codigo_faja}">{valor_codigo_faja}</option>                        
+								<!-- END BLOCK : CODIGO_FAJA -->                    	
+							</select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="1" width="50%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;text-align:left;">
+                        	Saneamiento
+                        </td>
+                        <td colspan="1" rowspan="1" width="48%" style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+							<select name="codigoSaneamiento" required style="width:100%;color:#01325D;padding-top:.3rem;padding-bottom:.3rem;">
+								<option value="" selected>--- SELECCIONAR OPCI&Oacute;N ---</option>
+								<!-- START BLOCK : CODIGO_SANEAMIENTO -->
+								<option value="{valor_codigo_saneamiento}">{valor_codigo_saneamiento}</option>                        
+								<!-- END BLOCK : CODIGO_SANEAMIENTO -->                    	
+							</select>
+                        </td>
+                    </tr>
+                      <tr>
+                        <td colspan="1" rowspan="1" width="50%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;text-align:left;">
+                            Calzadas
+                        </td>
+                        <td colspan="1" rowspan="1" width="48%" style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                            <select name="codigoCalzada" required style="width:100%;color:#01325D;padding-top:.3rem;padding-bottom:.3rem;">
+                                <option value="" selected>--- SELECCIONAR OPCI&Oacute;N ---</option>
+                                <!-- START BLOCK : CODIGO_CALZADA -->
+                                <option value="{valor_codigo_calzada}">{valor_codigo_calzada}</option>                 
+                                <!-- END BLOCK : CODIGO_CALZADA -->                     
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="1" width="50%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;text-align:left;">
+                        	Bermas
+                        </td>
+                        <td colspan="1" rowspan="1" width="48%" style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+							<select name="codigoBerma" required style="width:100%;color:#01325D;padding-top:.3rem;padding-bottom:.3rem;">
+								<option value="" selected>--- SELECCIONAR OPCI&Oacute;N ---</option>
+								<!-- START BLOCK : CODIGO_BERMA -->
+								<option value="{valor_codigo_berma}">{valor_codigo_berma}</option>                        
+								<!-- END BLOCK : CODIGO_BERMA -->                    	
+							</select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="1" width="50%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;text-align:left;">
+                         	Se&ntilde;alizaci&oacute;n Vertical y Barreras de Contenci&oacute;n
+                        </td>
+                        <td colspan="1" rowspan="1" width="48%" style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+							<select name="codigoSenalizacion" required style="width:100%;color:#01325D;padding-top:.3rem;padding-bottom:.3rem;">
+								<option value="" selected>--- SELECCIONAR OPCI&Oacute;N ---</option>
+								<!-- START BLOCK : CODIGO_SENALIZACION -->
+								<option value="{valor_codigo_senalizacion}">{valor_codigo_senalizacion}</option>                        
+								<!-- END BLOCK : CODIGO_SENALIZACION -->                    	
+							</select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="1" width="50%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;text-align:left;">
+                        	Demarcaci&oacute;n
+                        </td>
+                        <td colspan="1" rowspan="1" width="48%" style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+							<select name="codigoDemarcacion" required style="width:100%;color:#01325D;padding-top:.3rem;padding-bottom:.3rem;">
+								<option value="" selected>--- SELECCIONAR OPCI&Oacute;N ---</option>
+								<!-- START BLOCK : CODIGO_DEMARCACION -->
+								<option value="{valor_codigo_demarcacion}">{valor_codigo_demarcacion}</option>                        
+								<!-- END BLOCK : CODIGO_DEMARCACION -->                    	
+							</select>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td colspan="2" rowspan="1" width="98%" style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                            
+                        	<input type="submit" name="enviar" value="MODIFICAR C&Oacute;DIGO" id="boton_envio" style="width:40%;text-align:center;"/>
+                        </td>
+                    </tr>
+                </table>
+                <input type="hidden" name="buscador" value="1"/>
+            </form> 
+            </article>
+        </section>
+        <footer>	                
+        </footer>
+    </body>
+</html>  	

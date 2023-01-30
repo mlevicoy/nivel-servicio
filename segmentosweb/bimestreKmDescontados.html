@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>               
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+         <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>        
+        <title>Dirección de Vialidad.</title>          
+    </head>
+    <body>
+    	<!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu --> 
+        
+         <section>
+            <article id="crearUsuario"> 
+            	<p style="position:absolute;top:25px;width: 100%;color:red;text-align:center;font-weight:bolder;">{MENSAJE}</p>           	
+           		<form id="formulario_ingreso2" action="{REDIRECCIONAR}" method="post" autocomplete="off">
+            	<ul>
+                	<li class="titulo_campo">INSPECCI&Oacute;N DE PAGO</li><br/><br/><br/>
+                	<li class="nombre_campo"><b>Elegir Inspecci&oacute;n</b></li>
+                    <li>:</li>
+                    <li class="valor_campo">					
+						<select name="numeroBimestre" onChange="redireccionarIF(value);" required autofocus>
+							<option value="{BIMESTRE_V1}" selected>{VALOR_BIMESTRE_V1}</option>
+							<!-- START BLOCK : NUMERO_BIMESTRE -->
+							<option value="{numBimestre}">{nomBimestre}</option>
+							<!-- END BLOCK : NUMERO_BIMESTRE -->
+							<option value="{BIMESTRE_V2}">{VALOR_BIMESTRE_V2}</option>
+						</select>
+                    </li><br/><br/><br/>                    
+                </ul>
+                <table cellpadding="0" cellspacing="0" style=" margin:0 auto;width:57%;border:.1rem solid #01325D;color:#fff;text-align:center; ">
+                	<tr>
+                    	<td colspan="4" rowspan="1" width="98" style="background-color:#01325D;font-weight:bolder;padding:1rem;">
+                        	KM. CON TODAS LAS EXCLUSIONES DESCONTADAS, CORRESPONDIENTES AL BIMESTRE
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td colspan="1" rowspan="1" width="20%" 
+                        style="background-color:#01325D;font-weight:bolder;padding:1rem;border-right:.1rem solid #fff;border-top:.1rem solid #fff;">
+                        	C&Oacute;DIGO
+                        </td>
+                        <td colspan="1" rowspan="1" width="55%" 
+                        style="background-color:#01325D;font-weight:bolder;padding:1rem;border-right:.1rem solid #fff;border-top:.1rem solid #fff;">
+                            OPERACIONES
+                        </td>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="background-color:#01325D;font-weight:bolder;padding:1rem;border-right:.1rem solid #fff;border-top:.1rem solid #fff;">
+                           	UNIDAD
+                        </td>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="background-color:#01325D;font-weight:bolder;padding:1rem;border-top:.1rem solid #fff;">
+                          	CANTIDAD
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                          	<input type="text" name="codigoFaja" value="{CODIGO_FAJA}" style="width:100%;color:#01325D;"/>
+                        </td>
+                        <td colspan="1" rowspan="1" width="55%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;color:#01325D;">
+                          	{NOMBRE_COMPONENTE1}
+                        </td>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;color:#01325D;">
+                            KM
+                        </td>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                        	<input type="text" name="kmContratadoFaja" value=" {KM_FAJA}" style="width:100%;border:.1rem solid #01325D; padding:.2rem 0 .2rem 0;" 
+                            onKeyPress="return soloNumero(event,1)" readonly="readonly"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                        	<input type="text" name="codigoSaneamiento" value="{CODIGO_SANEAMIENTO}" style="width:100%;color:#01325D;"/>
+                        </td>
+                        <td colspan="1" rowspan="1" width="55%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;color:#01325D;">
+                        	{NOMBRE_COMPONENTE2}
+                        </td>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;color:#01325D;">
+                           	KM
+                        </td>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                        	<input type="text" name="kmContratadoSaneamiento" value=" {KM_SANEAMIENTO}" style="width:100%;border:.1rem solid #01325D; padding:.2rem 0 .2rem 0;" 
+                            onKeyPress="return soloNumero(event,1)" readonly="readonly"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                        	<input type="text" name="codigoCalzada" value="{CODIGO_CALZADA}" style="width:100%;color:#01325D;"/>
+                        </td>
+                        <td colspan="1" rowspan="1" width="55%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;color:#01325D;">
+                        	{NOMBRE_COMPONENTE3}
+                        </td>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;color:#01325D;">
+                        	KM
+                        </td>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                        	<input type="text" name="kmContratadoCalzada" value=" {KM_CALZADA}" style="width:100%;border:.1rem solid #01325D; padding:.2rem 0 .2rem 0;" 
+                            onKeyPress="return soloNumero(event,1)" readonly="readonly"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                          	<input type="text" name="codigoBerma" value="{CODIGO_BERMA}" style="width:100%;color:#01325D;"/>
+                        </td>
+                        <td colspan="1" rowspan="1" width="55%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;color:#01325D;">
+                        	{NOMBRE_COMPONENTE4}
+                        </td>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;color:#01325D;">
+                        	KM
+                        </td>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                        	<input type="text" name="kmContratadoBermas" value=" {KM_BERMAS}" style="width:100%;border:.1rem solid #01325D; padding:.2rem 0 .2rem 0;" 
+                            onKeyPress="return soloNumero(event,1)" readonly="readonly"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                        	<input type="text" name="codigoSenalizacion" value="{CODIGO_SENALIZACION}" style="width:100%;color:#01325D;"/>
+                        </td>
+                        <td colspan="1" rowspan="1" width="55%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;color:#01325D;">
+                         	{NOMBRE_COMPONENTE5}
+                        </td>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;color:#01325D;">
+                        	KM
+                        </td>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                         	<input type="text" name="kmContratadoSenalizacion" value=" {KM_SENALIZACION}" style="width:100%;border:.1rem solid #01325D;padding:.2rem 0 .2rem 0;" 
+                            onKeyPress="return soloNumero(event,1)" readonly="readonly"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                         	<input type="text" name="codigoDemarcacion" value="{CODIGO_DEMARCACION}" style="width:100%;color:#01325D;"/>
+                        </td>
+                        <td colspan="1" rowspan="1" width="55%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;color:#01325D;">
+                        	{NOMBRE_COMPONENTE6}
+                        </td>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;color:#01325D;">
+                        	KM
+                        </td>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                         	<input type="text" name="kmContratadoDemarcacion" value=" {KM_DEMARCACION}" style="width:100%;border:.1rem solid #01325D;padding:.2rem 0 .2rem 0;" 
+                            onKeyPress="return soloNumero(event,1)" readonly="readonly"/>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td colspan="4" rowspan="1" width="98%" style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                        	<input type="submit" name="enviar" value="ENVIAR INSPECCI&Oacute;N" id="boton_envio" style="width:40%;text-align:center;"/>               
+                        </td>
+                    </tr>
+                </table>
+                <input type="hidden" name="buscador" value="1"/>
+            </form> 
+            </article>
+        </section>
+        <footer></footer>
+        <script src="JS/funciones.js"></script>
+    </body>
+</html>
+  

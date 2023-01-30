@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>        
+        <title>Dirección de Vialidad.</title>   
+        
+        <script>
+			var nav4 = window.Event ? true : false;
+	        
+            function redireccionar(id){        
+				location.href = 'acta.php?id='+id;
+			}
+			//restringe para aceptar solo número y un punto
+			function numeroPunto(evt,valor){
+				var key = nav4 ? evt.which : evt.keyCode;
+				var cadena = document.getElementsByName(valor).item(0).value;
+				if(cadena.indexOf('.') == -1){
+					return (key <= 13 || (key >= 48 && key <= 57) || key == 46);						
+				}					
+				else{
+					return (key <= 13 || (key >= 48 && key <= 57));						
+				}											
+			}  			
+		</script> 
+         
+    </head>
+    <body>
+    	<!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu --> 
+        
+         <section>
+            <article id="crearUsuario">            	
+           		<form id="formulario_ingreso2" action="{REDIRECCIONAR}" method="post" autocomplete="off">
+            	<ul>
+                	<li class="titulo_campo">BIMESTRE DEL INFORME</li><br/><br/><br/>
+                	<li class="nombre_campo"><b>Elegir Bimestre</b></li>
+                    <li>:</li>
+                    <li class="valor_campo">
+                    &nbsp;&nbsp;<select name="numeroBimestre" required autofocus>
+                    <option value="" selected>--- SELECCIONAR OPCI&Oacute;N ---</option>
+                    <!-- START BLOCK : NUMERO_BIMESTRE -->
+                    <option value="{numBimestre}">{nomBimestre}</option>
+                    <!-- END BLOCK : NUMERO_BIMESTRE -->
+                    </select>
+                    </li><br/><br/><br/><br/>                    
+                </ul>
+                <table cellpadding="0" cellspacing="0" style=" margin:0 auto;width:57%;border:.1rem solid #01325D;color:#01325D;text-align:center; ">
+                	<tr>
+                    	<td colspan="4" rowspan="1" width="98" style="color:#fff;background-color:#01325D;font-weight:bolder;padding:1rem;">
+                        	CONSERVACI&Oacute;N POR NIVEL DE SERVICIO A SUMA ALZADA
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td colspan="1" rowspan="1" width="3%" 
+                        style="color:#fff;background-color:#01325D;font-weight:bolder;padding:1rem;border-right:.1rem solid #fff;border-top:.1rem solid #fff;">
+                        	C&Oacute;DIGO
+                        </td>
+                        <td colspan="1" rowspan="1" width="69%" 
+                        style="color:#fff;background-color:#01325D;font-weight:bolder;padding:1rem;border-right:.1rem solid #fff;border-top:.1rem solid #fff;">
+                            OPERACIONES
+                        </td>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="color:#fff;background-color:#01325D;font-weight:bolder;padding:1rem;border-right:.1rem solid #fff;border-top:.1rem solid #fff;">
+                           	UNIDAD
+                        </td>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="color:#fff;background-color:#01325D;font-weight:bolder;padding:1rem;border-top:.1rem solid #fff;">
+                          	CANTIDAD
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                          	7.312.1
+                        </td>
+                        <td colspan="1" rowspan="1" width="69%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                          	Faja Vial
+                        </td>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                            KM
+                        </td>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                        	<input type="text" name="kmContratadoFaja" value="{KMFAJA}" style="width:100%;border:.1rem solid #01325D; padding:.2rem 0 .2rem 0;" 
+                            onKeyPress="return numeroPunto(event,'kmContratadoFaja')" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                        	7.312.2
+                        </td>
+                        <td colspan="1" rowspan="1" width="69%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                        	Saneamiento
+                        </td>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                           	KM
+                        </td>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                        	<input type="text" name="kmContratadoSaneamiento" value="{KMSANEAMIENTO}" style="width:100%;border:.1rem solid #01325D; padding:.2rem 0 .2rem 0;" 
+                            onKeyPress="return numeroPunto(event,'kmContratadoSaneamiento')" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                        	7.312.3
+                        </td>
+                        <td colspan="1" rowspan="1" width="69%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                        	Calzada
+                        </td>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                        	KM
+                        </td>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                        	<input type="text" name="kmContratadoCalzada" value="{KMCALZADA}" style="width:100%;border:.1rem solid #01325D; padding:.2rem 0 .2rem 0;" 
+                            onKeyPress="return numeroPunto(event,'kmContratadoCalzada')" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                          	7.312.4
+                        </td>
+                        <td colspan="1" rowspan="1" width="69%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                        	Bermas
+                        </td>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                        	KM
+                        </td>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                        	<input type="text" name="kmContratadoBermas" value="{KMBERMAS}" style="width:100%;border:.1rem solid #01325D; padding:.2rem 0 .2rem 0;" 
+                            onKeyPress="return numeroPunto(event,'kmContratadoBermas')" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                        	7.312.5.1
+                        </td>
+                        <td colspan="1" rowspan="1" width="69%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                         	Se&ntilde;alizaci&oacute;n Vertical y Defensas Met&aacute;licas
+                        </td>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                        	KM
+                        </td>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                         	<input type="text" name="kmContratadoSenalizacion" value="{KMSENALIZACION}" style="width:100%;border:.1rem solid #01325D;padding:.2rem 0 .2rem 0;" 
+                            onKeyPress="return numeroPunto(event,'kmContratadoSenalizacion')" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                         	7.312.5.2
+                        </td>
+                        <td colspan="1" rowspan="1" width="69%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                        	Demarcaci&oacute;n
+                        </td>
+                        <td colspan="1" rowspan="1" width="3%" 
+                        style="font-weight:bolder;padding:1rem;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                        	KM
+                        </td>
+                        <td colspan="1" rowspan="1" width="20%" 
+                        style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                         	<input type="text" name="kmContratadoDemarcacion" value="{KMDEMARCACION}" style="width:100%;border:.1rem solid #01325D;padding:.2rem 0 .2rem 0;" 
+                            onKeyPress="return numeroPunto(event,'kmContratadoDemarcacion')" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td colspan="4" rowspan="1" width="98%" style="font-weight:bolder;padding:1rem;border-top:.1rem solid #01325D;">
+                        	<input type="submit" name="enviar" value="ENVIAR BIMESTRE" id="boton_envio" style="text-align:center;width:30%;"/><br/><br/>
+                    		<label style="color:red;text-align:center;font-weight:bolder;position:relative;bottom:900px;">{MENSAJE}</label>                                
+                        </td>
+                    </tr>
+                </table>
+                <input type="hidden" name="buscador" value="1"/>
+            </form> 
+            </article>
+        </section>
+        <footer>	                
+        </footer>
+    </body>
+</html>
+  

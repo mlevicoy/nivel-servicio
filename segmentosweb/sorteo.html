@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>        
+        <title>Dirección de Vialidad.</title>
+    </head>
+    <body>
+    	<!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu -->
+         <section>
+            <article id="crearUsuario">            	
+            	<p style="position:relative;top:-65px;left:120px;width: 100%;color:red;text-align:center;font-weight:bolder;">{MENSAJE}</p>
+           		<form id="formulario_ingreso2" action="sorteo.php" method="post" autocomplete="off">
+            	<ul>
+                	<li class="titulo_campo">INFORMACI&Oacute;N SORTEO</li><br/><br/><br/>
+					<li class="nombre_campo"><b>Inspecci&oacute;n de Pago a Sortear</b></li>
+                    <li>:</li>
+                    <li class="valor_campo">
+                    &nbsp;&nbsp;<select name="numeroBimestre" required>
+                    <option value="" selected>--- SELECCIONAR OPCI&Oacute;N ---</option>
+                    <!-- START BLOCK : NUMERO_BIMESTRE -->
+                    <option value="{numBimestre}">{nomBimestre}{CHECK}</option>
+                    <!-- END BLOCK : NUMERO_BIMESTRE -->
+                    </select>
+                    </li><br>
+                	<li class="nombre_campo"><b>Fecha T&eacute;rmino Periodo Inspecci&oacute;n</b></li>
+                    <li>:</li>
+                    <li class="valor_campo">&nbsp;&nbsp;<input type="date" name="fechaTerminoBimestre" value="" autofocus required/></li><br/>
+                    <br/><br/><br/>
+                    <li><input type="submit" name="enviar" value="REALIZAR SORTEO" id="boton_envio"/></li>                    
+                </ul>
+                <input type="hidden" name="cargador" value="1"/>
+            </form> 
+            </article>
+        </section>
+        <footer></footer>
+    </body>
+</html>
+  

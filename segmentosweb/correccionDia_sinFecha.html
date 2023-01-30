@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+    	<meta charset="utf-8"/>
+        <meta name="author" content=""/>
+        <meta name="organization" content=""/>
+        <meta name="description" content=""/>        
+        <meta name="generator" content="Dreamweaver"/>
+        <meta name="keywords" content="Consultores, Ingenieros, Asesoria, Trabaje con Nosotros, Empresa, Vialidad"/>
+        <meta name="robots" content="index,follow"/>       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1"/>
+        <link rel="Shortcut Icon" href="imagenes/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bogado.css"/>        
+        <link rel="stylesheet" href="css/estiloMenu.css"/>        
+        <title>Dirección de Vialidad.</title>   
+         <script>		
+			 //VALIDAR
+			function validar(){
+				var nro = 0;
+				//Faja
+				var longitud = document.getElementsByName('longitudMenosUnoFaja[]').length;					
+				for(var i=0;i<longitud;i++){						
+					if(document.getElementsByName('longitudMenosUnoFaja[]').item(i).value == '' || isNaN(document.getElementsByName('longitudMenosUnoFaja[]').item(i).value)){
+						nro++;
+					}	
+					if(document.getElementsByName('factor_faja[]').item(i).value == '' || isNaN(document.getElementsByName('factor_faja[]').item(i).value)){
+						nro++;
+					}	
+					if(document.getElementsByName('cantidad_faja[]').item(i).value == '' || isNaN(document.getElementsByName('cantidad_faja[]').item(i).value)){
+						nro++;
+					}	
+				}
+				//Saneamiento
+				var longitud = document.getElementsByName('longitudMenosUnoSaneamiento[]').length;					
+				for(var i=0;i<longitud;i++){						
+					if(document.getElementsByName('longitudMenosUnoSaneamiento[]').item(i).value == '' || isNaN(document.getElementsByName('longitudMenosUnoSaneamiento[]').item(i).value)){
+						nro++;
+					}	
+					if(document.getElementsByName('factor_saneamiento[]').item(i).value == '' || isNaN(document.getElementsByName('factor_saneamiento[]').item(i).value)){
+						nro++;
+					}	
+					if(document.getElementsByName('cantidad_saneamiento[]').item(i).value == '' || isNaN(document.getElementsByName('cantidad_saneamiento[]').item(i).value)){
+						nro++;
+					}	
+				}
+				//Calzada
+				var longitud = document.getElementsByName('longitudMenosUnoCalzada[]').length;					
+				for(var i=0;i<longitud;i++){						
+					if(document.getElementsByName('longitudMenosUnoCalzada[]').item(i).value == '' || isNaN(document.getElementsByName('longitudMenosUnoCalzada[]').item(i).value)){
+						nro++;
+					}	
+					if(document.getElementsByName('factor_calzada[]').item(i).value == '' || isNaN(document.getElementsByName('factor_calzada[]').item(i).value)){
+						nro++;
+					}	
+					if(document.getElementsByName('cantidad_calzada[]').item(i).value == '' || isNaN(document.getElementsByName('cantidad_calzada[]').item(i).value)){
+						nro++;
+					}	
+				}	
+				//Bermas
+				var longitud = document.getElementsByName('longitudMenosUnoBermas[]').length;					
+				for(var i=0;i<longitud;i++){						
+					if(document.getElementsByName('longitudMenosUnoBermas[]').item(i).value == '' || isNaN(document.getElementsByName('longitudMenosUnoBermas[]').item(i).value)){
+						nro++;
+					}	
+					if(document.getElementsByName('factor_bermas[]').item(i).value == '' || isNaN(document.getElementsByName('factor_bermas[]').item(i).value)){
+						nro++;
+					}	
+					if(document.getElementsByName('cantidad_bermas[]').item(i).value == '' || isNaN(document.getElementsByName('cantidad_bermas[]').item(i).value)){
+						nro++;
+					}	
+				}
+				//Senalizacion
+				var longitud = document.getElementsByName('longitudMenosUnoSenalizacion[]').length;					
+				for(var i=0;i<longitud;i++){						
+					if(document.getElementsByName('longitudMenosUnoSenalizacion[]').item(i).value == '' || isNaN(document.getElementsByName('longitudMenosUnoSenalizacion[]').item(i).value)){
+						nro++;
+					}	
+					if(document.getElementsByName('factor_senalizacion[]').item(i).value == '' || isNaN(document.getElementsByName('factor_senalizacion[]').item(i).value)){
+						nro++;
+					}	
+					if(document.getElementsByName('cantidad_senalizacion[]').item(i).value == '' || isNaN(document.getElementsByName('cantidad_senalizacion[]').item(i).value)){
+						nro++;
+					}	
+				}
+				//Demarcacion
+				var longitud = document.getElementsByName('longitudMenosUnoDemarcacion[]').length;					
+				for(var i=0;i<longitud;i++){						
+					if(document.getElementsByName('longitudMenosUnoDemarcacion[]').item(i).value == '' || isNaN(document.getElementsByName('longitudMenosUnoDemarcacion[]').item(i).value)){
+						nro++;
+					}	
+					if(document.getElementsByName('factor_demarcacion[]').item(i).value == '' || isNaN(document.getElementsByName('factor_demarcacion[]').item(i).value)){
+						nro++;
+					}	
+					if(document.getElementsByName('cantidad_demarcacion[]').item(i).value == '' || isNaN(document.getElementsByName('cantidad_demarcacion[]').item(i).value)){
+						nro++;
+					}	
+				}
+				if(nro > 0){
+					alert("Falta información, completar los cuadros y luego pulsar el botón Calcular...");
+					return false;					
+				}
+				else{
+					return true;
+				}
+				
+			}
+			 
+			//MODIFICAR LONGITUD
+			function modificarLongitud(){
+				var dias;
+				var fp;
+				var cc;
+				var kmlongitud;
+				for(var j=1;j<=6;j++){
+				if(j == 1){					
+					var longitud = document.getElementsByName('longitudMenosUnoFaja[]').length;					
+					for(var i=0;i<longitud;i++){						
+						if(document.getElementsByName('longitudMenosUnoFaja[]').item(i).value != '' && !isNaN(document.getElementsByName('longitudMenosUnoFaja[]').item(i).value)){
+							dias = document.getElementsByName('dia_faja[]').item(i).value;
+							kmlongitud = document.getElementsByName('longitudMenosUnoFaja[]').item(i).value;	
+							fp = dias/60;
+							document.getElementsByName('factor_faja[]').item(i).value = fp.toFixed(3);
+							document.getElementsByName('cantidad_faja[]').item(i).value = (kmlongitud*fp).toFixed(3);							
+						}	
+						else{
+							dias = document.getElementsByName('dia_faja[]').item(i).value;
+							kmlongitud = document.getElementsByName('km_long_faja[]').item(i).value;	
+							fp = dias/60;
+							document.getElementsByName('factor_faja[]').item(i).value = fp.toFixed(3);
+							document.getElementsByName('cantidad_faja[]').item(i).value = (kmlongitud*fp).toFixed(3);							
+							document.getElementsByName('longitudMenosUnoFaja[]').item(i).value = '';
+						}
+					}																
+				}
+				
+				if(j == 2){					
+					var longitud = document.getElementsByName('longitudMenosUnoSaneamiento[]').length;					
+					for(var i=0;i<longitud;i++){						
+						if(document.getElementsByName('longitudMenosUnoSaneamiento[]').item(i).value != '' && 
+						!isNaN(document.getElementsByName('longitudMenosUnoSaneamiento[]').item(i).value)){
+							dias = document.getElementsByName('dia_saneamiento[]').item(i).value;
+							kmlongitud = document.getElementsByName('longitudMenosUnoSaneamiento[]').item(i).value;	
+							fp = dias/60;
+							document.getElementsByName('factor_saneamiento[]').item(i).value = fp.toFixed(3);
+							document.getElementsByName('cantidad_saneamiento[]').item(i).value = (kmlongitud*fp).toFixed(3);
+						}	
+						else{
+							dias = document.getElementsByName('dia_saneamiento[]').item(i).value;
+							kmlongitud = document.getElementsByName('km_long_saneamiento[]').item(i).value;	
+							fp = dias/60;
+							document.getElementsByName('factor_saneamiento[]').item(i).value = fp.toFixed(3);
+							document.getElementsByName('cantidad_saneamiento[]').item(i).value = (kmlongitud*fp).toFixed(3);							
+							document.getElementsByName('longitudMenosUnoSaneamiento[]').item(i).value = '';
+						}
+					}																
+				}
+				
+				if(j == 3){					
+					var longitud = document.getElementsByName('longitudMenosUnoCalzada[]').length;					
+					for(var i=0;i<longitud;i++){						
+						if(document.getElementsByName('longitudMenosUnoCalzada[]').item(i).value != '' && 
+						!isNaN(document.getElementsByName('longitudMenosUnoCalzada[]').item(i).value)){
+							dias = document.getElementsByName('dia_calzada[]').item(i).value;
+							kmlongitud = document.getElementsByName('longitudMenosUnoCalzada[]').item(i).value;	
+							fp = dias/60;
+							document.getElementsByName('factor_calzada[]').item(i).value = fp.toFixed(3);
+							document.getElementsByName('cantidad_calzada[]').item(i).value = (kmlongitud*fp).toFixed(3);
+						}	
+						else{
+							dias = document.getElementsByName('dia_calzada[]').item(i).value;
+							kmlongitud = document.getElementsByName('km_long_calzada[]').item(i).value;	
+							fp = dias/60;
+							document.getElementsByName('factor_calzada[]').item(i).value = fp.toFixed(3);
+							document.getElementsByName('cantidad_calzada[]').item(i).value = (kmlongitud*fp).toFixed(3);							
+							document.getElementsByName('longitudMenosUnoCalzada[]').item(i).value = '';
+						}
+					}																
+				}
+				
+				if(j == 4){					
+					var longitud = document.getElementsByName('longitudMenosUnoBermas[]').length;					
+					for(var i=0;i<longitud;i++){						
+						if(document.getElementsByName('longitudMenosUnoBermas[]').item(i).value != '' && 
+						!isNaN(document.getElementsByName('longitudMenosUnoBermas[]').item(i).value)){
+							dias = document.getElementsByName('dia_bermas[]').item(i).value;
+							kmlongitud = document.getElementsByName('longitudMenosUnoBermas[]').item(i).value;	
+							fp = dias/60;
+							document.getElementsByName('factor_bermas[]').item(i).value = fp.toFixed(3);
+							document.getElementsByName('cantidad_bermas[]').item(i).value = (kmlongitud*fp).toFixed(3);
+						}	
+						else{
+							dias = document.getElementsByName('dia_bermas[]').item(i).value;
+							kmlongitud = document.getElementsByName('km_long_bermas[]').item(i).value;	
+							fp = dias/60;
+							document.getElementsByName('factor_bermas[]').item(i).value = fp.toFixed(3);
+							document.getElementsByName('cantidad_bermas[]').item(i).value = (kmlongitud*fp).toFixed(3);							
+							document.getElementsByName('longitudMenosUnoBermas[]').item(i).value = '';
+						}
+					}																
+				}
+				
+				if(j == 5){					
+					var longitud = document.getElementsByName('longitudMenosUnoSenalizacion[]').length;					
+					for(var i=0;i<longitud;i++){						
+						if(document.getElementsByName('longitudMenosUnoSenalizacion[]').item(i).value != '' && 
+						!isNaN(document.getElementsByName('longitudMenosUnoSenalizacion[]').item(i).value)){
+							dias = document.getElementsByName('dia_senalizacion[]').item(i).value;
+							kmlongitud = document.getElementsByName('longitudMenosUnoSenalizacion[]').item(i).value;	
+							fp = dias/60;
+							document.getElementsByName('factor_senalizacion[]').item(i).value = fp.toFixed(3);
+							document.getElementsByName('cantidad_senalizacion[]').item(i).value = (kmlongitud*fp).toFixed(3);
+						}	
+						else{
+							dias = document.getElementsByName('dia_senalizacion[]').item(i).value;
+							kmlongitud = document.getElementsByName('km_long_senalizacion[]').item(i).value;	
+							fp = dias/60;
+							document.getElementsByName('factor_senalizacion[]').item(i).value = fp.toFixed(3);
+							document.getElementsByName('cantidad_senalizacion[]').item(i).value = (kmlongitud*fp).toFixed(3);							
+							document.getElementsByName('longitudMenosUnoSenalizacion[]').item(i).value = '';
+						}
+					}																
+				}	
+				
+				if(j == 6){					
+					var longitud = document.getElementsByName('longitudMenosUnoDemarcacion[]').length;					
+					for(var i=0;i<longitud;i++){						
+						if(document.getElementsByName('longitudMenosUnoDemarcacion[]').item(i).value != '' && 
+						!isNaN(document.getElementsByName('longitudMenosUnoDemarcacion[]').item(i).value)){
+							dias = document.getElementsByName('dia_demarcacion[]').item(i).value;
+							kmlongitud = document.getElementsByName('longitudMenosUnoDemarcacion[]').item(i).value;	
+							fp = dias/60;
+							document.getElementsByName('factor_demarcacion[]').item(i).value = fp.toFixed(3);
+							document.getElementsByName('cantidad_demarcacion[]').item(i).value = (kmlongitud*fp).toFixed(3);
+						}	
+						else{
+							dias = document.getElementsByName('dia_demarcacion[]').item(i).value;
+							kmlongitud = document.getElementsByName('km_long_demarcacion[]').item(i).value;	
+							fp = dias/60;
+							document.getElementsByName('factor_demarcacion[]').item(i).value = fp.toFixed(3);
+							document.getElementsByName('cantidad_demarcacion[]').item(i).value = (kmlongitud*fp).toFixed(3);							
+							document.getElementsByName('longitudMenosUnoDemarcacion[]').item(i).value = '';
+						}
+					}																
+				}	
+				}
+			}			
+		</script>
+    </head>
+    <body>
+    	<!-- INCLUDE BLOCK : header -->
+
+        <!-- INCLUDE BLOCK : menu --> 
+        
+         <section>
+            <article id="datosActa">            	
+           		<form id="formulario_acta" action="correccionDia_sinFecha.php" onSubmit="return validar();" method="post" autocomplete="off" style="position:relative; top:90px;left:90px;">
+                	<!-- START BLOCK : TITULO_FAJA -->                    
+            		<table width="100%" cellpadding="0" cellspacing="0" style="border:.1rem solid #01325D;">
+            			<tr id="fila_titulo">
+                			<td colspan="7" rowspan="1" width="98%" style="padding:1rem;border-bottom:.1rem solid #01325D;">
+                    	    	CORRECCI&Oacute;N ({CORRECCION_FAJA})
+	                	    </td>
+    	            	</tr>
+                    	<tr>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                         	   RUTA
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                         	   LONGITUD<br>EN N.S.
+                            </td>                            
+                            <td colspan="3" rowspan="1" width="42%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            	PERIODO BAJO NS
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            	FACTOR DE PLAZO (FP=DIA/60)
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;">
+                            	CANTIDAD EN CONSERVACI&Oacute;N (L*FP) KM
+                            </td>                             
+                        </tr>
+                       <tr>
+                          <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                                DESDE
+                          </td>                        
+                          <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                                HASTA
+                          </td>                        
+                          <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                                D&Iacute;AS
+                          </td> 
+                        </tr>                    
+                        <!-- START BLOCK : CORRECCIONDIA_FAJA -->                    
+                        <tr>                    	
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                            	<input type="text" name="codigo_ruta_faja[]" value="{CODIGO_RUTA_FAJA}" style="width:100%;text-align:center;" readonly/>
+                            </td>                            
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                            	<input type="text" name="longitudMenosUnoFaja[]" value="{VALOR_RUTA_FAJA}" style="width:90%;border:.1rem solid #01325D;text-align:center" onKeyPress="return soloNumero(event, 1)" required/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                            	<input type="text" name="fecha_desde_faja[]" value="{FECHA_DESDE_FAJA}" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                           		<input type="text" name="fecha_hasta_faja[]" value="{FECHA_HASTA_FAJA}" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                            	<input type="text" name="dia_faja[]" value="{DIAS_FAJA}" style="width:80%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                           		<input type="text" name="factor_faja[]" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">                            	
+                            	<input type="text" name="cantidad_faja[]" style="width:90%;text-align:center" readonly/>
+                            </td>                            
+                        </tr>
+                		<!-- END BLOCK : CORRECCIONDIA_FAJA -->                     
+            		</table>     
+                	<!-- END BLOCK : TITULO_FAJA -->       
+ 					<br/>          
+                    <!-- START BLOCK : TITULO_SANEAMIENTO -->                    
+                  	<table width="100%" cellpadding="0" cellspacing="0" style="border:.1rem solid #01325D;">
+            			<tr id="fila_titulo">
+                			<td colspan="7" rowspan="1" width="98%" style="padding:1rem;border-bottom:.1rem solid #01325D;">
+                    	    	CORRECCI&Oacute;N ({CORRECCION_SANEAMIENTO})
+	                	    </td>
+    	            	</tr>                                                                      
+                        <tr>                            
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            RUTA
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            LONGITUD EN N.S.
+                            </td>
+                            <td colspan="3" rowspan="1" width="42%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            PERIODO BAJO NS
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            FACTOR DE PLAZO (FP=DIA/60)
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;">
+                            CANTIDAD EN CONSERVACI&Oacute;N (L*FP) KM
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                            DESDE</td>                        
+                            <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                            HASTA</td>                        
+                            <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                            D&Iacute;AS</td> 
+                        </tr>                    
+                        <!-- START BLOCK : CORRECCIONDIA_SANEAMIENTO -->                    
+             			<tr>                    	                            
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="codigo_ruta_saneamiento[]" value="{CODIGO_RUTA_SANEAMIENTO}" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="longitudMenosUnoSaneamiento[]" value="{VALOR_RUTA_SANEAMIENTO}" style="width:90%;border:.1rem solid #01325D;text-align:center" onKeyPress="return soloNumero(event, 1)" required/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="fecha_desde_saneamiento[]" value="{FECHA_DESDE_SANEAMIENTO}" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="fecha_hasta_saneamiento[]" value="{FECHA_HASTA_SANEAMIENTO}" style="width:100%;text-align:center;" readonly/>           
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="dia_saneamiento[]" value="{DIAS_SANEAMIENTO}" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="factor_saneamiento[]" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="cantidad_saneamiento[]" style="width:90%;text-align:center" readonly/>          
+                            </td>                            
+                        </tr>
+                        <!-- END BLOCK : CORRECCIONDIA_SANEAMIENTO -->       
+					</table>
+                    <!-- END BLOCK : TITULO_SANEAMIENTO -->                    
+                    <br/>
+                    <!-- START BLOCK : TITULO_CALZADA -->                    
+         			<table width="100%" cellpadding="0" cellspacing="0" style="border:.1rem solid #01325D;">
+                        <tr id="fila_titulo">
+                            <td colspan="7" rowspan="1" width="98%" style="padding:1rem;border-bottom:.1rem solid #01325D;">
+                                CORRECCI&Oacute;N ({CORRECCION_CALZADA})
+                            </td>
+                        </tr>
+                        <tr id="contenido">
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            RUTA
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            LONGITUD EN N.S.
+                            </td>    
+                            <td colspan="3" rowspan="1" width="42%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            PERIODO BAJO NS
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            FACTOR DE PLAZO (FP=DIA/60)
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;">
+                            CANTIDAD EN CONSERVACI&Oacute;N (L*FP) KM
+                            </td>                            
+                        </tr>
+                        <tr>                            
+                            <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                            DESDE</td>                        
+                            <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                            HASTA</td>                        
+                            <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                            D&Iacute;AS</td> 
+                        </tr>                    
+                        <!-- START BLOCK : CORRECCIONDIA_CALZADA -->                    
+						<tr>                    	                            
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="codigo_ruta_calzada[]" value="{CODIGO_RUTA_CALZADA}" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="longitudMenosUnoCalzada[]" value="{VALOR_RUTA_CALZADA}" style="width:90%;border:.1rem solid #01325D;text-align:center" onKeyPress="return soloNumero(event, 1)" required/>
+                            </td>                              
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="fecha_desde_calzada[]" value="{FECHA_DESDE_CALZADA}" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="fecha_hasta_calzada[]" value="{FECHA_HASTA_CALZADA}" style="width:100%;text-align:center;" readonly/>           
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="dia_calzada[]" value="{DIAS_CALZADA}" style="width:80%; text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="factor_calzada[]" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="cantidad_calzada[]" style="width:90%;text-align:center" readonly/>          
+                            </td>                            
+                        </tr>
+                        <!-- END BLOCK : CORRECCIONDIA_CALZADA -->       
+					</table>
+                    <!-- END BLOCK : TITULO_CALZADA -->
+                    <br/>
+                    <!-- START BLOCK : TITULO_BERMAS -->                    
+                    <table width="100%" cellpadding="0" cellspacing="0" style="border:.1rem solid #01325D;">
+                        <tr id="fila_titulo">
+                            <td colspan="7" rowspan="1" width="98%" style="padding:1rem;border-bottom:.1rem solid #01325D;">
+                                CORRECCI&Oacute;N ({CORRECCION_BERMAS})
+                            </td>
+                        </tr>
+                        <tr>                            
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            RUTA
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            LONGITUD EN N.S.
+                            </td>
+                            <td colspan="3" rowspan="1" width="34%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            PERIODO BAJO NS
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            FACTOR DE PLAZO (FP=DIA/60)
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;">
+                            CANTIDAD EN CONSERVACI&Oacute;N (L*FP) KM
+                            </td>                            
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                            DESDE</td>                        
+                            <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                            HASTA</td>                        
+                            <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                            D&Iacute;AS</td> 
+                        </tr>                    
+                        <!-- START BLOCK : CORRECCIONDIA_BERMAS -->                    
+                        <tr>                    	                            
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="codigo_ruta_bermas[]" value="{CODIGO_RUTA_BERMAS}" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="longitudMenosUnoBermas[]" value="{VALOR_RUTA_BERMAS}" style="width:90%;border:.1rem solid #01325D;text-align:center" onKeyPress="return soloNumero(event, 1)" required/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="fecha_desde_bermas[]" value="{FECHA_DESDE_BERMAS}" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="fecha_hasta_bermas[]" value="{FECHA_HASTA_BERMAS}" style="width:100%;text-align:center;" readonly/>           
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="dia_bermas[]" value="{DIAS_BERMAS}" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="factor_bermas[]" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="cantidad_bermas[]" style="width:90%;text-align:center" readonly/>          
+                            </td>                            
+                        </tr>
+                        <!-- END BLOCK : CORRECCIONDIA_BERMAS -->       
+                    </table>
+                    <!-- END BLOCK : TITULO_BERMAS -->
+                    <br/>
+                    <!-- START BLOCK : TITULO_SENALIZACION -->                    
+                    <table width="100%" cellpadding="0" cellspacing="0" style="border:.1rem solid #01325D;">
+                        <tr id="fila_titulo">
+                            <td colspan="7" rowspan="1" width="98%" style="padding:1rem;border-bottom:.1rem solid #01325D;">
+                                CORRECCI&Oacute;N ({CORRECCION_SENALIZACION})
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            RUTA
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            LONGITUD EN N.S.
+                            </td>                            
+                            <td colspan="3" rowspan="1" width="42%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            PERIODO BAJO NS
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            FACTOR DE PLAZO (FP=DIA/60)
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;">
+                            CANTIDAD EN CONSERVACI&Oacute;N (L*FP) KM
+                            </td>                            
+                        </tr>
+                        <tr>                            
+                            <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                            DESDE</td>                        
+                            <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                            HASTA</td>                        
+                            <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                            D&Iacute;AS</td> 
+                        </tr>                    
+                        <!-- START BLOCK : CORRECCIONDIA_SENALIZACION -->                    
+	                      <tr>                 	                            
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="codigo_ruta_senalizacion[]" value="{CODIGO_RUTA_SENALIZACION}" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="longitudMenosUnoSenalizacion[]" value="{VALOR_RUTA_SENALIZACION}" style="width:90%;border:.1rem solid #01325D;text-align:center" onKeyPress="return soloNumero(event, 1)" required/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="fecha_desde_senalizacion[]" value="{FECHA_DESDE_SENALIZACION}" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="fecha_hasta_senalizacion[]" value="{FECHA_HASTA_SENALIZACION}" style="width:100%;text-align:center;" readonly/>           
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="dia_senalizacion[]" value="{DIAS_SENALIZACION}" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="factor_senalizacion[]" style="width:100%;text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="cantidad_senalizacion[]" style="width:90%;text-align:center" readonly/>          
+                            </td>                            
+                        </tr>
+                        <!-- END BLOCK : CORRECCIONDIA_SENALIZACION -->       
+                    </table>
+                    <!-- END BLOCK : TITULO_SENALIZACION -->
+                    <br/>
+                    <!-- START BLOCK : TITULO_DEMARCACION -->                                        
+                    <table width="100%" cellpadding="0" cellspacing="0" style="border:.1rem solid #01325D;">
+                        <tr id="fila_titulo">
+                            <td colspan="7" rowspan="1" width="98%" style="padding:1rem;border-bottom:.1rem solid #01325D;">
+                                CORRECCI&Oacute;N ({CORRECCION_DEMARCACION})
+                            </td>
+                        </tr>
+                        <tr id="contenido">
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            RUTA
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            LONGITUD EN N.S.
+                            </td>
+                            <td colspan="3" rowspan="1" width="42%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            PERIODO BAJO NS
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;">
+                            FACTOR DE PLAZO (FP=DIA/60)
+                            </td>
+                            <td colspan="1" rowspan="2" width="14%" style="text-align:center;font-weight:bolder;">
+                            CANTIDAD EN CONSERVACI&Oacute;N (L*FP) KM
+                            </td>                            
+                        </tr>
+                        <tr id="contenido">                            
+                            <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                            DESDE</td>                        
+                            <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                            HASTA</td>                        
+                            <td colspan="1" rowspan="1" width="14%" style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;">
+                            D&Iacute;AS</td> 
+                        </tr>                    
+                        <!-- START BLOCK : CORRECCIONDIA_DEMARCACION -->                    
+                        <tr id="contenido">                    	                            
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="codigo_ruta_demarcacion[]" value="{CODIGO_RUTA_DEMARCACION}" style="width:100%; text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="longitudMenosUnoDemarcacion[]" value="{VALOR_RUTA_DEMARCACION}" style="width:90%;border:.1rem solid #01325D;text-align:center" onKeyPress="return soloNumero(event, 1)" required/>
+                            </td> 
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="fecha_desde_demarcacion[]" value="{FECHA_DESDE_DEMARCACION}" style="width:100%; text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="fecha_hasta_demarcacion[]" value="{FECHA_HASTA_DEMARCACION}" style="width:100%; text-align:center;" readonly/>           
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="dia_demarcacion[]" value="{DIAS_DEMARCACION}" style="width:100%; text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-right:.1rem solid #01325D;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="factor_demarcacion[]" style="width:100%; text-align:center;" readonly/>
+                            </td>
+                            <td colspan="1" rowspan="1" width="14%" 
+                            style="text-align:center;font-weight:bolder;border-top:.1rem solid #01325D;padding-top:.2rem;padding-bottom:.2rem;">
+                                <input type="text" name="cantidad_demarcacion[]" style="width:90%;text-align:center" readonly/>          
+                            </td>                            
+                        </tr>
+                        <!-- END BLOCK : CORRECCIONDIA_DEMARCACION -->       
+                    </table>
+                    <!-- END BLOCK : TITULO_DEMARCACION -->                    
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td colspan="8" style="text-align:right;">
+                            	<img src="imagenes/iconos/calculadora.png" style="position:relative;left:50px;z-index:2;"/>
+                            	<input type="button" name="calcular" id="boton_envio" value="Calcular" onClick="modificarLongitud();"/>
+                                <input type="submit" name="continuar" id="boton_envio" value="Continuar"/>
+                                <img src="imagenes/iconos/flecha_derecha.png" style="position:relative;left:-45px;z-index:2;"/>
+                            </td>
+                        </tr>            
+                    </table>            
+                    <input type="hidden" name="cargador" value="1"/> 
+            	</form>       
+            </article>
+        </section>
+        <footer></footer>
+        <script src="JS/funciones.js"></script>
+    </body>
+</html>
+  
