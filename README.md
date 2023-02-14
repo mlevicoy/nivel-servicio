@@ -1,4 +1,4 @@
-<h1>Sistema por Nivel de Servicio</h1>
+<h1 align="center">Sistema por Nivel de Servicio</h1>
 <p>Programa desarrollado en PHP, MySQL, CSS3, HTML5, JavaScript y Bootstrap. Toma una red de caminos y la segmenta cada 1000 metros, luego toma cada segmento y la subsegmenta cada 100 metros, entonces:</p>
 <p>
   <ol>
